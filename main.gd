@@ -1,10 +1,10 @@
 extends Node
 var Difficulty = 1
-var Damage = 100000000
+var Damage = 100
 var Max_Health = 0
 var Health = 0
-var Monster_list = {'Mucus': 70,'Goblin': 100,'Orc': 200, 'Shade': 1000,'Dragon': 99999,}
-var Monster_rarity = {'Mucus': 20 , 'Goblin': 40, 'Orc' : 70 , 'Shade': 95, 'Dragon': 150,}
+var Monster_list = {'Mucus': 70,'Goblin': 100,'Orc': 200, 'Shade': 1000,'Martin': 20000,'Dragon': 99999,}
+var Monster_rarity = {'Mucus': 20 , 'Goblin': 40, 'Orc' : 70 , 'Shade': 95,'Martin': 110,'Dragon': 150,}
 @onready var style_box = StyleBoxFlat.new()
 @onready var Monster_health = $Health_bar
 
@@ -76,13 +76,13 @@ func Monster_status():
 			Monster_health.add_theme_stylebox_override("fill", style_box)
 		if Max_Health >= Damage * 50:
 			$Monster_name.modulate = Color.RED
-			print('e')
+			
 		elif Max_Health >= Damage * 15:
 			$Monster_name.modulate = Color.YELLOW
-			print('c')
+			
 		elif Max_Health <= Damage * 5:
 			$Monster_name.modulate = Color.GREEN
-			print('d')
+		
 func Damage_taken():
 	Health -= Damage
 	Monster_health.value = Health
