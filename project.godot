@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Monster Slayer"
-run/main_scene="uid://2xxpi3mctgpo"
+run/main_scene="uid://d0vv6f8st2cbi"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
