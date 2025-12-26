@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://2xxpi3mctgpo"]
+
+[ext_resource type="Script" uid="uid://csn8xuxggr721" path="res://main.gd" id="1_ig7tw"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ig7tw")
+
+[node name="Health" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.088
+anchor_right = 0.5
+anchor_bottom = 0.088
+offset_left = -577.0
+offset_top = 137.976
+offset_right = 217.0
+offset_bottom = 245.976
+theme_override_font_sizes/font_size = 60
+text = "Health: "
+vertical_alignment = 1
+
+[node name="Damage" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.187
+anchor_top = 0.432
+anchor_right = 0.187
+anchor_bottom = 0.432
+offset_left = -213.424
+offset_top = 285.064
+offset_right = -15.424
+offset_bottom = 365.064
+theme_override_font_sizes/font_size = 35
+text = "Damage: "
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Difficulty" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.103
+anchor_top = 0.075
+anchor_right = 0.103
+anchor_bottom = 0.075
+offset_left = -116.656
+offset_top = -49.6
+offset_right = 116.344
+offset_bottom = 49.4
+theme_override_font_sizes/font_size = 22
+text = "Difficulty:"
+metadata/_edit_lock_ = true
+
+[node name="Monster_name" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.498
+anchor_top = 0.068
+anchor_right = 0.498
+anchor_bottom = 0.068
+offset_left = -574.696
+offset_top = -46.064
+offset_right = 575.304
+offset_bottom = 45.936
+theme_override_font_sizes/font_size = 100
+text = "placeholder"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Health_bar" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = 0.586
+anchor_top = 0.387
+anchor_right = 0.586
+anchor_bottom = 0.387
+offset_left = -459.072
+offset_top = -36.776
+offset_right = 458.928
+offset_bottom = 36.224
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
