@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://2xxpi3mctgpo"]
+[gd_scene format=3 uid="uid://2xxpi3mctgpo"]
 
 [ext_resource type="Script" uid="uid://csn8xuxggr721" path="res://Scripts/main.gd" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://bs6w1m3fyxscg" path="res://Assets/Textures/Sprite-0001.png" id="3_h2yge"]
@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://ds40aivg84twr" path="res://Assets/Textures/Timer2.png" id="5_7mycd"]
 [ext_resource type="AudioStream" uid="uid://cvccxj34w26rx" path="res://Assets/Music/Tuff.wav" id="6_7mycd"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=1683093304]
 script = ExtResource("1_7mycd")
 
-[node name="Damage" type="Label" parent="."]
+[node name="Damage" type="Label" parent="." unique_id=436018118]
 anchors_preset = -1
 anchor_left = -0.5
 anchor_top = -0.025
@@ -23,7 +23,7 @@ theme_override_font_sizes/font_size = 35
 text = "Damage: "
 vertical_alignment = 2
 
-[node name="Difficulty" type="Label" parent="."]
+[node name="Difficulty" type="Label" parent="." unique_id=1878814593]
 anchors_preset = -1
 anchor_left = -0.5
 anchor_top = 0.49400002
@@ -35,7 +35,7 @@ offset_bottom = -0.111968994
 theme_override_font_sizes/font_size = 23
 text = "Difficulty:"
 
-[node name="Monster_name" type="Label" parent="."]
+[node name="Monster_name" type="Label" parent="." unique_id=1352821947]
 anchors_preset = -1
 anchor_top = -0.23500001
 anchor_bottom = -0.23500001
@@ -48,7 +48,7 @@ text = "placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Balance" type="Label" parent="."]
+[node name="Level" type="Label" parent="." unique_id=206872704]
 anchors_preset = -1
 anchor_left = -0.5
 anchor_top = -0.49400002
@@ -58,12 +58,12 @@ offset_top = 0.11199951
 offset_right = 104.0
 offset_bottom = 48.112
 theme_override_font_sizes/font_size = 32
-text = "Bal: "
+text = "Level: "
 vertical_alignment = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1614282880]
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=1620324468]
 anchors_preset = -1
 anchor_top = -0.148
 anchor_bottom = -0.148
@@ -74,7 +74,7 @@ offset_bottom = 31.904
 texture_under = ExtResource("3_h2yge")
 texture_progress = ExtResource("4_1bvp3")
 
-[node name="SummonBar" type="TextureProgressBar" parent="."]
+[node name="SummonBar" type="TextureProgressBar" parent="." unique_id=758756851]
 anchors_preset = -1
 anchor_left = -0.069000006
 anchor_top = -0.45100003
@@ -88,10 +88,10 @@ value = 100.0
 texture_under = ExtResource("4_lquwl")
 texture_progress = ExtResource("5_7mycd")
 
-[node name="TimeLeft" type="Timer" parent="."]
+[node name="TimeLeft" type="Timer" parent="." unique_id=1274428103]
 wait_time = 30.0
 
-[node name="SummonTime" type="Label" parent="."]
+[node name="SummonTime" type="Label" parent="." unique_id=418553212]
 anchors_preset = -1
 anchor_left = -0.083000004
 anchor_top = -0.45100003
@@ -103,7 +103,7 @@ offset_right = 12.616005
 offset_bottom = 11.248016
 text = "Summon Time:"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1303185577]
 stream = ExtResource("6_7mycd")
 autoplay = true
 attenuation = 20.0

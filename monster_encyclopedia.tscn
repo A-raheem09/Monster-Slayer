@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cc6gxe2kjnjhn"]
+
+[ext_resource type="Script" uid="uid://lsdokxcl4kcq" path="res://Scripts/monster_stats.gd" id="1_cyued"]
+
+[node name="Monster_Encyclopedia" type="Node2D" unique_id=111633064]
+script = ExtResource("1_cyued")
