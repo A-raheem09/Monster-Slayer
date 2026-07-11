@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2if14iaojgbn"
-path="res://.godot/imported/Orc.png-f3167426c8211d967d9d4b1c24f42cf2.ctex"
+uid="uid://bfwfttoe21tma"
+path="res://.godot/imported/MenuTemplate.jpeg-d8f35b519cbcd02d3c460f9c816ee985.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Orc with shadows/Orc.png"
-dest_files=["res://.godot/imported/Orc.png-f3167426c8211d967d9d4b1c24f42cf2.ctex"]
+source_file="res://Assets/Textures/MenuTemplate.jpeg"
+dest_files=["res://.godot/imported/MenuTemplate.jpeg-d8f35b519cbcd02d3c460f9c816ee985.ctex"]
 
 [params]
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MStats" format=3 uid="uid://chprsx4rgoews"]
+
+[ext_resource type="Script" uid="uid://lsdokxcl4kcq" path="res://Scripts/monster_stats.gd" id="1_0ywky"]
+
+[resource]
+script = ExtResource("1_0ywky")
+max_health = 30
+name = "Goblin"
+experience_dropped = 10
+metadata/_custom_type_script = "uid://lsdokxcl4kcq"

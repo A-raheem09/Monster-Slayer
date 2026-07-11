@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c1o5m12ebsmvt"]
+
+[ext_resource type="Script" uid="uid://b28kem0ceyfxs" path="res://Scripts/options.gd" id="1_yia4p"]
+[ext_resource type="Theme" uid="uid://dhca8ffw8gdbx" path="res://UI/Button_theme.tres" id="2_ywiuv"]
+
+[node name="UI" type="Control" unique_id=1633750530]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yia4p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2123521111]
+
+[node name="BackButton" type="Button" parent="CanvasLayer" unique_id=2058935142]
+anchors_preset = -1
+anchor_top = 0.596
+anchor_bottom = 0.596
+offset_top = -43.679993
+offset_right = 224.0
+offset_bottom = 52.320007
+theme = ExtResource("2_ywiuv")
+theme_override_font_sizes/font_size = 80
+text = "Exit"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1481451246]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -92.0
+offset_right = 196.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="CanvasLayer/BackButton" to="." method="_on_back_button_pressed"]

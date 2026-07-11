@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MStats" format=3 uid="uid://n227ggack7xk"]
+
+[ext_resource type="Script" uid="uid://lsdokxcl4kcq" path="res://Scripts/monster_stats.gd" id="1_mpoik"]
+
+[resource]
+script = ExtResource("1_mpoik")
+max_health = 20
+name = "Mucus"
+experience_dropped = 5
+metadata/_custom_type_script = "uid://lsdokxcl4kcq"

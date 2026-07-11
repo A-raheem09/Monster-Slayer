@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MStats" format=3 uid="uid://bseo8gtjfygct"]
+
+[ext_resource type="Script" uid="uid://lsdokxcl4kcq" path="res://Scripts/monster_stats.gd" id="1_yr2vn"]
+
+[resource]
+script = ExtResource("1_yr2vn")
+max_health = 350
+name = "Shade"
+experience_dropped = 99
+rarity = 2
+metadata/_custom_type_script = "uid://lsdokxcl4kcq"

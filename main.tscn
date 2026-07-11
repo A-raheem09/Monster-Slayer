@@ -1,111 +1,236 @@
 [gd_scene format=3 uid="uid://2xxpi3mctgpo"]
 
 [ext_resource type="Script" uid="uid://csn8xuxggr721" path="res://Scripts/main.gd" id="1_7mycd"]
+[ext_resource type="Resource" uid="uid://n227ggack7xk" path="res://Resources/slime.tres" id="2_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://bs6w1m3fyxscg" path="res://Assets/Textures/Sprite-0001.png" id="3_h2yge"]
+[ext_resource type="Resource" uid="uid://chprsx4rgoews" path="res://Resources/goblin.tres" id="3_yaehf"]
 [ext_resource type="Texture2D" uid="uid://btttsgq2b34ku" path="res://Assets/Textures/HealthFill2.png" id="4_1bvp3"]
+[ext_resource type="Resource" uid="uid://cvjwetv7ioawv" path="res://Resources/orc.tres" id="4_074og"]
 [ext_resource type="Texture2D" uid="uid://7renkkt1h2bj" path="res://Assets/Textures/Timer1.png" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://15cxj7jcn5m1" path="res://Assets/Textures/Template.jpeg" id="5_5vw27"]
 [ext_resource type="Texture2D" uid="uid://ds40aivg84twr" path="res://Assets/Textures/Timer2.png" id="5_7mycd"]
+[ext_resource type="Resource" uid="uid://jfuprxvscea5" path="res://Resources/ent.tres" id="5_cegan"]
 [ext_resource type="AudioStream" uid="uid://cvccxj34w26rx" path="res://Assets/Music/Tuff.wav" id="6_7mycd"]
+[ext_resource type="Resource" uid="uid://bseo8gtjfygct" path="res://Resources/shade.tres" id="6_82xsv"]
+[ext_resource type="Theme" uid="uid://cavpspuku5k33" path="res://UI/Label_theme.tres" id="6_kek77"]
+[ext_resource type="Resource" uid="uid://b63ppxowu7bty" path="res://Resources/fiend.tres" id="7_getpj"]
+[ext_resource type="Resource" uid="uid://des7ds5ars6hp" path="res://Resources/dragon.tres" id="8_ryguw"]
+[ext_resource type="Theme" uid="uid://dhca8ffw8gdbx" path="res://UI/Button_theme.tres" id="10_4c57u"]
 
 [node name="Main" type="Node" unique_id=1683093304]
 script = ExtResource("1_7mycd")
-
-[node name="Damage" type="Label" parent="." unique_id=436018118]
-anchors_preset = -1
-anchor_left = -0.5
-anchor_top = -0.025
-anchor_right = -0.5
-anchor_bottom = -0.025
-offset_top = -31.8
-offset_right = 158.0
-offset_bottom = 17.2
-theme_override_font_sizes/font_size = 35
-text = "Damage: "
-vertical_alignment = 2
-
-[node name="Difficulty" type="Label" parent="." unique_id=1878814593]
-anchors_preset = -1
-anchor_left = -0.5
-anchor_top = 0.49400002
-anchor_right = -0.5
-anchor_bottom = 0.49400002
-offset_top = -32.11197
-offset_right = 160.0
-offset_bottom = -0.111968994
-theme_override_font_sizes/font_size = 23
-text = "Difficulty:"
-
-[node name="Monster_name" type="Label" parent="." unique_id=1352821947]
-anchors_preset = -1
-anchor_top = -0.23500001
-anchor_bottom = -0.23500001
-offset_left = -224.0
-offset_top = -47.719986
-offset_right = 224.0
-offset_bottom = 40.280014
-theme_override_font_sizes/font_size = 57
-text = "placeholder"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Level" type="Label" parent="." unique_id=206872704]
-anchors_preset = -1
-anchor_left = -0.5
-anchor_top = -0.49400002
-anchor_right = -0.5
-anchor_bottom = -0.49400002
-offset_top = 0.11199951
-offset_right = 104.0
-offset_bottom = 48.112
-theme_override_font_sizes/font_size = 32
-text = "Level: "
-vertical_alignment = 1
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1614282880]
-
-[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=1620324468]
-anchors_preset = -1
-anchor_top = -0.148
-anchor_bottom = -0.148
-offset_left = -256.0
-offset_top = -32.096
-offset_right = 256.0
-offset_bottom = 31.904
-texture_under = ExtResource("3_h2yge")
-texture_progress = ExtResource("4_1bvp3")
-
-[node name="SummonBar" type="TextureProgressBar" parent="." unique_id=758756851]
-anchors_preset = -1
-anchor_left = -0.069000006
-anchor_top = -0.45100003
-anchor_right = -0.069000006
-anchor_bottom = -0.45100003
-offset_left = -0.5119934
-offset_top = -3.7519836
-offset_right = 639.48804
-offset_bottom = 4.2480164
-value = 100.0
-texture_under = ExtResource("4_lquwl")
-texture_progress = ExtResource("5_7mycd")
+slime = ExtResource("2_2cqfq")
+goblin = ExtResource("3_yaehf")
+orc = ExtResource("4_074og")
+ent = ExtResource("5_cegan")
+shade = ExtResource("6_82xsv")
+fiend = ExtResource("7_getpj")
+dragon = ExtResource("8_ryguw")
 
 [node name="TimeLeft" type="Timer" parent="." unique_id=1274428103]
 wait_time = 30.0
-
-[node name="SummonTime" type="Label" parent="." unique_id=418553212]
-anchors_preset = -1
-anchor_left = -0.083000004
-anchor_top = -0.45100003
-anchor_right = -0.083000004
-anchor_bottom = -0.45100003
-offset_left = -104.383995
-offset_top = -11.751984
-offset_right = 12.616005
-offset_bottom = 11.248016
-text = "Summon Time:"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1303185577]
 stream = ExtResource("6_7mycd")
 autoplay = true
 attenuation = 20.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1114765546]
+
+[node name="DmgHolder" type="NinePatchRect" parent="CanvasLayer" unique_id=457539006]
+z_index = -16
+anchors_preset = -1
+anchor_left = 0.004
+anchor_top = 0.5
+anchor_right = 0.004
+anchor_bottom = 0.5
+offset_left = 0.15999985
+offset_top = -44.0
+offset_right = 328.16
+offset_bottom = 44.0
+grow_vertical = 2
+texture = ExtResource("5_5vw27")
+region_rect = Rect2(0, 0, 128, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Damage" type="Label" parent="CanvasLayer/DmgHolder" unique_id=436018118]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.437
+anchor_right = 0.5
+anchor_bottom = 0.437
+offset_left = -156.0
+offset_top = -22.456001
+offset_right = 156.0
+offset_bottom = 34.544
+theme = ExtResource("6_kek77")
+text = "Damage: 1"
+vertical_alignment = 2
+
+[node name="SummonHolder" type="NinePatchRect" parent="CanvasLayer" unique_id=723549528]
+z_index = -16
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.030000001
+anchor_right = 0.5
+anchor_bottom = 0.030000001
+offset_left = -516.0
+offset_top = -0.40000153
+offset_right = 516.0
+offset_bottom = 103.6
+grow_horizontal = 2
+texture = ExtResource("5_5vw27")
+region_rect = Rect2(0, 0, 128, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="SummonTime" type="Label" parent="CanvasLayer/SummonHolder" unique_id=418553212]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.5
+anchor_right = 0.024
+anchor_bottom = 0.5
+offset_left = -0.16802406
+offset_top = -31.607998
+offset_right = 321.83197
+offset_bottom = 25.391998
+theme = ExtResource("6_kek77")
+text = "Summon Time:"
+
+[node name="SummonBar" type="TextureProgressBar" parent="CanvasLayer/SummonHolder" unique_id=758756851]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.354
+anchor_top = 0.53800005
+anchor_right = 0.354
+anchor_bottom = 0.53800005
+offset_left = 0.47198486
+offset_top = -3.5600014
+offset_right = 640.47205
+offset_bottom = 4.4399986
+value = 100.0
+texture_under = ExtResource("4_lquwl")
+texture_progress = ExtResource("5_7mycd")
+
+[node name="LvlHolder" type="NinePatchRect" parent="CanvasLayer" unique_id=511595287]
+z_index = -16
+anchors_preset = -1
+anchor_left = 0.004
+anchor_top = 0.58500004
+anchor_right = 0.004
+anchor_bottom = 0.58500004
+offset_left = 0.15999985
+offset_top = -31.800049
+offset_right = 128.16
+offset_bottom = 32.19995
+grow_vertical = 2
+texture = ExtResource("5_5vw27")
+region_rect = Rect2(0, 0, 128, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Level" type="Label" parent="CanvasLayer/LvlHolder" unique_id=206872704]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.56200004
+anchor_right = 0.5
+anchor_bottom = 0.56200004
+offset_left = -56.0
+offset_top = -27.968002
+offset_right = 56.0
+offset_bottom = 28.031998
+theme = ExtResource("6_kek77")
+theme_override_font_sizes/font_size = 32
+text = "Level: 1"
+vertical_alignment = 1
+
+[node name="DiffHolder" type="NinePatchRect" parent="CanvasLayer" unique_id=1095334068]
+z_index = -16
+anchors_preset = -1
+anchor_left = 0.004
+anchor_top = 0.99300003
+anchor_right = 0.004
+anchor_bottom = 0.99300003
+offset_left = 0.15999985
+offset_top = -88.44006
+offset_right = 336.16
+offset_bottom = -0.44006348
+grow_vertical = 0
+texture = ExtResource("5_5vw27")
+region_rect = Rect2(0, 0, 128, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Difficulty" type="Label" parent="CanvasLayer/DiffHolder" unique_id=1878814593]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48800004
+anchor_top = 0.5
+anchor_right = 0.48800004
+anchor_bottom = 0.5
+offset_left = -155.96802
+offset_top = -28.0
+offset_right = 156.03198
+offset_bottom = 29.0
+theme = ExtResource("6_kek77")
+text = "Difficulty: 1"
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1620324468]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.00003
+offset_top = -32.0
+offset_right = 256.00003
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_under = ExtResource("3_h2yge")
+texture_progress = ExtResource("4_1bvp3")
+
+[node name="Monster_name" type="Label" parent="CanvasLayer" unique_id=1352821947]
+anchors_preset = -1
+anchor_left = 0.49800003
+anchor_top = 0.441
+anchor_right = 0.49800003
+anchor_bottom = 0.441
+offset_left = -224.08008
+offset_top = -60.28003
+offset_right = 223.91992
+offset_bottom = 27.71997
+theme = ExtResource("6_kek77")
+theme_override_font_sizes/font_size = 85
+text = "Gurt:yo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=156453828]
+anchors_preset = -1
+anchor_left = 0.004
+anchor_top = 0.007
+anchor_right = 0.004
+anchor_bottom = 0.007
+offset_left = 0.15999985
+offset_top = 0.43999958
+offset_right = 136.16
+offset_bottom = 80.44
+theme = ExtResource("10_4c57u")
+theme_override_font_sizes/font_size = 60
+text = "Exit"
+
 [connection signal="timeout" from="TimeLeft" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

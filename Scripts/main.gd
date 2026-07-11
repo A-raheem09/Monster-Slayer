@@ -1,28 +1,37 @@
 extends Node
-var monster_list = {'Mucus': 70,'Goblin': 120,'Orc': 200,"Ent" : 500 ,'Shade': 1000,'Fiend': 2500,'Dragon': 100000,}
-var monster_rarity = {'Mucus': 15 , 'Goblin': 40,'Orc' : 60 ,"Ent" : 100 ,'Shade': 140,'Fiend': 170,'Dragon': 250,}
-var m_drops = {'Mucus': 30 , 'Goblin': 60,'Orc' : 200 ,"Ent" : 2000, 'Shade': 10000,'Fiend': 30000,'Dragon': 1500000000,}
 var Max_Health = 0
 var Health = 0
-@onready var Monster_health = $HealthBar
+var health_mult = 1 * Stats.difficulty/10
+@export var slime : MStats
+@export var goblin : MStats
+@export var orc : MStats
+@export var ent : MStats
+@export var shade : MStats
+@export var fiend : MStats
+@export var dragon : MStats
+@onready var monster_health = $CanvasLayer/HealthBar
 @onready var Summon_time = $TimeLeft
+@onready var summon_bar = $CanvasLayer/SummonHolder/SummonBar
+@onready var damage = $CanvasLayer/DmgHolder/Damage
+@onready var level = $CanvasLayer/LvlHolder/Level
+@onready var diff = $CanvasLayer/DiffHolder/Difficulty
+@onready var monster_name = $CanvasLayer/Monster_name
 func _ready(): #called when the player enters the scene tree for the first time
 	initialiser()
+	for i in Save.stats:
+		print(Save.stats[i])
 	Summon_time.start(30)
 func _input(event):
 	if event.is_action_pressed("Attack"):
-		monster_spawn()
 		if Health > 0:
 			damage_taken()
 func initialiser(): 
-	$Level.text = "Level: " + str(Stats.level)
-	$Damage.text = "Damage: " + str(Stats.damage)
-	$Damage.modulate = Color.GREEN_YELLOW
-	$Difficulty.modulate = Color.FIREBRICK
-	$Difficulty.text = "Difficulty: " + str(Stats.difficulty)
-	Stats.run_luck = randf() * Stats.difficulty
-	Monster_health.max_value = Max_Health
-	Monster_health.value = Health
+	level.text = "Level: " + str(Stats.level)
+	damage.text = "Damage: " + str(Stats.damage)
+	diff.text = "Difficulty: " + str(Stats.difficulty)
+	Stats.run_luck = randi_range(1,5) + Stats.difficulty/100
+	monster_health.max_value = Max_Health
+	monster_health.value = Health
 	monster_spawn()
 func Monster_killed():
 	Stats.add_kills()
@@ -30,11 +39,11 @@ func Monster_killed():
 func _process(_delta:float):
 	if Health <= 0:
 		Monster_killed()
-	$SummonBar.value = (int(Summon_time.time_left) / Summon_time.wait_time) * 100
+	summon_bar.value = (int(Summon_time.time_left) / Summon_time.wait_time) * 100
 func damage_taken():
 	Health -= Stats.damage
-	Monster_health.max_value = Max_Health
-	Monster_health.value = Health #update healthbar
+	monster_health.max_value = Max_Health
+	monster_health.value = Health #update healthbar
 func _on_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://idle.tscn")
 func level_up():
@@ -42,19 +51,36 @@ func level_up():
 	Stats.skill_points += 3
 func monster_spawn():
 	Stats.difficulty += 1
-	$Difficulty.text = "Difficulty: " + str(Stats.difficulty)
-	var rng = randi_range(0,10000) * (Stats.difficulty / 10) # 0 < Common < 3000, 3000 < Uncommon < 7500,7500 < Rare < 
-	print(rng)
+	diff.text = "Difficulty: " + str(Stats.difficulty)
+	var rng = randi_range(0,850) + Stats.run_luck # 0 < Common < 300,,  
+	if rng < 500 and rng >= 0: 
+		var croll = randi_range(1,2)
+		if croll == 1:
+			spawn(slime)
+		else:
+			spawn(goblin)
+	if rng >= 500 and rng < 850: # 300-850 = Rare
+		var rroll = randi_range(1,2)
+		if rroll == 2:
+			spawn(ent)
+		else:
+			spawn(orc)
+	if rng >= 850 and rng <= 1100: # 850 - 1100 = Legends
+		var lroll = randi_range(1,5)
+		if lroll <= 4:
+			spawn(shade)
+		else:
+			spawn(fiend)
+	if rng > 1100:  #1100+ = Mythicals
+		spawn(dragon)
 
-func named_spawn():
-	var named_spawned = false
-	var m_name = ''
-	if Stats.monsters_killed in Stats.named_spawn:
-		named_spawned = true
-		m_name = Stats.named_spawn[Stats.monsters_killed]
-		Max_Health = Stats.named_health[m_name] * Stats.difficulty/5
-		Health = Max_Health
-		Monster_health.max_value = Max_Health
-		Monster_health.value = Health
-		$Monster_name.text = m_name
-		$Monster_name.modulate = Color.BLUE_VIOLET
+func spawn(Name:MStats):
+	monster_name.text = Name.name
+	Max_Health = Name.max_health * Stats.difficulty/30
+	Health = Max_Health
+	monster_health.max_value = Max_Health
+	monster_health.value = monster_health.max_value
+
+func _on_back_button_pressed() :
+	get_tree().change_scene_to_file("res://Idle.tscn")
+	pass # Replace with function body.

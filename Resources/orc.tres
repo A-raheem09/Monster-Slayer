@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MStats" format=3 uid="uid://cvjwetv7ioawv"]
+
+[ext_resource type="Script" uid="uid://lsdokxcl4kcq" path="res://Scripts/monster_stats.gd" id="1_vc8qi"]
+
+[resource]
+script = ExtResource("1_vc8qi")
+max_health = 60
+name = "Orc"
+experience_dropped = 20
+rarity = 1
+metadata/_custom_type_script = "uid://lsdokxcl4kcq"
