@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MStats" format=3 uid="uid://lpe64hy5x8p4"]
+
+[ext_resource type="Script" uid="uid://lsdokxcl4kcq" path="res://Scripts/monster_stats.gd" id="1_bwh5x"]
+
+[resource]
+script = ExtResource("1_bwh5x")
+max_health = 300
+name = "BugBear"
+experience_dropped = 30
+rarity = 1
+metadata/_custom_type_script = "uid://lsdokxcl4kcq"

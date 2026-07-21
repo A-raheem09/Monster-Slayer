@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_l75gy")
-max_health = 90
+max_health = 400
 name = "Ent"
-experience_dropped = 30
+experience_dropped = 35
 rarity = 1
 metadata/_custom_type_script = "uid://lsdokxcl4kcq"

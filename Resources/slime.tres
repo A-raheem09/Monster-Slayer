@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_mpoik")
-max_health = 20
+max_health = 60
 name = "Mucus"
 experience_dropped = 5
 metadata/_custom_type_script = "uid://lsdokxcl4kcq"

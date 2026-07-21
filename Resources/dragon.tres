@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_p6o3v")
-max_health = 3000
+max_health = 9999
 name = "Dragon"
 experience_dropped = 999
 rarity = 3

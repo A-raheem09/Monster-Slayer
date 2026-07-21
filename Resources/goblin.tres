@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_0ywky")
-max_health = 30
+max_health = 120
 name = "Goblin"
 experience_dropped = 10
 metadata/_custom_type_script = "uid://lsdokxcl4kcq"

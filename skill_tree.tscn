@@ -1,0 +1,453 @@
+[gd_scene format=3 uid="uid://cp4s52s5x1duw"]
+
+[ext_resource type="Script" uid="uid://ba7bfonfndk3r" path="res://Scripts/skill_tree.gd" id="1_fmctd"]
+[ext_resource type="AudioStream" uid="uid://52igfav7ii4q" path="res://Assets/Music/Menu.wav" id="2_802jk"]
+[ext_resource type="PackedScene" uid="uid://pvdaxosaw6od" path="res://camera_manager.tscn" id="3_802jk"]
+[ext_resource type="Texture2D" uid="uid://15cxj7jcn5m1" path="res://Assets/Textures/Template.jpeg" id="4_feiep"]
+[ext_resource type="Theme" uid="uid://cavpspuku5k33" path="res://UI/Label_theme.tres" id="4_t5gwv"]
+[ext_resource type="Theme" uid="uid://dhca8ffw8gdbx" path="res://UI/Button_theme.tres" id="5_itn7s"]
+[ext_resource type="PackedScene" uid="uid://dj5u32ui0aek1" path="res://skill_button.tscn" id="7_wpi0c"]
+[ext_resource type="PackedScene" uid="uid://b2c24qhrf025h" path="res://tooltip.tscn" id="8_87dja"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f27vq"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k8u0w"]
+noise = SubResource("FastNoiseLite_f27vq")
+
+[node name="SkillTree" type="Control" unique_id=683723186]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fmctd")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2134768810]
+z_index = -51
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -528.0
+offset_top = -328.0
+offset_right = 608.0
+offset_bottom = 416.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.09411765, 0.09803922, 0.13725491, 1)
+metadata/_edit_lock_ = true
+
+[node name="CameraManager" parent="." unique_id=1511887537 instance=ExtResource("3_802jk")]
+position = Vector2(1024, 512)
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="CameraManager" unique_id=1090282239]
+stream = ExtResource("2_802jk")
+metadata/_edit_lock_ = true
+
+[node name="Upgrade" type="CanvasLayer" parent="." unique_id=1889746549]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Upgrade" unique_id=100818627]
+offset_right = 261.0
+offset_bottom = 237.0
+theme_override_constants/separation = 39
+metadata/_edit_lock_ = true
+
+[node name="SP_Holder" type="NinePatchRect" parent="Upgrade/VBoxContainer" unique_id=650071493]
+z_index = -16
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_feiep")
+region_rect = Rect2(0, 0, 128, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="SP" type="Label" parent="Upgrade/VBoxContainer/SP_Holder" unique_id=225716332]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -19.5
+offset_right = 493.0
+offset_bottom = 21.5
+grow_vertical = 2
+theme = ExtResource("4_t5gwv")
+theme_override_font_sizes/font_size = 42
+text = "Skill Points: "
+
+[node name="Points" type="NinePatchRect" parent="Upgrade/VBoxContainer" unique_id=1746283422]
+z_index = -16
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_feiep")
+region_rect = Rect2(0, 0, 128, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Points" type="Label" parent="Upgrade/VBoxContainer/Points" unique_id=1928249394]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -18.5
+offset_right = 247.0
+offset_bottom = 22.5
+grow_vertical = 2
+theme = ExtResource("4_t5gwv")
+theme_override_font_sizes/font_size = 42
+text = "Points: "
+
+[node name="DmgHolder" type="NinePatchRect" parent="Upgrade/VBoxContainer" unique_id=879524071]
+z_index = -16
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_feiep")
+region_rect = Rect2(0, 0, 128, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Dmg" type="Label" parent="Upgrade/VBoxContainer/DmgHolder" unique_id=887162616]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -18.5
+offset_right = 266.0
+offset_bottom = 22.5
+grow_vertical = 2
+theme = ExtResource("4_t5gwv")
+theme_override_font_sizes/font_size = 42
+text = "Damage : "
+metadata/_edit_lock_ = true
+
+[node name="increment" type="Button" parent="Upgrade/VBoxContainer/DmgHolder/Dmg" unique_id=1856411244]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.57000005
+anchor_bottom = 0.57000005
+offset_left = 258.0
+offset_top = -31.370003
+offset_right = 306.0
+offset_bottom = 21.629997
+theme = ExtResource("5_itn7s")
+theme_override_font_sizes/font_size = 42
+text = "+"
+metadata/_edit_lock_ = true
+
+[node name="ST_Holder" type="NinePatchRect" parent="Upgrade" unique_id=194143843]
+z_index = -16
+anchors_preset = -1
+offset_left = -1.0
+offset_top = 275.0
+offset_right = 488.0
+offset_bottom = 333.0
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("4_feiep")
+region_rect = Rect2(0, 0, 128, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+metadata/_edit_lock_ = true
+
+[node name="Summon_Time" type="Label" parent="Upgrade/ST_Holder" unique_id=873263550]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 9.0
+offset_right = 416.0
+offset_bottom = 50.0
+theme = ExtResource("4_t5gwv")
+theme_override_font_sizes/font_size = 42
+text = "Summon Time Multiplier : "
+metadata/_edit_lock_ = true
+
+[node name="increment" type="Button" parent="Upgrade/ST_Holder/Summon_Time" unique_id=1504405551]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.41200003
+anchor_bottom = 0.41200003
+offset_left = 489.0
+offset_top = -24.892002
+offset_right = 536.0
+offset_bottom = 32.107998
+theme = ExtResource("5_itn7s")
+theme_override_font_sizes/font_size = 42
+text = "+"
+metadata/_edit_lock_ = true
+
+[node name="Imp Buttons" type="CanvasLayer" parent="." unique_id=1111850891]
+
+[node name="Exit" type="Button" parent="Imp Buttons" unique_id=1941527140]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -65.0
+offset_right = 128.0
+grow_vertical = 0
+theme = ExtResource("5_itn7s")
+text = "Exit"
+metadata/_edit_lock_ = true
+
+[node name="Hide" type="Button" parent="Imp Buttons" unique_id=745405554]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 53.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("5_itn7s")
+theme_override_font_sizes/font_size = 33
+text = "Toggle UI"
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1882550669]
+visible = false
+layout_mode = 0
+offset_right = 1968.0
+offset_bottom = 1083.0
+texture = SubResource("NoiseTexture2D_k8u0w")
+
+[node name="DmgUpg0" parent="." unique_id=1248519186 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49236736
+anchor_top = 0.4814815
+anchor_right = 0.49236736
+anchor_bottom = 0.4814815
+offset_left = -22.04004
+offset_top = -18.0
+offset_right = 22.95996
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+MaxLevel = 3
+Cost = 1
+stat_to_change = "dmg_mult"
+change_percent = 0.1
+metadata/_edit_use_anchors_ = true
+
+[node name="Tooltip" parent="DmgUpg0" unique_id=567491299 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 121.0
+offset_right = 545.0
+offset_bottom = 172.0
+description = "Reinforces your bones and increases your damage by 10% each upgrade"
+Name = "Reinforce Your Bones"
+Cost = 1
+
+[node name="ExpUpg2" parent="DmgUpg0" unique_id=478110894 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.3997779
+anchor_top = 0.66243243
+anchor_right = -1.3997779
+anchor_bottom = 0.66243243
+offset_left = -24.009995
+offset_top = -18.51
+offset_right = 23.990005
+offset_bottom = 18.49
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+MaxLevel = 3
+Cost = 1
+stat_to_change = "exp_mult"
+change_percent = 0.05
+upgrade_number = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Tooltip" parent="DmgUpg0/ExpUpg2" unique_id=855447784 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 602.0
+offset_top = 180.0
+offset_right = 818.0
+offset_bottom = 627.0
+description = "Increases experience gain by 5%"
+Name = "Experience Gain"
+Cost = 1
+
+[node name="ExpUpg4" parent="DmgUpg0/ExpUpg2" unique_id=1658016148 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.187
+anchor_top = 1.932
+anchor_right = -2.187
+anchor_bottom = 1.932
+offset_left = -24.024002
+offset_top = -18.484001
+offset_right = 23.975998
+offset_bottom = 18.515999
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+MaxLevel = 2
+Cost = 2
+stat_to_change = "exp_mult"
+change_percent = 0.1
+upgrade_number = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Tooltip" parent="DmgUpg0/ExpUpg2/ExpUpg4" unique_id=1686160457 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 602.0
+offset_top = 180.0
+offset_right = 818.0
+offset_bottom = 231.0
+description = "Increases experience gain by 10%"
+Name = "Experience Gain Again"
+Cost = 2
+
+[node name="DmgUpg1" parent="DmgUpg0" unique_id=897903059 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.544
+anchor_top = 2.743
+anchor_right = 0.544
+anchor_bottom = 2.743
+offset_left = -21.48001
+offset_top = -32.490997
+offset_right = 23.519999
+offset_bottom = 4.5090027
+disabled = true
+MaxLevel = 2
+Cost = 1
+stat_to_change = "dmg_mult"
+change_percent = 0.1
+upgrade_number = 1
+
+[node name="Tooltip" parent="DmgUpg0/DmgUpg1" unique_id=1090878989 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 0.0
+offset_right = 545.0
+offset_bottom = 447.0
+description = "Makes your bones as hard as steel letting you deal 10% more damage with each upgrade"
+Name = "Steel-Hard Bones"
+Cost = 1
+
+[node name="DmgUpg3" parent="DmgUpg0/DmgUpg1" unique_id=868449532 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.83300006
+anchor_top = 2.446
+anchor_right = 0.83300006
+anchor_bottom = 2.446
+offset_left = -22.485008
+offset_top = -18.502007
+offset_right = 22.514992
+offset_bottom = 18.497993
+disabled = true
+MaxLevel = 2
+Cost = 2
+stat_to_change = "dmg_mult"
+change_percent = 0.2
+upgrade_number = 3
+
+[node name="Tooltip" parent="DmgUpg0/DmgUpg1/DmgUpg3" unique_id=1058045493 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 0.0
+offset_right = 545.0
+offset_bottom = 447.0
+description = "Lets you fashion your bones into weapons that increases damage by 20% each upgrade"
+Name = "Bone weapons"
+Cost = 2
+
+[node name="DmgUpg5" parent="DmgUpg0/DmgUpg1/DmgUpg3" unique_id=1558857708 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34400004
+anchor_top = 2.6347835
+anchor_right = 0.3446666
+anchor_bottom = 2.6354594
+offset_left = -22.480007
+offset_top = -18.487
+offset_right = 22.489996
+offset_bottom = 18.487999
+disabled = true
+MaxLevel = 1
+Cost = 3
+stat_to_change = "dmg_mult"
+change_percent = 0.1
+upgrade_number = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Tooltip" parent="DmgUpg0/DmgUpg1/DmgUpg3/DmgUpg5" unique_id=1215993530 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 0.0
+offset_right = 545.0
+offset_bottom = 447.0
+description = "Makes your bone harder than any other material, only comparable to mithril increases damage by a final 10% "
+Name = "Mithril-Hard Bones "
+Cost = 3
+
+[node name="ManaUpg6" parent="." unique_id=1578173907 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.521102
+anchor_top = 0.43477777
+anchor_right = 0.521102
+anchor_bottom = 0.43477777
+offset_left = -23.359985
+offset_top = -18.559998
+offset_right = 21.640015
+offset_bottom = 18.440002
+grow_horizontal = 2
+grow_vertical = 2
+MaxLevel = 3
+Cost = 1
+stat_to_change = "summon_mult"
+change_percent = 0.05
+upgrade_number = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Tooltip" parent="ManaUpg6" unique_id=168990837 instance=ExtResource("8_87dja")]
+layout_mode = 0
+description = "Meditate for hours on end until you can feel and control Mana increasing the duration you can be summoned by 5% by lessening the strain on your summoner"
+Name = "Meditate"
+Cost = 1
+
+[node name="ManaUpg7" parent="ManaUpg6" unique_id=1958727693 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23322356
+anchor_top = -1.4458649
+anchor_right = 0.2524449
+anchor_bottom = -1.4443244
+offset_left = -22.495026
+offset_top = -18.502998
+offset_right = 21.640015
+offset_bottom = 18.440004
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+MaxLevel = 2
+Cost = 2
+stat_to_change = "summon_mult"
+change_percent = 0.1
+upgrade_number = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Tooltip" parent="ManaUpg6/ManaUpg7" unique_id=1198546530 instance=ExtResource("8_87dja")]
+layout_mode = 0
+description = "Form your mana core and fill it with mana letting you stay summoned longer by 10% each upgrade using your own mana instead of your summoner"
+Name = "Form A Mana Core"
+Cost = 2
+
+[connection signal="pressed" from="Upgrade/VBoxContainer/DmgHolder/Dmg/increment" to="." method="_on_dmg_increment_pressed"]
+[connection signal="pressed" from="Upgrade/ST_Holder/Summon_Time/increment" to="." method="_on_smincrement_pressed"]

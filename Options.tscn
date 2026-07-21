@@ -2,6 +2,53 @@
 
 [ext_resource type="Script" uid="uid://b28kem0ceyfxs" path="res://Scripts/options.gd" id="1_yia4p"]
 [ext_resource type="Theme" uid="uid://dhca8ffw8gdbx" path="res://UI/Button_theme.tres" id="2_ywiuv"]
+[ext_resource type="Texture2D" uid="uid://15cxj7jcn5m1" path="res://Assets/Textures/Template.jpeg" id="3_2r1l1"]
+[ext_resource type="Texture2D" uid="uid://cqtvs03x34x3" path="res://Assets/Textures/PopupMenu.jpeg" id="3_ywiuv"]
+[ext_resource type="AudioStream" uid="uid://52igfav7ii4q" path="res://Assets/Music/Menu.wav" id="5_bwr58"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1d33"]
+texture = ExtResource("3_2r1l1")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5pjjr"]
+texture = ExtResource("3_2r1l1")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bwr58"]
+texture = ExtResource("3_2r1l1")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dfe3t"]
+texture = ExtResource("3_2r1l1")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="Theme" id="Theme_5pjjr"]
+CheckBox/styles/hover = SubResource("StyleBoxTexture_t1d33")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxTexture_5pjjr")
+CheckBox/styles/normal = SubResource("StyleBoxTexture_bwr58")
+CheckBox/styles/pressed = SubResource("StyleBoxTexture_dfe3t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yia4p"]
+texture = ExtResource("3_ywiuv")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_ywiuv"]
+PopupMenu/styles/panel = SubResource("StyleBoxTexture_yia4p")
 
 [node name="UI" type="Control" unique_id=1633750530]
 layout_mode = 3
@@ -11,31 +58,145 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yia4p")
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2123521111]
 
 [node name="BackButton" type="Button" parent="CanvasLayer" unique_id=2058935142]
 anchors_preset = -1
-anchor_top = 0.596
-anchor_bottom = 0.596
-offset_top = -43.679993
-offset_right = 224.0
-offset_bottom = 52.320007
+anchor_left = 0.012
+anchor_top = 0.99300003
+anchor_right = 0.012
+anchor_bottom = 0.99300003
+offset_left = 0.47999954
+offset_top = -96.44006
+offset_right = 176.48
+offset_bottom = -0.44006348
+grow_vertical = 0
 theme = ExtResource("2_ywiuv")
 theme_override_font_sizes/font_size = 80
 text = "Exit"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1481451246]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -196.0
-offset_top = -92.0
-offset_right = 196.0
-offset_bottom = 228.0
+anchors_preset = -1
+anchor_left = 0.42900002
+anchor_top = 0.46300003
+anchor_right = 0.42900002
+anchor_bottom = 0.46300003
+offset_left = -128.84003
+offset_top = -68.04004
+offset_right = 127.15997
+offset_bottom = 91.95996
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_ywiuv")
+theme_override_constants/separation = 31
+
+[node name="resolution" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=236766717]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_ywiuv")
+text = "Resolution"
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/resolution" unique_id=644023170]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.246
+anchor_right = 0.5
+anchor_bottom = -0.246
+offset_left = -136.0
+offset_top = -8.009999
+offset_right = 140.0
+offset_bottom = 7.9900007
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/VBoxContainer" unique_id=1648050499]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_2r1l1")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/NinePatchRect" unique_id=721922340]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031000001
+anchor_top = 0.125
+anchor_right = 0.031000001
+anchor_bottom = 0.125
+offset_left = -3.9360003
+offset_top = -3.0
+offset_right = 252.064
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0.6627451, 0.6509804, 0.6509804, 1)
+theme_override_font_sizes/font_size = 60
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/NinePatchRect" unique_id=251120677]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.555
+anchor_top = 0.517
+anchor_right = 0.555
+anchor_bottom = 0.517
+offset_left = 129.92
+offset_top = -33.088
+offset_right = 337.91998
+offset_bottom = 26.911999
+grow_horizontal = 2
+grow_vertical = 2
+min_value = -5.0
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/VBoxContainer/NinePatchRect" unique_id=819161109]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 8.0
+offset_right = 592.0
+offset_bottom = 51.0
+theme = SubResource("Theme_5pjjr")
+theme_override_font_sizes/font_size = 28
+text = "Mute"
+
+[node name="PopupMenu" type="PopupMenu" parent="CanvasLayer" unique_id=170534048]
+oversampling_override = 1.0
+position = Vector2i(969, 382)
+size = Vector2i(190, 138)
+theme = SubResource("Theme_ywiuv")
+allow_search = false
+
+[node name="1080p" type="Button" parent="CanvasLayer/PopupMenu" unique_id=1906141344]
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 183.0
+offset_bottom = 68.0
+theme = ExtResource("2_ywiuv")
+theme_override_font_sizes/font_size = 20
+text = "1960x1080"
+
+[node name="720p" type="Button" parent="CanvasLayer/PopupMenu" unique_id=620659626]
+offset_left = 7.0
+offset_top = 80.0
+offset_right = 183.0
+offset_bottom = 136.0
+theme = ExtResource("2_ywiuv")
+theme_override_font_sizes/font_size = 20
+text = "1280×720"
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=205442363]
+position = Vector2(992, 440)
+stream = ExtResource("5_bwr58")
 
 [connection signal="pressed" from="CanvasLayer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/resolution" to="." method="_on_resolution_pressed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/NinePatchRect/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="CanvasLayer/VBoxContainer/NinePatchRect/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="CanvasLayer/PopupMenu/1080p" to="." method="_on_p_pressed"]
+[connection signal="pressed" from="CanvasLayer/PopupMenu/720p" to="." method="_on_720p_pressed"]
+[connection signal="finished" from="MenuMusic" to="." method="_on_menu_music_finished"]

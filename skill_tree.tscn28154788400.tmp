@@ -1,0 +1,292 @@
+[gd_scene format=3 uid="uid://cp4s52s5x1duw"]
+
+[ext_resource type="Script" uid="uid://ba7bfonfndk3r" path="res://Scripts/skill_tree.gd" id="1_fmctd"]
+[ext_resource type="AudioStream" uid="uid://52igfav7ii4q" path="res://Assets/Music/Menu.wav" id="2_802jk"]
+[ext_resource type="PackedScene" uid="uid://pvdaxosaw6od" path="res://camera_manager.tscn" id="3_802jk"]
+[ext_resource type="Texture2D" uid="uid://15cxj7jcn5m1" path="res://Assets/Textures/Template.jpeg" id="4_feiep"]
+[ext_resource type="Theme" uid="uid://cavpspuku5k33" path="res://UI/Label_theme.tres" id="4_t5gwv"]
+[ext_resource type="Theme" uid="uid://dhca8ffw8gdbx" path="res://UI/Button_theme.tres" id="5_itn7s"]
+[ext_resource type="PackedScene" uid="uid://dj5u32ui0aek1" path="res://skill_button.tscn" id="7_wpi0c"]
+[ext_resource type="PackedScene" uid="uid://b2c24qhrf025h" path="res://tooltip.tscn" id="8_87dja"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f27vq"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k8u0w"]
+noise = SubResource("FastNoiseLite_f27vq")
+
+[node name="SkillTree" type="Control" unique_id=683723186]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fmctd")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2134768810]
+z_index = -51
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -528.0
+offset_top = -328.0
+offset_right = 608.0
+offset_bottom = 416.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.09411765, 0.09803922, 0.13725491, 1)
+
+[node name="CameraManager" parent="." unique_id=1511887537 instance=ExtResource("3_802jk")]
+position = Vector2(1024, 512)
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="CameraManager" unique_id=1090282239]
+stream = ExtResource("2_802jk")
+metadata/_edit_lock_ = true
+
+[node name="Upgrade" type="CanvasLayer" parent="." unique_id=1889746549]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Upgrade" unique_id=100818627]
+offset_right = 261.0
+offset_bottom = 237.0
+theme_override_constants/separation = 39
+
+[node name="SP_Holder" type="NinePatchRect" parent="Upgrade/VBoxContainer" unique_id=650071493]
+z_index = -16
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_feiep")
+region_rect = Rect2(0, 0, 128, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="SP" type="Label" parent="Upgrade/VBoxContainer/SP_Holder" unique_id=225716332]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -19.5
+offset_right = 493.0
+offset_bottom = 21.5
+grow_vertical = 2
+theme = ExtResource("4_t5gwv")
+theme_override_font_sizes/font_size = 42
+text = "Skill Points: "
+
+[node name="Points" type="NinePatchRect" parent="Upgrade/VBoxContainer" unique_id=1746283422]
+z_index = -16
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_feiep")
+region_rect = Rect2(0, 0, 128, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Points" type="Label" parent="Upgrade/VBoxContainer/Points" unique_id=1928249394]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -18.5
+offset_right = 247.0
+offset_bottom = 22.5
+grow_vertical = 2
+theme = ExtResource("4_t5gwv")
+theme_override_font_sizes/font_size = 42
+text = "Points: "
+
+[node name="DmgHolder" type="NinePatchRect" parent="Upgrade/VBoxContainer" unique_id=879524071]
+z_index = -16
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_feiep")
+region_rect = Rect2(0, 0, 128, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Dmg" type="Label" parent="Upgrade/VBoxContainer/DmgHolder" unique_id=887162616]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -18.5
+offset_right = 266.0
+offset_bottom = 22.5
+grow_vertical = 2
+theme = ExtResource("4_t5gwv")
+theme_override_font_sizes/font_size = 42
+text = "Damage : "
+metadata/_edit_lock_ = true
+
+[node name="increment" type="Button" parent="Upgrade/VBoxContainer/DmgHolder/Dmg" unique_id=1856411244]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.57000005
+anchor_bottom = 0.57000005
+offset_left = 258.0
+offset_top = -31.370003
+offset_right = 306.0
+offset_bottom = 21.629997
+theme = ExtResource("5_itn7s")
+theme_override_font_sizes/font_size = 42
+text = "+"
+metadata/_edit_lock_ = true
+
+[node name="ST_Holder" type="NinePatchRect" parent="Upgrade" unique_id=194143843]
+z_index = -16
+anchors_preset = -1
+offset_left = -1.0
+offset_top = 275.0
+offset_right = 488.0
+offset_bottom = 333.0
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("4_feiep")
+region_rect = Rect2(0, 0, 128, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Summon_Time" type="Label" parent="Upgrade/ST_Holder" unique_id=873263550]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 9.0
+offset_right = 416.0
+offset_bottom = 50.0
+theme = ExtResource("4_t5gwv")
+theme_override_font_sizes/font_size = 42
+text = "Summon Time Multiplier : "
+metadata/_edit_lock_ = true
+
+[node name="increment" type="Button" parent="Upgrade/ST_Holder/Summon_Time" unique_id=1504405551]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.41200003
+anchor_bottom = 0.41200003
+offset_left = 489.0
+offset_top = -24.892002
+offset_right = 536.0
+offset_bottom = 32.107998
+theme = ExtResource("5_itn7s")
+theme_override_font_sizes/font_size = 42
+text = "+"
+metadata/_edit_lock_ = true
+
+[node name="Imp Buttons" type="CanvasLayer" parent="." unique_id=1111850891]
+
+[node name="Exit" type="Button" parent="Imp Buttons" unique_id=1941527140]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -65.0
+offset_right = 128.0
+grow_vertical = 0
+theme = ExtResource("5_itn7s")
+text = "Exit"
+metadata/_edit_lock_ = true
+
+[node name="Hide" type="Button" parent="Imp Buttons" unique_id=745405554]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 53.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("5_itn7s")
+theme_override_font_sizes/font_size = 33
+text = "Toggle UI"
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1882550669]
+visible = false
+layout_mode = 0
+offset_right = 1968.0
+offset_bottom = 1083.0
+texture = SubResource("NoiseTexture2D_k8u0w")
+
+[node name="SkillButton" parent="." unique_id=1248519186 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.52348983
+anchor_top = 0.47407407
+anchor_right = 0.52348983
+anchor_bottom = 0.47407407
+offset_left = -22.04004
+offset_top = -18.0
+offset_right = 22.95996
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+MaxLevel = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Tooltip" parent="SkillButton" unique_id=567491299 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 586.0
+offset_top = 10.0
+offset_right = 872.0
+offset_bottom = 100.0
+description = "Increases damage mult by 1 for every upgrade"
+upgrade_number = "1"
+Name = "Damage Upgrade"
+
+[node name="SkillButton2" parent="SkillButton" unique_id=897903059 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.544
+anchor_top = 2.743
+anchor_right = 0.544
+anchor_bottom = 2.743
+offset_left = -22.48001
+offset_top = -18.490997
+offset_right = 22.519999
+offset_bottom = 18.509003
+disabled = true
+MaxLevel = 2
+
+[node name="Tooltip" parent="SkillButton/SkillButton2" unique_id=1090878989 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 116.0
+offset_right = 556.0
+offset_bottom = 205.0
+description = "Increases the amount of experience you gain"
+upgrade_number = "2"
+Name = "Increase Exp Gain"
+
+[node name="SkillButton3" parent="SkillButton/SkillButton2" unique_id=739853852 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.4780002
+anchor_top = 1.9050001
+anchor_right = 2.4780002
+anchor_bottom = 1.9050001
+offset_left = -22.509995
+offset_top = -18.485
+offset_right = 22.490005
+offset_bottom = 18.515
+disabled = true
+
+[node name="Tooltip" parent="SkillButton/SkillButton2/SkillButton3" unique_id=1908115145 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 13.0
+offset_right = 554.0
+offset_bottom = 102.0
+upgrade_number = "3"
+
+[connection signal="pressed" from="Upgrade/VBoxContainer/DmgHolder/Dmg/increment" to="." method="_on_dmg_increment_pressed"]
+[connection signal="pressed" from="Upgrade/ST_Holder/Summon_Time/increment" to="." method="_on_smincrement_pressed"]

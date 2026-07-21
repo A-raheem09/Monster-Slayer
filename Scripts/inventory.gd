@@ -3,6 +3,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$MenuMusic.play(Stats.musicpos)
 	pass # Replace with function body.
 
 
@@ -12,5 +13,6 @@ func _process(_delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Idle.tscn")
+	Stats.musicpos = $MenuMusic.get_playback_position()
+	Stats.load_scene('idle')
 	pass # Replace with function body.

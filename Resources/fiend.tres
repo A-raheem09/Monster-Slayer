@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_5l5or")
-max_health = 750
+max_health = 3000
 name = "Fiend"
 experience_dropped = 250
 rarity = 2

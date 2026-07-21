@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ddnsrinu0uy23" path="res://Assets/Textures/Inventory.png" id="2_dw5ng"]
 [ext_resource type="LabelSettings" uid="uid://do0kaonp67x7d" path="res://UI/InvLabelSettings.tres" id="3_0xmy5"]
 [ext_resource type="Theme" uid="uid://dhca8ffw8gdbx" path="res://UI/Button_theme.tres" id="5_0xmy5"]
-[ext_resource type="Texture2D" uid="uid://dtl13h7wwjeau" path="res://Assets/Textures/CraftingSprite.png" id="5_dw5ng"]
+[ext_resource type="AudioStream" uid="uid://52igfav7ii4q" path="res://Assets/Music/Menu.wav" id="6_0xmy5"]
 
 [sub_resource type="Theme" id="Theme_qjyhv"]
 
@@ -35,10 +35,6 @@ z_index = -10
 position = Vector2(296, 304)
 texture = ExtResource("2_dw5ng")
 
-[node name="CraftingSprite" type="Sprite2D" parent="." unique_id=2097913084]
-position = Vector2(112, 512)
-texture = ExtResource("5_dw5ng")
-
 [node name="CraftingBar" type="MenuBar" parent="." unique_id=845641412]
 layout_mode = 0
 offset_left = 656.0
@@ -67,5 +63,9 @@ offset_bottom = 640.0
 theme = ExtResource("5_0xmy5")
 theme_override_font_sizes/font_size = 24
 text = "Back"
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=531375920]
+position = Vector2(656, 320)
+stream = ExtResource("6_0xmy5")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

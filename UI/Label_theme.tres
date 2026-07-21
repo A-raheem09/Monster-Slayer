@@ -3,5 +3,13 @@
 [ext_resource type="FontFile" uid="uid://daol1rvf7s254" path="res://Assets/Font/Stepalange-x3BLm.otf" id="1_0vqtd"]
 
 [resource]
+Label/colors/font_color = Color(0.6627451, 0.6509804, 0.6509804, 1)
 Label/font_sizes/font_size = 60
 Label/fonts/font = ExtResource("1_0vqtd")
+RichTextLabel/font_sizes/bold_font_size = 25
+RichTextLabel/font_sizes/normal_font_size = 20
+RichTextLabel/fonts/bold_font = ExtResource("1_0vqtd")
+RichTextLabel/fonts/bold_italics_font = ExtResource("1_0vqtd")
+RichTextLabel/fonts/italics_font = ExtResource("1_0vqtd")
+RichTextLabel/fonts/mono_font = ExtResource("1_0vqtd")
+RichTextLabel/fonts/normal_font = ExtResource("1_0vqtd")

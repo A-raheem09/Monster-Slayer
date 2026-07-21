@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b2c24qhrf025h"]
+
+[ext_resource type="Script" uid="uid://cbdpecuv3qhjn" path="res://Scripts/tooltip.gd" id="1_gwequ"]
+[ext_resource type="Theme" uid="uid://cavpspuku5k33" path="res://UI/Label_theme.tres" id="2_abxgm"]
+[ext_resource type="FontFile" uid="uid://daol1rvf7s254" path="res://Assets/Font/Stepalange-x3BLm.otf" id="3_ohgqh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwequ"]
+bg_color = Color(0, 0, 0, 0.39215687)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.6117647)
+border_blend = true
+expand_margin_left = 12.0
+expand_margin_top = 6.0
+expand_margin_right = 12.0
+expand_margin_bottom = 7.0
+
+[node name="Tooltip" type="PanelContainer" unique_id=567491299]
+visible = false
+top_level = true
+offset_left = 13.0
+offset_top = 7.0
+offset_right = 224.0
+offset_bottom = 109.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gwequ")
+script = ExtResource("1_gwequ")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1700937728]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("2_abxgm")
+theme_override_fonts/normal_font = ExtResource("3_ohgqh")
+theme_override_fonts/bold_font = ExtResource("3_ohgqh")
+bbcode_enabled = true
+text = "[b]Upgrade 1[/b]
+Description"
+fit_content = true
+metadata/_edit_lock_ = true
