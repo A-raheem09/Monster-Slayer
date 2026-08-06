@@ -1,0 +1,42 @@
+[gd_resource type="Theme" format=3 uid="uid://bpgfd7qp5ddf5"]
+
+[ext_resource type="FontFile" uid="uid://daol1rvf7s254" path="res://Assets/Font/Stepalange-x3BLm.otf" id="1_ocp1h"]
+[ext_resource type="Texture2D" uid="uid://deol4pvxi4a6w" path="res://Assets/Textures/EncTempHover.png" id="2_73ayy"]
+[ext_resource type="Texture2D" uid="uid://dr5lbtxain1pq" path="res://Assets/Textures/EncTemp.png" id="2_k63av"]
+[ext_resource type="Texture2D" uid="uid://dorik301rmd5f" path="res://Assets/Textures/EncTemppressed.png" id="4_12vhe"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_73ayy"]
+texture = ExtResource("2_73ayy")
+texture_margin_left = 5.0
+texture_margin_top = 9.0
+texture_margin_right = 9.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5nbqh"]
+texture = ExtResource("2_k63av")
+texture_margin_left = 5.0
+texture_margin_top = 9.0
+texture_margin_right = 9.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12vhe"]
+texture = ExtResource("4_12vhe")
+texture_margin_left = 5.0
+texture_margin_top = 9.0
+texture_margin_right = 9.0
+texture_margin_bottom = 7.0
+
+[resource]
+Button/font_sizes/font_size = 42
+Button/fonts/font = ExtResource("1_ocp1h")
+Button/styles/hover = SubResource("StyleBoxTexture_73ayy")
+Button/styles/normal = SubResource("StyleBoxTexture_5nbqh")
+Button/styles/pressed = SubResource("StyleBoxTexture_12vhe")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_ocp1h")
+RichTextLabel/font_sizes/bold_font_size = 42
+RichTextLabel/font_sizes/italics_font_size = 32
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/bold_font = ExtResource("1_ocp1h")
+RichTextLabel/fonts/italics_font = ExtResource("1_ocp1h")
+RichTextLabel/fonts/normal_font = ExtResource("1_ocp1h")

@@ -1,16 +1,20 @@
 extends Control
 func _ready():
-	print(Save.skills[0])
+	if Save.pkeys['newsave'] == true:
+		Stats.load_scene('intro')
 	Save._save()
 	$MenuMusic.play(Stats.musicpos)
 	if Save.stats['volume'] == -10:
 		AudioServer.set_bus_mute(0,true)
+	else:
+		AudioServer.set_bus_volume_db(0,(Save.stats['volume']))
 	Stats.damage = Save.stats['damage'] * Save.stats['dmg_mult']
 func _process(_delta: float) -> void:
 	if not $Timer.is_stopped():
 		$CanvasLayer/Start/Wait.text = str(int($Timer.time_left)) + 's..'
 func _on_inventory_pressed() -> void:
-	$Label.text = "Still Under Construction"
+	Stats.musicpos = $MenuMusic.get_playback_position()
+	Stats.load_scene('enc')
 	#get_tree().change_scene_to_file("res://inventory.tscn") # goes to inventory
 func _on_start_pressed() -> void:
 	Stats.musicpos = 0

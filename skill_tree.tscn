@@ -8,6 +8,22 @@
 [ext_resource type="Theme" uid="uid://dhca8ffw8gdbx" path="res://UI/Button_theme.tres" id="5_itn7s"]
 [ext_resource type="PackedScene" uid="uid://dj5u32ui0aek1" path="res://skill_button.tscn" id="7_wpi0c"]
 [ext_resource type="PackedScene" uid="uid://b2c24qhrf025h" path="res://tooltip.tscn" id="8_87dja"]
+[ext_resource type="Texture2D" uid="uid://t25ekikyhyd7" path="res://Assets/Textures/fireball.png" id="9_46aa3"]
+[ext_resource type="Texture2D" uid="uid://c48l77bqq0xj4" path="res://Assets/Textures/upg4.png" id="9_b8dv1"]
+[ext_resource type="Texture2D" uid="uid://bxs2fim3i3s1u" path="res://Assets/Textures/fireballpressed.png" id="10_0rout"]
+[ext_resource type="Texture2D" uid="uid://rluxvyr4l0y4" path="res://Assets/Textures/upg4disabled.png" id="10_3pve4"]
+[ext_resource type="Texture2D" uid="uid://bf5wqqghsocg0" path="res://Assets/Textures/fireballhover.png" id="11_lrvki"]
+[ext_resource type="Texture2D" uid="uid://dsqrex8jrc7ip" path="res://Assets/Textures/fireballdisabled.png" id="12_d4sjy"]
+[ext_resource type="Script" uid="uid://dvcuoiwg2wuca" path="res://Scripts/Magic_Skill.gd" id="13_0rout"]
+[ext_resource type="Texture2D" uid="uid://ds5fbtivmpdwu" path="res://Assets/Textures/Magic2.png" id="14_cdydi"]
+[ext_resource type="Texture2D" uid="uid://dmhmaq5ci5my2" path="res://Assets/Textures/Magic2pressed.png" id="15_4cf1k"]
+[ext_resource type="Texture2D" uid="uid://b26jdnqhvigev" path="res://Assets/Textures/Magic2hover.png" id="16_rjc8t"]
+[ext_resource type="Texture2D" uid="uid://bkrguavlimmu7" path="res://Assets/Textures/Spell3.png" id="17_rvx07"]
+[ext_resource type="Texture2D" uid="uid://dtjmfwtifpifi" path="res://Assets/Textures/Spell3pressed.png" id="18_ivcr1"]
+[ext_resource type="Texture2D" uid="uid://6xsxav3hosou" path="res://Assets/Textures/MBSpear.png" id="19_rjc8t"]
+[ext_resource type="Texture2D" uid="uid://rc5o8rssm5ag" path="res://Assets/Textures/Spell3hover.png" id="19_wjrw8"]
+[ext_resource type="Texture2D" uid="uid://cmibqtye0745n" path="res://Assets/Textures/MBSpeardisabled.png" id="20_b280s"]
+[ext_resource type="Texture2D" uid="uid://dmec67suk3lgt" path="res://Assets/Textures/Spell3disabled.png" id="20_rs8od"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_f27vq"]
 
@@ -50,10 +66,9 @@ metadata/_edit_lock_ = true
 [node name="Upgrade" type="CanvasLayer" parent="." unique_id=1889746549]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Upgrade" unique_id=100818627]
-offset_right = 261.0
-offset_bottom = 237.0
+offset_right = 307.0
+offset_bottom = 360.0
 theme_override_constants/separation = 39
-metadata/_edit_lock_ = true
 
 [node name="SP_Holder" type="NinePatchRect" parent="Upgrade/VBoxContainer" unique_id=650071493]
 z_index = -16
@@ -136,23 +151,17 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.57000005
 anchor_bottom = 0.57000005
-offset_left = 258.0
-offset_top = -31.370003
-offset_right = 306.0
-offset_bottom = 21.629997
+offset_left = 253.0
+offset_top = -35.370003
+offset_right = 301.0
+offset_bottom = 25.629997
 theme = ExtResource("5_itn7s")
 theme_override_font_sizes/font_size = 42
 text = "+"
-metadata/_edit_lock_ = true
 
-[node name="ST_Holder" type="NinePatchRect" parent="Upgrade" unique_id=194143843]
+[node name="ST_Holder" type="NinePatchRect" parent="Upgrade/VBoxContainer" unique_id=194143843]
 z_index = -16
-anchors_preset = -1
-offset_left = -1.0
-offset_top = 275.0
-offset_right = 488.0
-offset_bottom = 333.0
-grow_vertical = 2
+layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("4_feiep")
 region_rect = Rect2(0, 0, 128, 32)
@@ -162,30 +171,44 @@ patch_margin_right = 4
 patch_margin_bottom = 4
 metadata/_edit_lock_ = true
 
-[node name="Summon_Time" type="Label" parent="Upgrade/ST_Holder" unique_id=873263550]
+[node name="Summon_Time" type="Label" parent="Upgrade/VBoxContainer/ST_Holder" unique_id=873263550]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 9.0
-offset_right = 416.0
+offset_right = 247.0
 offset_bottom = 50.0
 theme = ExtResource("4_t5gwv")
 theme_override_font_sizes/font_size = 42
-text = "Summon Time Multiplier : "
-metadata/_edit_lock_ = true
+text = "Mana :"
 
-[node name="increment" type="Button" parent="Upgrade/ST_Holder/Summon_Time" unique_id=1504405551]
+[node name="increment" type="Button" parent="Upgrade/VBoxContainer/ST_Holder/Summon_Time" unique_id=1504405551]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.41200003
 anchor_bottom = 0.41200003
-offset_left = 489.0
-offset_top = -24.892002
-offset_right = 536.0
-offset_bottom = 32.107998
+offset_left = 255.0
+offset_top = -25.892002
+offset_right = 303.0
+offset_bottom = 34.107998
 theme = ExtResource("5_itn7s")
 theme_override_font_sizes/font_size = 42
 text = "+"
-metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Upgrade" unique_id=733416585]
+visible = false
+anchors_preset = -1
+anchor_left = 0.208
+anchor_top = 0.11100001
+anchor_right = 0.208
+anchor_bottom = 0.11100001
+offset_left = -119.68002
+offset_top = -111.88001
+offset_right = 469.31998
+offset_bottom = 43.119987
+theme_override_font_sizes/font_size = 26
+text = "Spend Skill Points On The Skill Tree
+
+Spend Stat Points On Your Damage And Mana "
 
 [node name="Imp Buttons" type="CanvasLayer" parent="." unique_id=1111850891]
 
@@ -220,17 +243,205 @@ offset_right = 1968.0
 offset_bottom = 1083.0
 texture = SubResource("NoiseTexture2D_k8u0w")
 
-[node name="DmgUpg0" parent="." unique_id=1248519186 instance=ExtResource("7_wpi0c")]
+[node name="ExpUpg2" parent="." unique_id=478110894 instance=ExtResource("7_wpi0c")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.49236736
-anchor_top = 0.4814815
-anchor_right = 0.49236736
-anchor_bottom = 0.4814815
+anchor_left = -1.3916147
+anchor_top = 0.67169166
+anchor_right = -1.3916147
+anchor_bottom = 0.67169166
+offset_left = 3599.5647
+offset_top = -207.427
+offset_right = 3647.5647
+offset_bottom = -170.427
+grow_horizontal = 2
+grow_vertical = 2
+MaxLevel = 3
+Cost = 1
+stat_to_change = "exp_mult"
+change_percent = 0.1
+upgrade_number = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Tooltip" parent="ExpUpg2" unique_id=855447784 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 602.0
+offset_top = 180.0
+offset_right = 818.0
+offset_bottom = 627.0
+description = "Lets you converse with humans though not many are willing to talk to you"
+Name = "Learn Human Languages"
+Effect = "Increases Your Experience By 10% With Each Upgrade"
+Cost = "1 Skill Point"
+
+[node name="ExpUpg4" parent="ExpUpg2" unique_id=1658016148 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.9786667
+anchor_top = -0.2031352
+anchor_right = -1.9786667
+anchor_bottom = -0.2031352
+offset_left = -24.024002
+offset_top = -18.484001
+offset_right = 23.975998
+offset_bottom = 18.515999
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+MaxLevel = 1
+Cost = 2
+stat_to_change = "exp_mult"
+change_percent = 0.2
+upgrade_number = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Tooltip" parent="ExpUpg2/ExpUpg4" unique_id=1686160457 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 602.0
+offset_top = 180.0
+offset_right = 818.0
+offset_bottom = 231.0
+description = "Read literature to increase your knowledge"
+Name = "Read Books"
+Effect = "Increase exp gain by 20% each upgrade"
+Cost = "2 Skill Points"
+
+[node name="MagicUpg9" parent="ExpUpg2/ExpUpg4" unique_id=1248519186 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.1036665
+anchor_top = 0.2833514
+anchor_right = -2.1036665
+anchor_bottom = 0.2836486
+offset_left = -24.024002
+offset_top = -18.484001
+offset_right = 23.975998
+offset_bottom = 18.505001
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+MaxLevel = 1
+Cost = 2
+stat_to_change = "exp_mult"
+upgrade_number = 9
+metadata/_edit_use_anchors_ = true
+
+[node name="Tooltip" parent="ExpUpg2/ExpUpg4/MagicUpg9" unique_id=567491299 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 602.0
+offset_top = 180.0
+offset_right = 818.0
+offset_bottom = 231.0
+description = "Learn How To Use Your Magical Talents"
+Name = "Learn Magic"
+Effect = "Unlocks Magic"
+Cost = "2 Skill Points"
+
+[node name="DarkBlast10" parent="ExpUpg2/ExpUpg4/MagicUpg9" unique_id=1400133228 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.125
+anchor_top = -3.7570002
+anchor_right = -0.125
+anchor_bottom = -3.7570002
+offset_left = -48.000004
+offset_top = -51.990997
+offset_right = 48.0
+offset_bottom = 52.009003
+disabled = true
+texture_normal = ExtResource("9_46aa3")
+texture_pressed = ExtResource("10_0rout")
+texture_hover = ExtResource("11_lrvki")
+texture_disabled = ExtResource("12_d4sjy")
+script = ExtResource("13_0rout")
+MaxLevel = 3
+upgrade_number = 10
+
+[node name="Tooltip" parent="ExpUpg2/ExpUpg4/MagicUpg9/DarkBlast10" unique_id=106049132 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 454.0
+description = "Form your mana into a dark vortex that rips apart anything it comes into contact with"
+Name = "Dark Blast"
+Effect = "Increases The Damage of The Spell"
+Cost = "1 Skill Point(s)"
+
+[node name="ExpBoost11" parent="ExpUpg2/ExpUpg4/MagicUpg9" unique_id=132786475 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.6350002
+anchor_top = 0.108
+anchor_right = -3.6350002
+anchor_bottom = 0.108
+offset_left = -49.51999
+offset_top = -43.996
+offset_right = 46.48001
+offset_bottom = 60.004
+disabled = true
+texture_normal = ExtResource("14_cdydi")
+texture_pressed = ExtResource("15_4cf1k")
+texture_hover = ExtResource("16_rjc8t")
+texture_disabled = ExtResource("12_d4sjy")
+script = ExtResource("13_0rout")
+MaxLevel = 3
+upgrade_number = 11
+
+[node name="Tooltip" parent="ExpUpg2/ExpUpg4/MagicUpg9/ExpBoost11" unique_id=1614244901 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 454.0
+description = "Increase experience gained by 200% for 30 seconds"
+Name = "Forbidden Knowledge"
+Effect = "Increases the boost by 100% (200%,300%...)"
+Cost = "1 Skill Point(s)"
+
+[node name="ExpBoost12" parent="ExpUpg2/ExpUpg4/MagicUpg9" unique_id=1495225053 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.573
+anchor_top = 3.9730003
+anchor_right = 0.573
+anchor_bottom = 3.9730003
+offset_left = -73.504
+offset_top = -7.001007
+offset_right = 22.495998
+offset_bottom = 155.999
+disabled = true
+texture_normal = ExtResource("17_rvx07")
+texture_pressed = ExtResource("18_ivcr1")
+texture_hover = ExtResource("19_wjrw8")
+texture_disabled = ExtResource("20_rs8od")
+script = ExtResource("13_0rout")
+MaxLevel = 3
+Cost = 1
+upgrade_number = 13
+
+[node name="Tooltip" parent="ExpUpg2/ExpUpg4/MagicUpg9/ExpBoost12" unique_id=124059718 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 454.0
+description = "Lets you summon a zombie to fight for you doing 2% of your damage a second and doubles"
+Name = "Necromancy"
+Effect = "Doubles damage per second and mana usage per upgrade"
+Cost = "1 Skill Point(s)"
+
+[node name="DmgUpg0" parent="." unique_id=15034137 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5857347
+anchor_top = 0.48292592
+anchor_right = 0.5857347
+anchor_bottom = 0.48292592
 offset_left = -22.04004
-offset_top = -18.0
+offset_top = -18.559998
 offset_right = 22.95996
-offset_bottom = 19.0
+offset_bottom = 18.440002
 grow_horizontal = 2
 grow_vertical = 2
 MaxLevel = 3
@@ -239,77 +450,16 @@ stat_to_change = "dmg_mult"
 change_percent = 0.1
 metadata/_edit_use_anchors_ = true
 
-[node name="Tooltip" parent="DmgUpg0" unique_id=567491299 instance=ExtResource("8_87dja")]
+[node name="Tooltip" parent="DmgUpg0" unique_id=969587273 instance=ExtResource("8_87dja")]
 layout_mode = 0
 offset_left = 329.0
 offset_top = 121.0
 offset_right = 545.0
-offset_bottom = 172.0
-description = "Reinforces your bones and increases your damage by 10% each upgrade"
+offset_bottom = 568.0
+description = "Reinforces your bones to let you deal more damage"
 Name = "Reinforce Your Bones"
-Cost = 1
-
-[node name="ExpUpg2" parent="DmgUpg0" unique_id=478110894 instance=ExtResource("7_wpi0c")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -1.3997779
-anchor_top = 0.66243243
-anchor_right = -1.3997779
-anchor_bottom = 0.66243243
-offset_left = -24.009995
-offset_top = -18.51
-offset_right = 23.990005
-offset_bottom = 18.49
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-MaxLevel = 3
-Cost = 1
-stat_to_change = "exp_mult"
-change_percent = 0.05
-upgrade_number = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Tooltip" parent="DmgUpg0/ExpUpg2" unique_id=855447784 instance=ExtResource("8_87dja")]
-layout_mode = 0
-offset_left = 602.0
-offset_top = 180.0
-offset_right = 818.0
-offset_bottom = 627.0
-description = "Increases experience gain by 5%"
-Name = "Experience Gain"
-Cost = 1
-
-[node name="ExpUpg4" parent="DmgUpg0/ExpUpg2" unique_id=1658016148 instance=ExtResource("7_wpi0c")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -2.187
-anchor_top = 1.932
-anchor_right = -2.187
-anchor_bottom = 1.932
-offset_left = -24.024002
-offset_top = -18.484001
-offset_right = 23.975998
-offset_bottom = 18.515999
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-MaxLevel = 2
-Cost = 2
-stat_to_change = "exp_mult"
-change_percent = 0.1
-upgrade_number = 4
-metadata/_edit_use_anchors_ = true
-
-[node name="Tooltip" parent="DmgUpg0/ExpUpg2/ExpUpg4" unique_id=1686160457 instance=ExtResource("8_87dja")]
-layout_mode = 0
-offset_left = 602.0
-offset_top = 180.0
-offset_right = 818.0
-offset_bottom = 231.0
-description = "Increases experience gain by 10%"
-Name = "Experience Gain Again"
-Cost = 2
+Effect = "Increases your damage by 10% each upgrade"
+Cost = "1 Skill Point"
 
 [node name="DmgUpg1" parent="DmgUpg0" unique_id=897903059 instance=ExtResource("7_wpi0c")]
 layout_mode = 1
@@ -318,10 +468,10 @@ anchor_left = 0.544
 anchor_top = 2.743
 anchor_right = 0.544
 anchor_bottom = 2.743
-offset_left = -21.48001
-offset_top = -32.490997
-offset_right = 23.519999
-offset_bottom = 4.5090027
+offset_left = 79.51999
+offset_top = -101.491
+offset_right = 124.52
+offset_bottom = -64.491
 disabled = true
 MaxLevel = 2
 Cost = 1
@@ -335,23 +485,24 @@ offset_left = 329.0
 offset_top = 0.0
 offset_right = 545.0
 offset_bottom = 447.0
-description = "Makes your bones as hard as steel letting you deal 10% more damage with each upgrade"
+description = "Makes your bones as hard as steel "
 Name = "Steel-Hard Bones"
-Cost = 1
+Effect = "Increases Damage by 10% with each upgrade"
+Cost = "1 Skill Point"
 
 [node name="DmgUpg3" parent="DmgUpg0/DmgUpg1" unique_id=868449532 instance=ExtResource("7_wpi0c")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.83300006
-anchor_top = 2.446
-anchor_right = 0.83300006
-anchor_bottom = 2.446
-offset_left = -22.485008
-offset_top = -18.502007
-offset_right = 22.514992
-offset_bottom = 18.497993
+anchor_left = 3.0440001
+anchor_top = 0.40500003
+anchor_right = 3.0440001
+anchor_bottom = 0.40500003
+offset_left = -23.980026
+offset_top = -14.985002
+offset_right = 21.019974
+offset_bottom = 22.015
 disabled = true
-MaxLevel = 2
+MaxLevel = 1
 Cost = 2
 stat_to_change = "dmg_mult"
 change_percent = 0.2
@@ -363,26 +514,30 @@ offset_left = 329.0
 offset_top = 0.0
 offset_right = 545.0
 offset_bottom = 447.0
-description = "Lets you fashion your bones into weapons that increases damage by 20% each upgrade"
+description = "Lets you fashion your bones into weapons "
 Name = "Bone weapons"
-Cost = 2
+Effect = "Increases damage by 20%"
+Cost = "2 Skill Points"
 
 [node name="DmgUpg5" parent="DmgUpg0/DmgUpg1/DmgUpg3" unique_id=1558857708 instance=ExtResource("7_wpi0c")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.34400004
-anchor_top = 2.6347835
-anchor_right = 0.3446666
-anchor_bottom = 2.6354594
+anchor_left = 3.632889
+anchor_top = -1.1219734
+anchor_right = 3.6665554
+anchor_bottom = -1.1219732
 offset_left = -22.480007
 offset_top = -18.487
-offset_right = 22.489996
-offset_bottom = 18.487999
+offset_right = 74.005
+offset_bottom = 112.51301
 disabled = true
+texture_normal = ExtResource("9_b8dv1")
+texture_pressed = null
+texture_disabled = ExtResource("10_3pve4")
 MaxLevel = 1
-Cost = 3
+Cost = 4
 stat_to_change = "dmg_mult"
-change_percent = 0.1
+change_percent = 0.3
 upgrade_number = 5
 metadata/_edit_use_anchors_ = true
 
@@ -392,62 +547,137 @@ offset_left = 329.0
 offset_top = 0.0
 offset_right = 545.0
 offset_bottom = 447.0
-description = "Makes your bone harder than any other material, only comparable to mithril increases damage by a final 10% "
-Name = "Mithril-Hard Bones "
-Cost = 3
+description = "Makes your bone harder than any other material, only comparable to mythril "
+Name = "Mythril-Hard Bones "
+Effect = "Increases Damage By 30%"
+Cost = "3 Skill Points"
+
+[node name="DmgUpg12" parent="DmgUpg0/DmgUpg1/DmgUpg3/DmgUpg5" unique_id=2101237621 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.571
+anchor_top = 0.21400002
+anchor_right = 2.571
+anchor_bottom = 0.21400002
+offset_left = -26.958008
+offset_top = -57.034004
+offset_right = 67.04199
+offset_bottom = 106.965996
+disabled = true
+texture_normal = ExtResource("19_rjc8t")
+texture_pressed = null
+texture_disabled = ExtResource("20_b280s")
+MaxLevel = 1
+Cost = 5
+stat_to_change = "dmg_mult"
+change_percent = 0.5
+upgrade_number = 12
+
+[node name="Tooltip" parent="DmgUpg0/DmgUpg1/DmgUpg3/DmgUpg5/DmgUpg12" unique_id=1189938210 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 102.0
+description = "Make A Spear Using Your Mythril-Like Bones Letting You Deal Astronomically More Damage"
+Name = "Mythril Weapon Making"
+Effect = "Increases Damage by 50%"
+Cost = "5 Skill Points"
 
 [node name="ManaUpg6" parent="." unique_id=1578173907 instance=ExtResource("7_wpi0c")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.521102
-anchor_top = 0.43477777
-anchor_right = 0.521102
-anchor_bottom = 0.43477777
+anchor_top = 0.40607408
+anchor_right = 0.52467346
+anchor_bottom = 0.40885186
 offset_left = -23.359985
 offset_top = -18.559998
 offset_right = 21.640015
 offset_bottom = 18.440002
 grow_horizontal = 2
 grow_vertical = 2
-MaxLevel = 3
-Cost = 1
-stat_to_change = "summon_mult"
-change_percent = 0.05
-upgrade_number = 6
-metadata/_edit_use_anchors_ = true
-
-[node name="Tooltip" parent="ManaUpg6" unique_id=168990837 instance=ExtResource("8_87dja")]
-layout_mode = 0
-description = "Meditate for hours on end until you can feel and control Mana increasing the duration you can be summoned by 5% by lessening the strain on your summoner"
-Name = "Meditate"
-Cost = 1
-
-[node name="ManaUpg7" parent="ManaUpg6" unique_id=1958727693 instance=ExtResource("7_wpi0c")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.23322356
-anchor_top = -1.4458649
-anchor_right = 0.2524449
-anchor_bottom = -1.4443244
-offset_left = -22.495026
-offset_top = -18.502998
-offset_right = 21.640015
-offset_bottom = 18.440004
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
 MaxLevel = 2
-Cost = 2
+Cost = 1
 stat_to_change = "summon_mult"
 change_percent = 0.1
 upgrade_number = 6
 metadata/_edit_use_anchors_ = true
 
+[node name="Tooltip" parent="ManaUpg6" unique_id=168990837 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 102.0
+description = "Meditate for hours on end, refining your control over mana"
+Name = "Meditate"
+Effect = "Increases Mana by 10% each upgrade"
+Cost = "1 Skill Point"
+
+[node name="ManaUpg7" parent="ManaUpg6" unique_id=1958727693 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.104
+anchor_top = -1.6620001
+anchor_right = -0.08664293
+anchor_bottom = -1.6620001
+offset_left = -22.591969
+offset_top = -18.520004
+offset_right = 21.640015
+offset_bottom = 18.48462
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+MaxLevel = 1
+Cost = 2
+stat_to_change = "summon_mult"
+change_percent = 0.4
+upgrade_number = 7
+metadata/_edit_use_anchors_ = true
+
 [node name="Tooltip" parent="ManaUpg6/ManaUpg7" unique_id=1198546530 instance=ExtResource("8_87dja")]
 layout_mode = 0
-description = "Form your mana core and fill it with mana letting you stay summoned longer by 10% each upgrade using your own mana instead of your summoner"
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 102.0
+description = "Lets you store mana properly absurdly increasing your mana"
 Name = "Form A Mana Core"
-Cost = 2
+Effect = "Increases Mana by 40%"
+Cost = "2 Skill Points"
+
+[node name="ManaUpg8" parent="ManaUpg6/ManaUpg7" unique_id=2051392067 instance=ExtResource("7_wpi0c")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.5866439
+anchor_top = -1.9321159
+anchor_right = -0.5680212
+anchor_bottom = -1.9321159
+offset_left = -22.522045
+offset_top = -18.50277
+offset_right = 21.640015
+offset_bottom = 18.497238
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+MaxLevel = 2
+Cost = 1
+stat_to_change = "summon_mult"
+change_percent = 0.1
+upgrade_number = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="Tooltip" parent="ManaUpg6/ManaUpg7/ManaUpg8" unique_id=74084681 instance=ExtResource("8_87dja")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 102.0
+description = "Slowly store more mana in your mana core"
+Name = "Gather Mana"
+Effect = "Increases Mana by 10%"
+Cost = "1 Skill Point"
 
 [connection signal="pressed" from="Upgrade/VBoxContainer/DmgHolder/Dmg/increment" to="." method="_on_dmg_increment_pressed"]
-[connection signal="pressed" from="Upgrade/ST_Holder/Summon_Time/increment" to="." method="_on_smincrement_pressed"]
+[connection signal="pressed" from="Upgrade/VBoxContainer/ST_Holder/Summon_Time/increment" to="." method="_on_smincrement_pressed"]

@@ -50,3 +50,15 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 		Save.stats['volume'] = -10
 	AudioServer.set_bus_mute(0,toggled_on)
 	pass
+
+
+func _on_save_reset_pressed() -> void:
+	$CanvasLayer/VBoxContainer/SaveReset/NinePatchRect.show()
+
+func _on_button_pressed() -> void:
+	Stats.reset_save()
+	pass # Replace with function body.
+
+func _on_button_2_pressed() -> void:
+	$CanvasLayer/VBoxContainer/SaveReset/NinePatchRect.hide()
+	pass # Replace with function body.

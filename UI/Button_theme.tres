@@ -25,6 +25,10 @@ texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
+expand_margin_left = 8.0
+expand_margin_top = 4.0
+expand_margin_right = 8.0
+expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ykdip"]
 texture = ExtResource("3_k5kgy")
@@ -32,6 +36,21 @@ texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
+expand_margin_left = 8.0
+expand_margin_top = 4.0
+expand_margin_right = 8.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k8u0w"]
+texture = ExtResource("3_0q7vm")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_left = 8.0
+expand_margin_top = 4.0
+expand_margin_right = 8.0
+expand_margin_bottom = 4.0
 
 [resource]
 default_font = ExtResource("1_jtvrg")
@@ -42,3 +61,4 @@ Button/styles/disabled = SubResource("StyleBoxTexture_itn7s")
 Button/styles/hover = SubResource("StyleBoxTexture_k5kgy")
 Button/styles/normal = SubResource("StyleBoxTexture_xayif")
 Button/styles/pressed = SubResource("StyleBoxTexture_ykdip")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_k8u0w")

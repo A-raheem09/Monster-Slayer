@@ -2,14 +2,15 @@ extends PanelContainer
 @onready var opacity_tween: Tween = null
 @export var description:String
 @export var Name :String
-@export var Cost :int 
+@export var Effect :String
+@export var Cost :String
 func _input(event: InputEvent) -> void:
 	if visible and event is InputEventMouseMotion:
 		global_position = get_global_mouse_position()
 		pass
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$RichTextLabel.text = '[b]' + Name + '[/b] :\n' + description + "\nCost: " + str(Cost)
+	$RichTextLabel.text = '[b]' + Name + '[/b] :\n' + description + "[b]\nEffect:[/b]\n" +Effect+"\nCost: " + Cost
 	pass # Replace with function body.
 func toggle(on:bool):
 	if on:
@@ -17,7 +18,8 @@ func toggle(on:bool):
 		modulate.a = 1.0
 	else:
 		modulate.a - 1.0
-		await tween_opacity(0.0).finished
+		if is_inside_tree():
+			await tween_opacity(0.0).finished
 		hide()
 func tween_opacity(to:float):
 	if opacity_tween:
@@ -28,4 +30,7 @@ func tween_opacity(to:float):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	size.y = 85
+	$RichTextLabel.text = '[b]' + Name + '[/b] :\n' + description + "[b]\nEffect:[/b]\n" +Effect+"\nCost: " + Cost
 	pass
+func update_desc():
+	$RichTextLabel.text = '[b]' + Name + '[/b] :\n' + description + "[b]\nEffect:[/b]\n" +Effect+"\nCost: " + Cost

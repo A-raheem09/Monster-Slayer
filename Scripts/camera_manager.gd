@@ -2,8 +2,8 @@ extends Node2D
 var ispressed : bool
 const drag_speed = 0.15
 const zoom_speed = 0.1
-const min_zoom = 2.0
-const max_zoom = 3.5
+const min_zoom = 1.5
+const max_zoom = 3
 const max_x = 1960
 const mincoords = 0
 const max_y = 1080

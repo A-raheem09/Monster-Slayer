@@ -1,8 +1,5 @@
 # Godot 4+ ignores
 
-# Import cache (folder)
-*.import/
-
 # Temporary
 *.tmp/
 .editor_data/

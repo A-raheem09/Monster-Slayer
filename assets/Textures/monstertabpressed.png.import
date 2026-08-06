@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djjney3c1hps8"
-path="res://.godot/imported/Monster Slayer.icon.png-765f88666f1fdcff4c1b56ecbbc43964.ctex"
+uid="uid://d0a0tfkoj625b"
+path="res://.godot/imported/monstertabpressed.png-311cbde4f84e1374006e9d471f69f9cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Monster Slayer.icon.png"
-dest_files=["res://.godot/imported/Monster Slayer.icon.png-765f88666f1fdcff4c1b56ecbbc43964.ctex"]
+source_file="res://Assets/Textures/monstertabpressed.png"
+dest_files=["res://.godot/imported/monstertabpressed.png-311cbde4f84e1374006e9d471f69f9cb.ctex"]
 
 [params]
 

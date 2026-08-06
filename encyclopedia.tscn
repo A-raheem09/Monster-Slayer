@@ -1,0 +1,747 @@
+[gd_scene format=3 uid="uid://c2554nqurur1t"]
+
+[ext_resource type="Script" uid="uid://b78nfhf0wq0ww" path="res://Scripts/encyclopedia.gd" id="1_tkokc"]
+[ext_resource type="Texture2D" uid="uid://3ykt42a0wnhc" path="res://Assets/Textures/monstertab.png" id="2_kiusj"]
+[ext_resource type="Texture2D" uid="uid://cnw7o5pej0c60" path="res://Assets/Textures/HomeTab.png" id="2_oacc5"]
+[ext_resource type="Texture2D" uid="uid://c8htwtagtsacv" path="res://Assets/Textures/EncTemp1.png" id="2_oumk7"]
+[ext_resource type="Theme" uid="uid://bpgfd7qp5ddf5" path="res://UI/Enc_Theme.tres" id="3_k1sou"]
+[ext_resource type="Texture2D" uid="uid://bvrjhn31nn75f" path="res://Assets/Textures/HomeTabPressed.png" id="3_lddes"]
+[ext_resource type="Texture2D" uid="uid://d0a0tfkoj625b" path="res://Assets/Textures/monstertabpressed.png" id="3_sn2o8"]
+[ext_resource type="Texture2D" uid="uid://725r0dase8mu" path="res://Assets/Textures/monstertabhover.png" id="4_83hcf"]
+[ext_resource type="Texture2D" uid="uid://dxlsfydpl6a0p" path="res://Assets/Textures/HomeTabHover.png" id="4_oumk7"]
+[ext_resource type="Script" uid="uid://ck2xvdiyfqpvh" path="res://Scripts/monster_tab.gd" id="5_22u06"]
+[ext_resource type="Texture2D" uid="uid://d0bo7odmcbble" path="res://Assets/Textures/misctab.png" id="6_oacc5"]
+[ext_resource type="Texture2D" uid="uid://bwke3qq1gyvlo" path="res://Assets/Textures/misctabpressed.png" id="7_lddes"]
+[ext_resource type="Texture2D" uid="uid://c64u2myoxbqvt" path="res://Assets/Textures/misctabhover.png" id="8_oumk7"]
+[ext_resource type="Texture2D" uid="uid://d1aivttevgu6j" path="res://Assets/Textures/Encyclopedia.png" id="9_k1sou"]
+[ext_resource type="Texture2D" uid="uid://cjb3d7m8bog4q" path="res://Assets/Textures/exittab.png" id="9_sn2o8"]
+[ext_resource type="Texture2D" uid="uid://beb48s087cye0" path="res://Assets/Textures/exittabpressed.png" id="10_83hcf"]
+
+[node name="Encyclopedia" type="Control" unique_id=1913904340]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tkokc")
+metadata/_edit_lock_ = true
+
+[node name="MonsterTabHolder" type="NinePatchRect" parent="." unique_id=1129796725]
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18400002
+anchor_top = 0.47000003
+anchor_right = 0.18400002
+anchor_bottom = 0.47000003
+offset_left = -144.64001
+offset_top = -339.60004
+offset_right = 63.359985
+offset_bottom = 308.39996
+texture = ExtResource("2_oumk7")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MonsterTabHolder" unique_id=125587585]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MonsterTabHolder/ScrollContainer" unique_id=699895429]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+metadata/_edit_lock_ = true
+
+[node name="Mucus" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=288221463]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_k1sou")
+text = "Mucus
+"
+
+[node name="MonstSpider" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=477473838]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_k1sou")
+text = "Monst. Spider
+"
+
+[node name="Goblin" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=728592706]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_k1sou")
+text = "Goblin"
+
+[node name="Orc" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=1239820845]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_k1sou")
+text = "Orc
+"
+
+[node name="Bugbear" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=1436698465]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_k1sou")
+text = "BugBear"
+
+[node name="Ent" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=2117008589]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_k1sou")
+text = "Ent"
+
+[node name="Shade" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=692584963]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_k1sou")
+text = "Shade"
+
+[node name="Fiend" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=1808248130]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_k1sou")
+text = "Fiend"
+
+[node name="Dragon" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=1540601891]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_k1sou")
+text = "Dragon"
+
+[node name="MucusBox" type="NinePatchRect" parent="MonsterTabHolder" unique_id=937730265]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.049000002
+anchor_right = 1.0
+anchor_bottom = 0.049000002
+offset_left = 16.0
+offset_top = -31.752
+offset_right = 456.0
+offset_bottom = 264.248
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_oumk7")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MonsterTabHolder/MucusBox" unique_id=1440902265]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MonsterTabHolder/MucusBox/ScrollContainer" unique_id=181147389]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MonsterTabHolder/MucusBox/ScrollContainer/MarginContainer" unique_id=489794919]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+bbcode_enabled = true
+text = "[b] Mucus:[/b]
+Born from the combination of bacteria that feeds off of dead corpses into one single organism,
+Its slimey body is highly corrosive to human flesh
+
+[b]Variants:[/b]
+Theres records of a special specimen of mucus that can regenerate from a single cell making it nigh immortal and it has the potential to become as strong as a [Dragon] given enough time, it is difficult to spot one of this specimen in a 1000 years"
+metadata/_edit_lock_ = true
+
+[node name="MonstSpider" type="NinePatchRect" parent="MonsterTabHolder" unique_id=529864193]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.049000002
+anchor_right = 1.0
+anchor_bottom = 0.049000002
+offset_left = 16.0
+offset_top = -31.752
+offset_right = 456.0
+offset_bottom = 264.248
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_oumk7")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MonsterTabHolder/MonstSpider" unique_id=315054848]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MonsterTabHolder/MonstSpider/ScrollContainer" unique_id=180511671]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MonsterTabHolder/MonstSpider/ScrollContainer/MarginContainer" unique_id=758424115]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+bbcode_enabled = true
+text = "[b] Monstrous Spider:[/b]
+A specific species of spider has evolved to harness mana letting it grow larger than an average
+
+
+
+[b]Variants:[/b]
+No special cases"
+metadata/_edit_lock_ = true
+
+[node name="GoblinBox" type="NinePatchRect" parent="MonsterTabHolder" unique_id=1241764379]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.049000002
+anchor_right = 1.0
+anchor_bottom = 0.049000002
+offset_left = 16.0
+offset_top = -31.752
+offset_right = 456.0
+offset_bottom = 264.248
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_oumk7")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="MonsterTabHolder/GoblinBox" unique_id=1228247369]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MonsterTabHolder/GoblinBox/ScrollContainer2" unique_id=671167664]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MonsterTabHolder/GoblinBox/ScrollContainer2/MarginContainer" unique_id=1129348099]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+bbcode_enabled = true
+text = "[b] Goblin:[/b]
+Humanoid monsters that are barely stronger than a clump of bacteria and an overgrown spider, their strength lies in their colonies as they overpower stronger creatures with sheer numbers
+
+[b]Variants:[/b]
+There have been cases where some goblins have acquired a [Class] that puts their raw power on par with a [Bugbear]"
+metadata/_edit_lock_ = true
+
+[node name="OrcBox" type="NinePatchRect" parent="MonsterTabHolder" unique_id=106117263]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.049000002
+anchor_right = 1.0
+anchor_bottom = 0.049000002
+offset_left = 16.0
+offset_top = -31.752
+offset_right = 456.0
+offset_bottom = 264.248
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_oumk7")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MonsterTabHolder/OrcBox" unique_id=530365617]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MonsterTabHolder/OrcBox/ScrollContainer" unique_id=649116966]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MonsterTabHolder/OrcBox/ScrollContainer/MarginContainer" unique_id=1223932530]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+bbcode_enabled = true
+text = "[b] Orc:[/b]
+A tall and wide humanoid that towers over regular humanoids and much stronger than a regular humanoid too.....just not as smart
+
+[b]Variants:[/b]
+rare cases have been seen where orcs are born with extreme regenerative capabilities, they are known as Trolls"
+metadata/_edit_lock_ = true
+
+[node name="BugBearBox" type="NinePatchRect" parent="MonsterTabHolder" unique_id=883388445]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.049000002
+anchor_right = 1.0
+anchor_bottom = 0.049000002
+offset_left = 16.0
+offset_top = -31.752
+offset_right = 456.0
+offset_bottom = 264.248
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_oumk7")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MonsterTabHolder/BugBearBox" unique_id=1676225632]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MonsterTabHolder/BugBearBox/ScrollContainer" unique_id=994302956]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MonsterTabHolder/BugBearBox/ScrollContainer/MarginContainer" unique_id=816964889]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+bbcode_enabled = true
+text = "[b] BugBear:[/b]
+A strong goblinoid that regularly raids villages, combined with its intellgence its a really annoying pest for humans
+
+[b]Variants:[/b]
+No special cases"
+metadata/_edit_lock_ = true
+
+[node name="EntBox" type="NinePatchRect" parent="MonsterTabHolder" unique_id=1543914366]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.049000002
+anchor_right = 1.0
+anchor_bottom = 0.049000002
+offset_left = 16.0
+offset_top = -31.752
+offset_right = 456.0
+offset_bottom = 264.248
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_oumk7")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MonsterTabHolder/EntBox" unique_id=1810940055]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MonsterTabHolder/EntBox/ScrollContainer" unique_id=1843507651]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MonsterTabHolder/EntBox/ScrollContainer/MarginContainer" unique_id=2053887675]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+bbcode_enabled = true
+text = "[b] Ent:[/b]
+Trees that have existed for hundreds of years accumulate enough mana to gain sentience, they are protectors of nature and are peaceful unless you disturb the balance of nature
+
+[b]Variants:[/b]
+No special cases"
+metadata/_edit_lock_ = true
+
+[node name="ShadeBox" type="NinePatchRect" parent="MonsterTabHolder" unique_id=632607959]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.049000002
+anchor_right = 1.0
+anchor_bottom = 0.049000002
+offset_left = 16.0
+offset_top = -31.752
+offset_right = 456.0
+offset_bottom = 264.248
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_oumk7")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MonsterTabHolder/ShadeBox" unique_id=697742100]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MonsterTabHolder/ShadeBox/ScrollContainer" unique_id=1334457951]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MonsterTabHolder/ShadeBox/ScrollContainer/MarginContainer" unique_id=323933430]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+bbcode_enabled = true
+text = "[b] Shade:[/b]
+A human taken over by the creatures residing in the [Void],  The [Void] grants the human host unmatched strength
+
+[b]Variants:[/b]
+In some cases where the host is extremely capable, shades can become as powerful as a [Dragon]"
+metadata/_edit_lock_ = true
+
+[node name="FiendBox" type="NinePatchRect" parent="MonsterTabHolder" unique_id=1242775806]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.049000002
+anchor_right = 1.0
+anchor_bottom = 0.049000002
+offset_left = 16.0
+offset_top = -31.752
+offset_right = 456.0
+offset_bottom = 264.248
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_oumk7")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MonsterTabHolder/FiendBox" unique_id=1170329443]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MonsterTabHolder/FiendBox/ScrollContainer" unique_id=1873991386]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MonsterTabHolder/FiendBox/ScrollContainer/MarginContainer" unique_id=1530230530]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+bbcode_enabled = true
+text = "[b] Fiend:[/b]
+A Hellspawn that wields great power, they reside in the depths of Hell, Fiends sometime manage to escape from Hell ,Fiends come in a variety of shapes and sizes even strength
+
+[b]Variants:[/b]
+In some rare cases a high-ranking Fiend  appears "
+metadata/_edit_lock_ = true
+
+[node name="DragonBox" type="NinePatchRect" parent="MonsterTabHolder" unique_id=2038491570]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.049000002
+anchor_right = 1.0
+anchor_bottom = 0.049000002
+offset_left = 16.0
+offset_top = -31.752
+offset_right = 456.0
+offset_bottom = 392.248
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_oumk7")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MonsterTabHolder/DragonBox" unique_id=1530747296]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MonsterTabHolder/DragonBox/ScrollContainer" unique_id=1592664318]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MonsterTabHolder/DragonBox/ScrollContainer/MarginContainer" unique_id=1711435970]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+bbcode_enabled = true
+text = "[b] Dragon:[/b]
+Dragons are born at the top of the hierarchy of all living things and stay there for the rest of their long lives, 
+They look down upon other races and rightfully so with their great intellect and strength and extremely fine tuned mana control theres nothing that can match their strength besides their own kin,
+The body of a dragon is infused so deeply with magic that even being near a dragon corpse has miraculous effects
+
+
+[b]Variants:[/b]
+The color of a dragon's scales holds more meaning than you would think.."
+metadata/_edit_lock_ = true
+
+[node name="HelpTabHolder" type="NinePatchRect" parent="." unique_id=477030763]
+z_index = 15
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.163
+anchor_top = 0.20700002
+anchor_right = 0.163
+anchor_bottom = 0.20700002
+offset_left = 0.519989
+offset_top = -15.560013
+offset_right = 432.52
+offset_bottom = 576.44
+texture = ExtResource("2_oumk7")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HelpTabHolder" unique_id=1600718562]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HelpTabHolder/ScrollContainer" unique_id=1068130820]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[node name="GeneralInfo" type="Button" parent="HelpTabHolder/ScrollContainer/VBoxContainer" unique_id=1117728916]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+text = "General Info"
+
+[node name="LvlnSkills" type="Button" parent="HelpTabHolder/ScrollContainer/VBoxContainer" unique_id=1431265586]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+text = "Levels and Skills"
+
+[node name="GldnMonster" type="Button" parent="HelpTabHolder/ScrollContainer/VBoxContainer" unique_id=569686895]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+text = "Variant Monsters"
+
+[node name="Sin" type="Button" parent="HelpTabHolder/ScrollContainer/VBoxContainer" unique_id=825133829]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+text = "Sin"
+
+[node name="Class" type="Button" parent="HelpTabHolder/ScrollContainer/VBoxContainer" unique_id=1543451122]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+text = "Class"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1170804870]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 152.0
+offset_bottom = 512.0
+theme_override_constants/separation = 32
+
+[node name="MiscTab" type="TextureButton" parent="VBoxContainer" unique_id=2114078684]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("6_oacc5")
+texture_pressed = ExtResource("7_lddes")
+texture_hover = ExtResource("8_oumk7")
+stretch_mode = 4
+script = ExtResource("5_22u06")
+metadata/_edit_lock_ = true
+
+[node name="MonsterTab" type="TextureButton" parent="VBoxContainer" unique_id=967998767]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("2_kiusj")
+texture_pressed = ExtResource("3_sn2o8")
+texture_hover = ExtResource("4_83hcf")
+stretch_mode = 4
+script = ExtResource("5_22u06")
+metadata/_edit_lock_ = true
+
+[node name="HomeTab" type="TextureButton" parent="VBoxContainer" unique_id=1154587124]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("2_oacc5")
+texture_pressed = ExtResource("3_lddes")
+texture_hover = ExtResource("4_oumk7")
+stretch_mode = 4
+script = ExtResource("5_22u06")
+metadata/_edit_lock_ = true
+
+[node name="ExitTab" type="TextureButton" parent="." unique_id=1480562675]
+z_index = 11
+layout_mode = 0
+offset_top = 848.0
+offset_right = 112.0
+offset_bottom = 1000.0
+texture_normal = ExtResource("9_sn2o8")
+texture_pressed = ExtResource("10_83hcf")
+stretch_mode = 4
+script = ExtResource("5_22u06")
+
+[node name="EncyclopediaSprite" type="TextureRect" parent="." unique_id=25472340]
+layout_mode = 0
+offset_left = -57.0
+offset_top = -63.0
+offset_right = 2085.0
+offset_bottom = 1168.0
+mouse_filter = 2
+texture = ExtResource("9_k1sou")
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="BgColor" type="ColorRect" parent="." unique_id=1555702556]
+z_index = -100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="TextBox" type="NinePatchRect" parent="." unique_id=242557529]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.163
+anchor_top = 0.20700002
+anchor_right = 0.163
+anchor_bottom = 0.20700002
+offset_left = -791.48
+offset_top = -119.56001
+offset_right = -399.48004
+offset_bottom = -55.560013
+texture = ExtResource("2_oumk7")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[connection signal="pressed" from="VBoxContainer/MiscTab" to="." method="_on_misc_tab_pressed"]
+[connection signal="pressed" from="VBoxContainer/MonsterTab" to="." method="_on_monster_tab_pressed"]
+[connection signal="pressed" from="VBoxContainer/HomeTab" to="." method="_on_home_tab_pressed"]
+[connection signal="pressed" from="ExitTab" to="." method="_on_exit_tab_pressed"]

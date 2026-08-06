@@ -20,11 +20,11 @@ func _ready() -> void:
 	var image = texture_normal.get_image()
 	var skills = get_children()
 	for skill in skills:
-		if skill is SkillNode and Save.skills[upgrade_number] == MaxLevel:
+		if (skill is TextureButton) and Save.skills[upgrade_number] == MaxLevel:
 			skill.disabled = false
 	bitmap.create_from_image_alpha(image)
 	texture_click_mask = bitmap
-	if get_parent() is SkillNode:
+	if get_parent() is SkillNode or get_parent() is MagicNode:
 		SkillBranch.add_point(self.global_position + self.size/2)
 		SkillBranch.add_point(get_parent().global_position + get_parent().size/2)
 	mouse_entered.connect(_on_mouse_entered)
@@ -46,12 +46,20 @@ func _on_pressed() -> void:
 		upgrade()
 	var skills = get_children()
 	for skill in skills:
-		if skill is SkillNode and Save.skills[upgrade_number] == MaxLevel:
+		if skill is TextureButton and Save.skills[upgrade_number] == MaxLevel:
 			skill.disabled = false
 	pass # Replace with function body.
 
 func _on_mouse_exited():
-	tooltip.toggle(false)
+	if disabled:
+		if not get_parent().disabled:
+			tooltip.toggle(false)
+	else:
+		tooltip.toggle(false)
 func _on_mouse_entered() -> void:
-	tooltip.toggle(true)
+	if disabled:
+		if not get_parent().disabled:
+			tooltip.toggle(true)
+	else:
+		tooltip.toggle(true)
 	pass # Replace with function body.

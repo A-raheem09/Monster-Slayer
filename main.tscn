@@ -21,6 +21,18 @@
 [ext_resource type="Texture2D" uid="uid://ouhf7hh8xnj5" path="res://Assets/Textures/HealthbarOutline.png" id="18_82xsv"]
 [ext_resource type="Texture2D" uid="uid://bo83u63p7bc7t" path="res://Assets/Textures/HealthFill.png" id="19_82xsv"]
 [ext_resource type="Texture2D" uid="uid://47ea335bxlil" path="res://Assets/Textures/Background.png" id="21_getpj"]
+[ext_resource type="Texture2D" uid="uid://t25ekikyhyd7" path="res://Assets/Textures/fireball.png" id="22_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://bkrguavlimmu7" path="res://Assets/Textures/Spell3.png" id="22_jq2sk"]
+[ext_resource type="Texture2D" uid="uid://ds5fbtivmpdwu" path="res://Assets/Textures/Magic2.png" id="22_qsp4k"]
+[ext_resource type="Texture2D" uid="uid://bxs2fim3i3s1u" path="res://Assets/Textures/fireballpressed.png" id="23_0odxb"]
+[ext_resource type="Texture2D" uid="uid://dtjmfwtifpifi" path="res://Assets/Textures/Spell3pressed.png" id="23_4k2k6"]
+[ext_resource type="Texture2D" uid="uid://dmhmaq5ci5my2" path="res://Assets/Textures/Magic2pressed.png" id="23_kq58d"]
+[ext_resource type="Texture2D" uid="uid://rc5o8rssm5ag" path="res://Assets/Textures/Spell3hover.png" id="24_0rl1p"]
+[ext_resource type="Texture2D" uid="uid://bf5wqqghsocg0" path="res://Assets/Textures/fireballhover.png" id="24_lswn8"]
+[ext_resource type="Texture2D" uid="uid://b26jdnqhvigev" path="res://Assets/Textures/Magic2hover.png" id="24_seu75"]
+[ext_resource type="PackedScene" uid="uid://b2c24qhrf025h" path="res://tooltip.tscn" id="25_0odxb"]
+[ext_resource type="Script" uid="uid://lyyjuy537oh6" path="res://Scripts/magicmain.gd" id="25_lswn8"]
+[ext_resource type="Texture2D" uid="uid://dmec67suk3lgt" path="res://Assets/Textures/Spell3disabled.png" id="25_ok6jj"]
 
 [sub_resource type="Resource" id="Resource_mp045"]
 script = ExtResource("11_cegan")
@@ -107,10 +119,10 @@ anchor_left = 0.5
 anchor_top = 0.030000001
 anchor_right = 0.5
 anchor_bottom = 0.030000001
-offset_left = -516.0
-offset_top = -0.40000153
-offset_right = 516.0
-offset_bottom = 103.6
+offset_left = -427.0
+offset_top = -32.4
+offset_right = 413.0
+offset_bottom = 47.6
 grow_horizontal = 2
 texture = ExtResource("5_5vw27")
 region_rect = Rect2(0, 0, 128, 32)
@@ -118,22 +130,21 @@ patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
-metadata/_edit_lock_ = true
 
 [node name="SummonTime" type="Label" parent="CanvasLayer/SummonHolder" unique_id=418553212]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.024
-anchor_top = 0.5
-anchor_right = 0.024
-anchor_bottom = 0.5
-offset_left = -0.16802406
-offset_top = -31.607998
-offset_right = 321.83197
-offset_bottom = 25.391998
+anchor_left = 0.202
+anchor_top = 0.462
+anchor_right = 0.202
+anchor_bottom = 0.462
+offset_left = -139.21602
+offset_top = -24.048
+offset_right = -3.2160034
+offset_bottom = 32.952
 theme = ExtResource("6_kek77")
-text = "Summon Time:"
-metadata/_edit_lock_ = true
+text = "Mana:"
+horizontal_alignment = 2
 
 [node name="SummonBar" type="TextureProgressBar" parent="CanvasLayer/SummonHolder" unique_id=758756851]
 layout_mode = 1
@@ -142,14 +153,13 @@ anchor_left = 0.349
 anchor_top = 0.462
 anchor_right = 0.349
 anchor_bottom = 0.462
-offset_left = -0.16799927
-offset_top = -0.04799652
-offset_right = 639.83203
-offset_bottom = 7.9520035
+offset_left = -127.16
+offset_top = 2.9520035
+offset_right = 512.83997
+offset_bottom = 10.9520035
 value = 100.0
 texture_under = ExtResource("16_82xsv")
 texture_progress = ExtResource("17_getpj")
-metadata/_edit_lock_ = true
 
 [node name="LvlHolder" type="NinePatchRect" parent="CanvasLayer" unique_id=511595287]
 z_index = -16
@@ -274,7 +284,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="BackButton" type="Button" parent="." unique_id=156453828]
+[node name="BackButton" type="Button" parent="CanvasLayer" unique_id=156453828]
 z_index = 5
 anchors_preset = -1
 anchor_left = 0.004
@@ -289,43 +299,17 @@ theme = ExtResource("10_4c57u")
 theme_override_font_sizes/font_size = 60
 text = "Exit"
 
-[node name="Label" type="Label" parent="." unique_id=1922543283]
-anchors_preset = -1
-anchor_left = 0.497
-anchor_top = 0.90200007
-anchor_right = 0.497
-anchor_bottom = 0.90200007
-offset_left = -266.12
-offset_top = -24.160095
-offset_right = 265.88
-offset_bottom = 24.839905
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 27
-
-[node name="Label2" type="Label" parent="." unique_id=578584613]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -456.0
-offset_top = 136.0
-offset_right = 504.0
-offset_bottom = 200.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 30
-
-[node name="Notification" type="NinePatchRect" parent="." unique_id=1103148129]
-visible = false
+[node name="Notification" type="NinePatchRect" parent="CanvasLayer" unique_id=1103148129]
 z_index = 5
 anchors_preset = -1
 anchor_left = 0.43300003
 anchor_top = 0.70400006
 anchor_right = 0.43300003
 anchor_bottom = 0.70400006
-offset_left = -0.6800537
-offset_top = -48.32007
-offset_right = 223.31995
-offset_bottom = 39.67993
+offset_left = 7.3199463
+offset_top = -46.32007
+offset_right = 231.31995
+offset_bottom = 41.67993
 grow_vertical = 2
 texture = ExtResource("5_5vw27")
 region_rect = Rect2(0, 0, 128, 32)
@@ -334,7 +318,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="Notification" type="Label" parent="Notification" unique_id=272045843]
+[node name="Notification" type="Label" parent="CanvasLayer/Notification" unique_id=272045843]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -351,9 +335,74 @@ horizontal_alignment = 1
 vertical_alignment = 2
 metadata/_edit_lock_ = true
 
-[node name="NotifTimer" type="Timer" parent="Notification" unique_id=1121494868]
+[node name="NotifTimer" type="Timer" parent="CanvasLayer/Notification" unique_id=1121494868]
 wait_time = 2.5
 one_shot = true
+
+[node name="Notification2" type="NinePatchRect" parent="CanvasLayer/Notification" unique_id=816137366]
+visible = false
+z_index = 5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.509
+anchor_top = 0.5
+anchor_right = 0.509
+anchor_bottom = 0.5
+offset_left = 109.984
+offset_top = -44.000023
+offset_right = 195.98401
+offset_bottom = 43.999977
+grow_vertical = 2
+texture = ExtResource("5_5vw27")
+region_rect = Rect2(0, 0, 128, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Notification" type="Label" parent="CanvasLayer/Notification/Notification2" unique_id=1844383941]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.50600004
+anchor_right = 0.5
+anchor_bottom = 0.50600004
+offset_left = -43.0
+offset_top = -28.528004
+offset_right = 43.0
+offset_bottom = 28.471996
+theme = ExtResource("6_kek77")
+text = "x99"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ControlTut" type="Label" parent="." unique_id=1922543283]
+z_index = 30
+anchors_preset = -1
+anchor_left = 0.49100003
+anchor_top = 0.771
+anchor_right = 0.49100003
+anchor_bottom = 0.771
+offset_left = -266.36005
+offset_top = -24.680054
+offset_right = 265.63995
+offset_bottom = 24.319946
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 27
+text = "Levelling up gives you 2 stat points and 1 skill point, you can spend these in the skills tab"
+
+[node name="TimeTut" type="Label" parent="." unique_id=578584613]
+z_index = 30
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -456.0
+offset_top = 136.0
+offset_right = 504.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=850868422]
 z_index = -10
@@ -375,10 +424,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -980.0
-offset_top = -579.0
-offset_right = 1129.0
-offset_bottom = 545.0
+offset_left = -979.0
+offset_top = -577.0
+offset_right = 1130.0
+offset_bottom = 547.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -386,7 +435,98 @@ texture = ExtResource("21_getpj")
 stretch_mode = 4
 metadata/_edit_lock_ = true
 
+[node name="Necromancy" type="TextureButton" parent="." unique_id=29032919]
+offset_left = 740.0
+offset_top = 822.0
+offset_right = 946.0
+offset_bottom = 1041.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+texture_normal = ExtResource("22_jq2sk")
+texture_pressed = ExtResource("23_4k2k6")
+texture_hover = ExtResource("24_0rl1p")
+texture_disabled = ExtResource("25_ok6jj")
+stretch_mode = 4
+script = ExtResource("25_lswn8")
+
+[node name="Tooltip" parent="Necromancy" unique_id=567491299 instance=ExtResource("25_0odxb")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 102.0
+description = "Reanimate a corpse to fight for you (you lazy bums)"
+Name = "Necromancy"
+Effect = "2% of your damage/sec"
+Cost = "1 mana/sec"
+
+[node name="NecroTimer" type="Timer" parent="Necromancy" unique_id=385287100]
+
+[node name="MagicSpells" type="HBoxContainer" parent="." unique_id=378887630]
+anchors_preset = -1
+anchor_left = 0.49600002
+anchor_top = 0.957
+anchor_right = 0.49600002
+anchor_bottom = 0.957
+offset_left = -71.160034
+offset_top = -211.56006
+offset_right = 225.83997
+offset_bottom = -28.560059
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Dark Blast" type="TextureButton" parent="MagicSpells" unique_id=1020935973]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+texture_normal = ExtResource("22_1u8w0")
+texture_pressed = ExtResource("23_0odxb")
+texture_hover = ExtResource("24_lswn8")
+stretch_mode = 4
+script = ExtResource("25_lswn8")
+metadata/_edit_lock_ = true
+
+[node name="Tooltip" parent="MagicSpells/Dark Blast" unique_id=77820066 instance=ExtResource("25_0odxb")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 102.0
+description = "Form your mana into a dark vortex that rips apart anything it comes into contact with"
+Name = "Dark Blast"
+Effect = "Does 300% of your regular damage per use"
+Cost = "10 seconds"
+
+[node name="ExpBoost" type="TextureButton" parent="MagicSpells" unique_id=1203952183]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+texture_normal = ExtResource("22_qsp4k")
+texture_pressed = ExtResource("23_kq58d")
+texture_hover = ExtResource("24_seu75")
+stretch_mode = 4
+script = ExtResource("25_lswn8")
+metadata/_edit_lock_ = true
+
+[node name="Tooltip" parent="MagicSpells/ExpBoost" unique_id=2044352406 instance=ExtResource("25_0odxb")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 102.0
+description = "Use dark magic to increase the experience you gain"
+Name = "Forbidden Knowledge"
+Effect = "200% Exp Gain For The Next 30 seconds"
+Cost = "10 seconds"
+
 [connection signal="timeout" from="TimeLeft" to="." method="_on_time_left_timeout"]
 [connection signal="finished" from="Music" to="." method="_on_audio_stream_player_2d_finished"]
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="timeout" from="Notification/NotifTimer" to="." method="_on_notif_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="timeout" from="CanvasLayer/Notification/NotifTimer" to="." method="_on_notif_timer_timeout"]
+[connection signal="pressed" from="Necromancy" to="." method="_on_necromancy_pressed"]
+[connection signal="pressed" from="MagicSpells/Dark Blast" to="." method="_on_dark_blast_pressed"]
+[connection signal="pressed" from="MagicSpells/ExpBoost" to="." method="_on_exp_boost_pressed"]
