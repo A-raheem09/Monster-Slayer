@@ -1,7 +1,7 @@
 extends Control
 func _ready():
-	if Save.pkeys['newsave'] == true:
-		Stats.load_scene('intro')
+	#if Save.pkeys['newsave'] == true:
+		#Stats.load_scene('intro')
 	Save._save()
 	$MenuMusic.play(Stats.musicpos)
 	if Save.stats['volume'] == -10:
