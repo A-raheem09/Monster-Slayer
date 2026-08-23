@@ -4,11 +4,12 @@ A 2d game thats both an incremental while borrowing classic rpg elements, you're
 
 ## Link to try out the game: https://iforgor09.itch.io/monster-slayer
 
-# Setup Instructions:
+# Setup Instructions (Windows Only):
 Itch.io Installation: Unzip the folder and run the MonsterSlayer.exe file
 Github Installation:
 - Pull from this repository
-- Install Godot (The projects hasn't been tried with godot versions beyond 4.7 but it should still work)
+- Install Godot 4.7.2 (or the latest version) from the official website: https://godotengine.org/download/windows/
+- Extract the .exe file and run it
 - Click import project and select the folder containing all the source files
 (idk if this is correct but i dont know any other way bro :sob:)
 # Features:
@@ -17,19 +18,3 @@ Github Installation:
 - Stats and Levels
 - Monster Hp and the experience they provide scale to difficulty to provide a sense of progression
 - All Sprites made by yours truly and NO AI was used in anything whatsoever
-
-
-
-
-
-
-
-
-#Features that are going to be added:
-- Magic System where the cost to cast is your summon time
-- Classes that affect your playstyle, a bigger skilltree etc
-##some extra lil features that MIGHT be implemented later on 
-- Storyline
-- Inventory System
-- Implementing Monster Drops
-- Crafting items using Monster Drops
