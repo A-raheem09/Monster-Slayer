@@ -9,9 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dj5u32ui0aek1" path="res://skill_button.tscn" id="7_wpi0c"]
 [ext_resource type="PackedScene" uid="uid://b2c24qhrf025h" path="res://tooltip.tscn" id="8_87dja"]
 [ext_resource type="Texture2D" uid="uid://t25ekikyhyd7" path="res://Assets/Textures/fireball.png" id="9_46aa3"]
-[ext_resource type="Texture2D" uid="uid://c48l77bqq0xj4" path="res://Assets/Textures/upg4.png" id="9_b8dv1"]
 [ext_resource type="Texture2D" uid="uid://bxs2fim3i3s1u" path="res://Assets/Textures/fireballpressed.png" id="10_0rout"]
-[ext_resource type="Texture2D" uid="uid://rluxvyr4l0y4" path="res://Assets/Textures/upg4disabled.png" id="10_3pve4"]
 [ext_resource type="Texture2D" uid="uid://bf5wqqghsocg0" path="res://Assets/Textures/fireballhover.png" id="11_lrvki"]
 [ext_resource type="Texture2D" uid="uid://dsqrex8jrc7ip" path="res://Assets/Textures/fireballdisabled.png" id="12_d4sjy"]
 [ext_resource type="Script" uid="uid://dvcuoiwg2wuca" path="res://Scripts/Magic_Skill.gd" id="13_0rout"]
@@ -24,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://rc5o8rssm5ag" path="res://Assets/Textures/Spell3hover.png" id="19_wjrw8"]
 [ext_resource type="Texture2D" uid="uid://cmibqtye0745n" path="res://Assets/Textures/MBSpeardisabled.png" id="20_b280s"]
 [ext_resource type="Texture2D" uid="uid://dmec67suk3lgt" path="res://Assets/Textures/Spell3disabled.png" id="20_rs8od"]
+[ext_resource type="Texture2D" uid="uid://dng42m3mguf3e" path="res://Assets/Textures/VoidSkele.png" id="21_rvx07"]
+[ext_resource type="Texture2D" uid="uid://di2m41gria17f" path="res://Assets/Textures/VoidSkeledisabled.png" id="22_ivcr1"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_f27vq"]
 
@@ -522,18 +522,18 @@ Cost = "2 Skill Points"
 [node name="DmgUpg5" parent="DmgUpg0/DmgUpg1/DmgUpg3" unique_id=1558857708 instance=ExtResource("7_wpi0c")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 3.632889
-anchor_top = -1.1219734
-anchor_right = 3.6665554
-anchor_bottom = -1.1219732
+anchor_left = 3.7440002
+anchor_top = -4.040892
+anchor_right = 4.9776664
+anchor_bottom = 3.8239722
 offset_left = -22.480007
 offset_top = -18.487
 offset_right = 74.005
 offset_bottom = 112.51301
 disabled = true
-texture_normal = ExtResource("9_b8dv1")
+texture_normal = ExtResource("21_rvx07")
 texture_pressed = null
-texture_disabled = ExtResource("10_3pve4")
+texture_disabled = ExtResource("22_ivcr1")
 MaxLevel = 1
 Cost = 4
 stat_to_change = "dmg_mult"
@@ -547,22 +547,22 @@ offset_left = 329.0
 offset_top = 0.0
 offset_right = 545.0
 offset_bottom = 447.0
-description = "Makes your bone harder than any other material, only comparable to mythril "
-Name = "Mythril-Hard Bones "
+description = "Let the power of the void seep into your core, corrupting you but granting you immeasurable power"
+Name = "Void-Infusion"
 Effect = "Increases Damage By 30%"
 Cost = "3 Skill Points"
 
 [node name="DmgUpg12" parent="DmgUpg0/DmgUpg1/DmgUpg3/DmgUpg5" unique_id=2101237621 instance=ExtResource("7_wpi0c")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 2.571
-anchor_top = 0.21400002
-anchor_right = 2.571
-anchor_bottom = 0.21400002
-offset_left = -26.958008
-offset_top = -57.034004
-offset_right = 67.04199
-offset_bottom = 106.965996
+anchor_left = 2.283
+anchor_top = 0.38900003
+anchor_right = 2.283
+anchor_bottom = 0.38900003
+offset_left = -47.01596
+offset_top = -72.156
+offset_right = 46.98404
+offset_bottom = 91.843994
 disabled = true
 texture_normal = ExtResource("19_rjc8t")
 texture_pressed = null
