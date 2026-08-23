@@ -1,0 +1,299 @@
+[gd_scene format=3 uid="uid://d0vv6f8st2cbi"]
+
+[ext_resource type="Script" uid="uid://bt1pyumo3f5b3" path="res://Scripts/idle.gd" id="1_sycio"]
+[ext_resource type="AudioStream" uid="uid://52igfav7ii4q" path="res://Assets/Music/Menu.wav" id="4_ydoql"]
+[ext_resource type="Texture2D" uid="uid://btxdba4bxohpd" path="res://Assets/Textures/BackgroundNew.png" id="5_iob0d"]
+[ext_resource type="Theme" uid="uid://dhca8ffw8gdbx" path="res://UI/Button_theme.tres" id="5_sycio"]
+[ext_resource type="Theme" uid="uid://cavpspuku5k33" path="res://UI/Label_theme.tres" id="5_xfw0o"]
+
+[sub_resource type="Environment" id="Environment_k8u0w"]
+fog_enabled = true
+fog_light_color = Color(0.16078432, 0.1764706, 0.25490198, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_f27vq"]
+
+[sub_resource type="Compositor" id="Compositor_d6j5s"]
+
+[sub_resource type="Animation" id="Animation_xfw0o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect2:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_sycio"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.93333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect2:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [75]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iob0d"]
+_data = {
+&"RESET": SubResource("Animation_xfw0o"),
+&"fade_in": SubResource("Animation_sycio")
+}
+
+[node name="UI" type="Control" unique_id=1816702889]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1088.0
+theme = ExtResource("5_sycio")
+script = ExtResource("1_sycio")
+metadata/_edit_lock_ = true
+metadata/_edit_horizontal_guides_ = [-40.0]
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=377100315]
+position = Vector2(984, 312)
+stream = ExtResource("4_ydoql")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1363617826]
+
+[node name="RightButtons" type="VBoxContainer" parent="CanvasLayer" unique_id=627422712]
+z_index = 69
+anchors_preset = -1
+anchor_left = 0.62100005
+anchor_top = 0.69000006
+anchor_right = 0.62100005
+anchor_bottom = 0.69000006
+offset_left = -105.16016
+offset_top = -89.20007
+offset_right = 102.83984
+offset_bottom = 42.799927
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Options" type="Button" parent="CanvasLayer/RightButtons" unique_id=1604956067]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_sycio")
+theme_override_font_sizes/font_size = 40
+text = "Options"
+metadata/_edit_lock_ = true
+
+[node name="Exit" type="Button" parent="CanvasLayer/RightButtons" unique_id=1078845522]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_sycio")
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+metadata/_edit_lock_ = true
+
+[node name="Start" type="Button" parent="CanvasLayer" unique_id=1982734866]
+anchors_preset = -1
+anchor_left = 0.49400002
+anchor_top = 0.259
+anchor_right = 0.49400002
+anchor_bottom = 0.259
+offset_left = -149.24005
+offset_top = -21.720001
+offset_right = 157.75995
+offset_bottom = 37.28
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_sycio")
+theme_override_font_sizes/font_size = 45
+text = "Enter The Portal"
+
+[node name="Wait" type="Label" parent="CanvasLayer/Start" unique_id=1709842851]
+z_index = 2290
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.47300002
+anchor_right = 0.5
+anchor_bottom = 0.47300002
+offset_left = -100.5
+offset_top = -22.231014
+offset_right = 99.5
+offset_bottom = 26.768984
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0014095352, 0.009143356, 0.020033162, 1)
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="LeftButtons" type="VBoxContainer" parent="CanvasLayer" unique_id=646527784]
+offset_left = 640.0
+offset_top = 632.0
+offset_right = 848.0
+offset_bottom = 837.0
+theme_override_constants/separation = 16
+
+[node name="Skills" type="Button" parent="CanvasLayer/LeftButtons" unique_id=64381373]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_sycio")
+theme_override_font_sizes/font_size = 40
+text = "Skills"
+metadata/_edit_lock_ = true
+
+[node name="Save" type="Button" parent="CanvasLayer/LeftButtons" unique_id=1168152414]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_sycio")
+theme_override_font_sizes/font_size = 40
+text = "Save"
+metadata/_edit_lock_ = true
+
+[node name="Encyclopedia" type="Button" parent="CanvasLayer/LeftButtons" unique_id=979250629]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_sycio")
+theme_override_font_sizes/font_size = 40
+text = "Encyclopedia"
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1019000138]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=86740412]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51500005
+anchor_top = 0.5
+anchor_right = 0.51500005
+anchor_bottom = 0.5
+offset_left = -356.8001
+offset_top = -16.0
+offset_right = 355.1999
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_xfw0o")
+theme_override_font_sizes/font_size = 30
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1345395692]
+z_index = -10
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.015000001
+anchor_right = 1.0250001
+anchor_bottom = 1.0
+offset_top = -16.32
+offset_right = -0.00024414063
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.16078432, 0.1764706, 0.25490198, 1)
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=2112333220]
+wait_time = 5.0
+one_shot = true
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=996421252]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -959.0
+offset_top = -581.0
+offset_right = 1150.0
+offset_bottom = 543.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_iob0d")
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1554559522]
+environment = SubResource("Environment_k8u0w")
+camera_attributes = SubResource("CameraAttributesPractical_f27vq")
+compositor = SubResource("Compositor_d6j5s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2083734864]
+libraries/ = SubResource("AnimationLibrary_iob0d")
+
+[connection signal="finished" from="MenuMusic" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="pressed" from="CanvasLayer/RightButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/RightButtons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftButtons/Skills" to="." method="_on_skills_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftButtons/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftButtons/Encyclopedia" to="." method="_on_inventory_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

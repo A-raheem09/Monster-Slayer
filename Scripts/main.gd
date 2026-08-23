@@ -40,13 +40,10 @@ var db_cost
 @onready var notif_amount: int
 func _ready(): #called when the player enters the scene tree for the first time
 	initialiser()
-	if Save.skills[9] != 1:
-		$MagicSpells.hide()
-		$Necromancy.hide()
-	Save.stats['expreq'] = 10 + Save.stats['level'] * exp_increase
-	if Save.stats['difficulty'] == 1:
-		$ControlTut.text = 'Press the Spacebar to deal damage'
-		$TimeTut.text = 'Every second you remain outside drains 1 Mana so make sure to keep an eye on the bar'
+	$AnimationPlayer.play("fade_in")
+	var timer = get_tree().create_timer(1)
+	timer.timeout.connect(loaded_in)
+func loaded_in():
 	Summon_time.start(max_mana)
 	summon_bar.max_value = max_mana
 func _input(event):
@@ -56,6 +53,13 @@ func _input(event):
 func initialiser(): 
 	initiliase_magic()
 	$CanvasLayer/Notification.hide()
+	if Save.skills[9] != 1:
+		$MagicSpells.hide()
+		$Necromancy.hide()
+	Save.stats['expreq'] = 10 + Save.stats['level'] * exp_increase
+	if Save.stats['difficulty'] == 1:
+		$ControlTut.text = 'Press the Spacebar to deal damage'
+		$TimeTut.text = 'Every second you remain outside drains 1 Mana so make sure to keep an eye on the bar'
 	notif_amount = 1
 	level.text = "Level: " + str(Save.stats['level'])
 	Stats.update_damage(damage)
@@ -244,16 +248,17 @@ func health_update():
 func lvl_notif():
 	if $CanvasLayer/Notification/Notification.text == 'No Mana':
 		notif_amount = 1
-	$CanvasLayer/Notification/Notification.text = 'Level Up!'
-	if $CanvasLayer/Notification/NotifTimer.is_stopped():
+	elif $CanvasLayer/Notification/NotifTimer.is_stopped():
 		$CanvasLayer/Notification/NotifTimer.start(1.75)
 		notif_amount = 1
+		$CanvasLayer/Notification/Notification.text = 'Level Up!'
 		$CanvasLayer/Notification.show()
 		$CanvasLayer/Notification/Notification2.hide()
 		
 	else:
-		$CanvasLayer/Notification/NotifTimer.start(1)
+		$CanvasLayer/Notification/NotifTimer.start(1.25)
 		notif_amount += 1
+		$CanvasLayer/Notification/Notification.text = 'Level Up!'
 		$CanvasLayer/Notification/Notification2/Notification.text = "x" + str(notif_amount)
 		$CanvasLayer/Notification/Notification2.show()
 	pass

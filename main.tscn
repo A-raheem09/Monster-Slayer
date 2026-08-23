@@ -51,6 +51,66 @@ experience_dropped = 999
 named = true
 metadata/_custom_type_script = "uid://lsdokxcl4kcq"
 
+[sub_resource type="Animation" id="Animation_4k2k6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/BlackBox:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/BlackBox:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jq2sk"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/BlackBox:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/BlackBox:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4k2k6"]
+_data = {
+&"RESET": SubResource("Animation_4k2k6"),
+&"fade_in": SubResource("Animation_jq2sk")
+}
+
 [node name="Main" type="Node" unique_id=1683093304]
 script = ExtResource("1_7mycd")
 slime = ExtResource("2_2cqfq")
@@ -376,6 +436,19 @@ text = "x99"
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="BlackBox" type="ColorRect" parent="CanvasLayer" unique_id=2125855969]
+visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="ControlTut" type="Label" parent="." unique_id=1922543283]
 z_index = 30
 anchors_preset = -1
@@ -418,7 +491,7 @@ mouse_filter = 2
 color = Color(0.16078432, 0.1764706, 0.25490198, 1)
 metadata/_edit_lock_ = true
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=1453649979]
+[node name="Background" type="TextureRect" parent="." unique_id=1453649979]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -522,6 +595,9 @@ description = "Use dark magic to increase the experience you gain"
 Name = "Forbidden Knowledge"
 Effect = "200% Exp Gain For The Next 30 seconds"
 Cost = "10 seconds"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=672938482]
+libraries/ = SubResource("AnimationLibrary_4k2k6")
 
 [connection signal="timeout" from="TimeLeft" to="." method="_on_time_left_timeout"]
 [connection signal="finished" from="Music" to="." method="_on_audio_stream_player_2d_finished"]

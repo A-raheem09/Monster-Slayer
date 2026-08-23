@@ -16,6 +16,8 @@ var level_scenes = [
 var audio = null
 var musicpos = 0
 var mute = false
+var fade_in = false
+var current_description : String
 var base_stats = {
 	'difficulty':1,
 	'damage':1,
