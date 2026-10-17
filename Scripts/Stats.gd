@@ -34,6 +34,15 @@ var base_stats = {
 	'points':0,
 	'spoints':0
 	}
+enum biome{
+	Plains,
+	Forest,
+	Cave,
+	Highlands,
+	MountainRange,
+}
+var current_biome :biome
+var last_biome :biome
 func add_kills():
 	monsters_killed += 1 
 func load_scene(level_name:String):
@@ -69,4 +78,23 @@ func reset_save():
 		Save.stats[i] = base_stats[i]
 	for i in range(Save.skills.size()):
 		Save.skills[i] = 0
+	for i in Save.pkeys:
+		Save.pkeys[i] = false
 	pass
+func roll_biome():
+		last_biome = current_biome
+		var diff_mult = randi_range(0,15)
+		var diff_effect = randf() #difficulty affects your biome roll by 0-100%
+		var rng =  min(diff_mult + (Save.stats['difficulty'] * diff_effect), 20 )
+		if rng >= 0 and rng <= 10: #common
+			var srng = randi_range(1,3)
+			match srng:
+				1: current_biome = biome.Plains
+				2: current_biome = biome.Forest
+				3: current_biome = biome.Cave
+		elif rng >= 11 and rng <= 20: #uncommon
+			var srng = randi_range(1,2)
+			match srng:
+				1: current_biome = biome.Highlands
+				2: current_biome = biome.MountainRange
+		print(current_biome)

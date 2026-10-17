@@ -8,4 +8,6 @@ max_health = 300
 name = "BugBear"
 experience_dropped = 30
 rarity = 1
+main_location = 1
+rare_location = 3
 metadata/_custom_type_script = "uid://lsdokxcl4kcq"

@@ -8,4 +8,6 @@ max_health = 220
 name = "Orc"
 experience_dropped = 20
 rarity = 1
+alt_location = 1
+rare_location = 3
 metadata/_custom_type_script = "uid://lsdokxcl4kcq"

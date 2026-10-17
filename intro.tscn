@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cff0g7bxqqvq6"]
 
-[ext_resource type="Texture2D" uid="uid://bmi1md2xd17ng" path="res://Assets/Textures/Intro.png" id="1_ayt76"]
-[ext_resource type="Texture2D" uid="uid://47ea335bxlil" path="res://Assets/Textures/Background.png" id="1_s2ta7"]
+[ext_resource type="Texture2D" uid="uid://bmi1md2xd17ng" path="res://assets/Textures/Intro.png" id="1_ayt76"]
+[ext_resource type="Texture2D" uid="uid://47ea335bxlil" path="res://assets/Textures/Background.png" id="1_s2ta7"]
 [ext_resource type="Script" uid="uid://hxcmjfxv6k4n" path="res://Scripts/intro.gd" id="1_y72e6"]
-[ext_resource type="Texture2D" uid="uid://b2fabnt61lfyp" path="res://Assets/Textures/portalintro.png" id="4_u2rf6"]
+[ext_resource type="Texture2D" uid="uid://b2fabnt61lfyp" path="res://assets/Textures/portalintro.png" id="4_u2rf6"]
 [ext_resource type="Theme" uid="uid://dhca8ffw8gdbx" path="res://UI/Button_theme.tres" id="5_dpxxx"]
 [ext_resource type="Theme" uid="uid://cavpspuku5k33" path="res://UI/Label_theme.tres" id="5_y6ycx"]
 
@@ -1787,6 +1787,14 @@ libraries/ = SubResource("AnimationLibrary_dpxxx")
 [node name="Finished" type="Timer" parent="." unique_id=420225212]
 wait_time = 0.5
 one_shot = true
+
+[node name="Button" type="Button" parent="." unique_id=832463441]
+offset_left = -101.0
+offset_top = -33.0
+offset_right = 88.0
+offset_bottom = 37.0
+theme = ExtResource("5_dpxxx")
+text = "Skip"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="on_portal_opened"]
 [connection signal="timeout" from="Finished" to="." method="_on_finished"]

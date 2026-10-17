@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dng42m3mguf3e"
-path="res://.godot/imported/VoidSkele.png-3c93b701b3b9cdc1dfd399aebb8d2128.ctex"
+path="res://.godot/imported/VoidSkele.png-4ebef6b7e0840f75f203c17c4b2e458c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/VoidSkele.png"
-dest_files=["res://.godot/imported/VoidSkele.png-3c93b701b3b9cdc1dfd399aebb8d2128.ctex"]
+source_file="res://assets/Textures/VoidSkele.png"
+dest_files=["res://.godot/imported/VoidSkele.png-4ebef6b7e0840f75f203c17c4b2e458c.ctex"]
 
 [params]
 

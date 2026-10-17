@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://725r0dase8mu"
-path="res://.godot/imported/monstertabhover.png-d3ec1e0bc2a6e742df06fa7afabac2cf.ctex"
+path="res://.godot/imported/monstertabhover.png-f3c2abf4a84e96979a7ac391deacd7e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/monstertabhover.png"
-dest_files=["res://.godot/imported/monstertabhover.png-d3ec1e0bc2a6e742df06fa7afabac2cf.ctex"]
+source_file="res://assets/Textures/monstertabhover.png"
+dest_files=["res://.godot/imported/monstertabhover.png-f3c2abf4a84e96979a7ac391deacd7e5.ctex"]
 
 [params]
 

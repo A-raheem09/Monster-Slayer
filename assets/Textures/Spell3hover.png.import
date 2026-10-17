@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rc5o8rssm5ag"
-path="res://.godot/imported/Spell3hover.png-6c40144113e880a3c79c4be8b4dead74.ctex"
+path="res://.godot/imported/Spell3hover.png-a806de34fd0dd7f63b37f05306efa280.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Spell3hover.png"
-dest_files=["res://.godot/imported/Spell3hover.png-6c40144113e880a3c79c4be8b4dead74.ctex"]
+source_file="res://assets/Textures/Spell3hover.png"
+dest_files=["res://.godot/imported/Spell3hover.png-a806de34fd0dd7f63b37f05306efa280.ctex"]
 
 [params]
 

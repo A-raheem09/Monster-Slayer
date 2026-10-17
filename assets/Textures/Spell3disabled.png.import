@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmec67suk3lgt"
-path="res://.godot/imported/Spell3disabled.png-500dff190431e031a04e4025fdea3c53.ctex"
+path="res://.godot/imported/Spell3disabled.png-8358fbf625801ad1cf8cef667655fe00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Spell3disabled.png"
-dest_files=["res://.godot/imported/Spell3disabled.png-500dff190431e031a04e4025fdea3c53.ctex"]
+source_file="res://assets/Textures/Spell3disabled.png"
+dest_files=["res://.godot/imported/Spell3disabled.png-8358fbf625801ad1cf8cef667655fe00.ctex"]
 
 [params]
 

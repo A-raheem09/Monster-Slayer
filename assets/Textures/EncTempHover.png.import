@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://deol4pvxi4a6w"
-path="res://.godot/imported/EncTempHover.png-28694550e4a4d823f53b8e6505c0a8b6.ctex"
+path="res://.godot/imported/EncTempHover.png-21ac81517af3dea691dc538c29775947.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/EncTempHover.png"
-dest_files=["res://.godot/imported/EncTempHover.png-28694550e4a4d823f53b8e6505c0a8b6.ctex"]
+source_file="res://assets/Textures/EncTempHover.png"
+dest_files=["res://.godot/imported/EncTempHover.png-21ac81517af3dea691dc538c29775947.ctex"]
 
 [params]
 

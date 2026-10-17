@@ -1,9 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://dhca8ffw8gdbx"]
 
-[ext_resource type="FontFile" uid="uid://daol1rvf7s254" path="res://Assets/Font/Stepalange-x3BLm.otf" id="1_jtvrg"]
-[ext_resource type="Texture2D" uid="uid://penx4rd4pm0g" path="res://Assets/Textures/DisabledButton.jpeg" id="2_jtvrg"]
-[ext_resource type="Texture2D" uid="uid://15cxj7jcn5m1" path="res://Assets/Textures/Template.jpeg" id="3_0q7vm"]
-[ext_resource type="Texture2D" uid="uid://daeif54jai42h" path="res://Assets/Textures/TemplatePressed.jpeg" id="3_k5kgy"]
+[ext_resource type="FontFile" uid="uid://daol1rvf7s254" path="res://assets/Font/Stepalange-x3BLm.otf" id="1_jtvrg"]
+[ext_resource type="Texture2D" uid="uid://penx4rd4pm0g" path="res://assets/Textures/DisabledButton.jpeg" id="2_jtvrg"]
+[ext_resource type="Texture2D" uid="uid://15cxj7jcn5m1" path="res://assets/Textures/Template.jpeg" id="3_0q7vm"]
+[ext_resource type="Texture2D" uid="uid://daeif54jai42h" path="res://assets/Textures/TemplatePressed.jpeg" id="3_k5kgy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_itn7s"]
 texture = ExtResource("2_jtvrg")

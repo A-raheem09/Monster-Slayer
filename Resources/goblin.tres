@@ -7,4 +7,6 @@ script = ExtResource("1_0ywky")
 max_health = 120
 name = "Goblin"
 experience_dropped = 10
+alt_location = 1
+rare_location = 2
 metadata/_custom_type_script = "uid://lsdokxcl4kcq"

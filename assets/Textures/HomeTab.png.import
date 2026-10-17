@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnw7o5pej0c60"
-path="res://.godot/imported/HomeTab.png-75770e45c0349c9ffe9dbbf881be88ad.ctex"
+path="res://.godot/imported/HomeTab.png-b808843f4f5b900c12bbd789e44d9dea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/HomeTab.png"
-dest_files=["res://.godot/imported/HomeTab.png-75770e45c0349c9ffe9dbbf881be88ad.ctex"]
+source_file="res://assets/Textures/HomeTab.png"
+dest_files=["res://.godot/imported/HomeTab.png-b808843f4f5b900c12bbd789e44d9dea.ctex"]
 
 [params]
 

@@ -1,29 +1,29 @@
 [gd_scene format=3 uid="uid://cp4s52s5x1duw"]
 
 [ext_resource type="Script" uid="uid://ba7bfonfndk3r" path="res://Scripts/skill_tree.gd" id="1_fmctd"]
-[ext_resource type="AudioStream" uid="uid://52igfav7ii4q" path="res://Assets/Music/Menu.wav" id="2_802jk"]
+[ext_resource type="AudioStream" uid="uid://52igfav7ii4q" path="res://assets/Music/Menu.wav" id="2_802jk"]
 [ext_resource type="PackedScene" uid="uid://pvdaxosaw6od" path="res://camera_manager.tscn" id="3_802jk"]
-[ext_resource type="Texture2D" uid="uid://15cxj7jcn5m1" path="res://Assets/Textures/Template.jpeg" id="4_feiep"]
+[ext_resource type="Texture2D" uid="uid://15cxj7jcn5m1" path="res://assets/Textures/Template.jpeg" id="4_feiep"]
 [ext_resource type="Theme" uid="uid://cavpspuku5k33" path="res://UI/Label_theme.tres" id="4_t5gwv"]
 [ext_resource type="Theme" uid="uid://dhca8ffw8gdbx" path="res://UI/Button_theme.tres" id="5_itn7s"]
 [ext_resource type="PackedScene" uid="uid://dj5u32ui0aek1" path="res://skill_button.tscn" id="7_wpi0c"]
 [ext_resource type="PackedScene" uid="uid://b2c24qhrf025h" path="res://tooltip.tscn" id="8_87dja"]
-[ext_resource type="Texture2D" uid="uid://t25ekikyhyd7" path="res://Assets/Textures/fireball.png" id="9_46aa3"]
-[ext_resource type="Texture2D" uid="uid://bxs2fim3i3s1u" path="res://Assets/Textures/fireballpressed.png" id="10_0rout"]
-[ext_resource type="Texture2D" uid="uid://bf5wqqghsocg0" path="res://Assets/Textures/fireballhover.png" id="11_lrvki"]
-[ext_resource type="Texture2D" uid="uid://dsqrex8jrc7ip" path="res://Assets/Textures/fireballdisabled.png" id="12_d4sjy"]
+[ext_resource type="Texture2D" uid="uid://t25ekikyhyd7" path="res://assets/Textures/fireball.png" id="9_46aa3"]
+[ext_resource type="Texture2D" uid="uid://bxs2fim3i3s1u" path="res://assets/Textures/fireballpressed.png" id="10_0rout"]
+[ext_resource type="Texture2D" uid="uid://bf5wqqghsocg0" path="res://assets/Textures/fireballhover.png" id="11_lrvki"]
+[ext_resource type="Texture2D" uid="uid://dsqrex8jrc7ip" path="res://assets/Textures/fireballdisabled.png" id="12_d4sjy"]
 [ext_resource type="Script" uid="uid://dvcuoiwg2wuca" path="res://Scripts/Magic_Skill.gd" id="13_0rout"]
-[ext_resource type="Texture2D" uid="uid://ds5fbtivmpdwu" path="res://Assets/Textures/Magic2.png" id="14_cdydi"]
-[ext_resource type="Texture2D" uid="uid://dmhmaq5ci5my2" path="res://Assets/Textures/Magic2pressed.png" id="15_4cf1k"]
-[ext_resource type="Texture2D" uid="uid://b26jdnqhvigev" path="res://Assets/Textures/Magic2hover.png" id="16_rjc8t"]
-[ext_resource type="Texture2D" uid="uid://bkrguavlimmu7" path="res://Assets/Textures/Spell3.png" id="17_rvx07"]
-[ext_resource type="Texture2D" uid="uid://dtjmfwtifpifi" path="res://Assets/Textures/Spell3pressed.png" id="18_ivcr1"]
-[ext_resource type="Texture2D" uid="uid://6xsxav3hosou" path="res://Assets/Textures/MBSpear.png" id="19_rjc8t"]
-[ext_resource type="Texture2D" uid="uid://rc5o8rssm5ag" path="res://Assets/Textures/Spell3hover.png" id="19_wjrw8"]
-[ext_resource type="Texture2D" uid="uid://cmibqtye0745n" path="res://Assets/Textures/MBSpeardisabled.png" id="20_b280s"]
-[ext_resource type="Texture2D" uid="uid://dmec67suk3lgt" path="res://Assets/Textures/Spell3disabled.png" id="20_rs8od"]
-[ext_resource type="Texture2D" uid="uid://dng42m3mguf3e" path="res://Assets/Textures/VoidSkele.png" id="21_rvx07"]
-[ext_resource type="Texture2D" uid="uid://di2m41gria17f" path="res://Assets/Textures/VoidSkeledisabled.png" id="22_ivcr1"]
+[ext_resource type="Texture2D" uid="uid://ds5fbtivmpdwu" path="res://assets/Textures/Magic2.png" id="14_cdydi"]
+[ext_resource type="Texture2D" uid="uid://dmhmaq5ci5my2" path="res://assets/Textures/Magic2pressed.png" id="15_4cf1k"]
+[ext_resource type="Texture2D" uid="uid://b26jdnqhvigev" path="res://assets/Textures/Magic2hover.png" id="16_rjc8t"]
+[ext_resource type="Texture2D" uid="uid://bkrguavlimmu7" path="res://assets/Textures/Spell3.png" id="17_rvx07"]
+[ext_resource type="Texture2D" uid="uid://dtjmfwtifpifi" path="res://assets/Textures/Spell3pressed.png" id="18_ivcr1"]
+[ext_resource type="Texture2D" uid="uid://6xsxav3hosou" path="res://assets/Textures/MBSpear.png" id="19_rjc8t"]
+[ext_resource type="Texture2D" uid="uid://rc5o8rssm5ag" path="res://assets/Textures/Spell3hover.png" id="19_wjrw8"]
+[ext_resource type="Texture2D" uid="uid://cmibqtye0745n" path="res://assets/Textures/MBSpeardisabled.png" id="20_b280s"]
+[ext_resource type="Texture2D" uid="uid://dmec67suk3lgt" path="res://assets/Textures/Spell3disabled.png" id="20_rs8od"]
+[ext_resource type="Texture2D" uid="uid://dng42m3mguf3e" path="res://assets/Textures/VoidSkele.png" id="21_rvx07"]
+[ext_resource type="Texture2D" uid="uid://di2m41gria17f" path="res://assets/Textures/VoidSkeledisabled.png" id="22_ivcr1"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_f27vq"]
 
@@ -368,7 +368,7 @@ Name = "Dark Blast"
 Effect = "Increases The Damage of The Spell"
 Cost = "1 Skill Point(s)"
 
-[node name="ExpBoost11" parent="ExpUpg2/ExpUpg4/MagicUpg9" unique_id=132786475 instance=ExtResource("7_wpi0c")]
+[node name="ExpBoost" parent="ExpUpg2/ExpUpg4/MagicUpg9" unique_id=132786475 instance=ExtResource("7_wpi0c")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -3.6350002
@@ -388,18 +388,18 @@ script = ExtResource("13_0rout")
 MaxLevel = 3
 upgrade_number = 11
 
-[node name="Tooltip" parent="ExpUpg2/ExpUpg4/MagicUpg9/ExpBoost11" unique_id=1614244901 instance=ExtResource("8_87dja")]
+[node name="Tooltip" parent="ExpUpg2/ExpUpg4/MagicUpg9/ExpBoost" unique_id=1614244901 instance=ExtResource("8_87dja")]
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 211.0
 offset_bottom = 454.0
-description = "Increase experience gained by 200% for 30 seconds"
+description = "Experience gain is buffed by 50% for 30 seconds"
 Name = "Forbidden Knowledge"
-Effect = "Increases the boost by 100% (200%,300%...)"
+Effect = "Increases the boost by 50% each upgrade"
 Cost = "1 Skill Point(s)"
 
-[node name="ExpBoost12" parent="ExpUpg2/ExpUpg4/MagicUpg9" unique_id=1495225053 instance=ExtResource("7_wpi0c")]
+[node name="Necro" parent="ExpUpg2/ExpUpg4/MagicUpg9" unique_id=1495225053 instance=ExtResource("7_wpi0c")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.573
@@ -420,13 +420,13 @@ MaxLevel = 3
 Cost = 1
 upgrade_number = 13
 
-[node name="Tooltip" parent="ExpUpg2/ExpUpg4/MagicUpg9/ExpBoost12" unique_id=124059718 instance=ExtResource("8_87dja")]
+[node name="Tooltip" parent="ExpUpg2/ExpUpg4/MagicUpg9/Necro" unique_id=124059718 instance=ExtResource("8_87dja")]
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 211.0
 offset_bottom = 454.0
-description = "Lets you summon a zombie to fight for you doing 2% of your damage a second and doubles"
+description = "Lets you summon a zombie to fight for you doing 2% of your damage a second"
 Name = "Necromancy"
 Effect = "Doubles damage per second and mana usage per upgrade"
 Cost = "1 Skill Point(s)"

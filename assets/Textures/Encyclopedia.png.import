@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1aivttevgu6j"
-path="res://.godot/imported/Encyclopedia.png-2fb9d196932c6a46efb91e2899d69d92.ctex"
+path="res://.godot/imported/Encyclopedia.png-e19ffe5f7024a70037fecc0f26aacd43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Encyclopedia.png"
-dest_files=["res://.godot/imported/Encyclopedia.png-2fb9d196932c6a46efb91e2899d69d92.ctex"]
+source_file="res://assets/Textures/Encyclopedia.png"
+dest_files=["res://.godot/imported/Encyclopedia.png-e19ffe5f7024a70037fecc0f26aacd43.ctex"]
 
 [params]
 

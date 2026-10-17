@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MStats" format=3 uid="uid://h2vw3ekqluh1"]
+
+[ext_resource type="Script" uid="uid://lsdokxcl4kcq" path="res://Scripts/monster_stats.gd" id="1_kdyeq"]
+
+[resource]
+script = ExtResource("1_kdyeq")
+max_health = 5000
+name = "Vordt The Malificent"
+experience_dropped = 999
+named = true
+metadata/_custom_type_script = "uid://lsdokxcl4kcq"

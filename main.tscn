@@ -5,51 +5,35 @@
 [ext_resource type="Resource" uid="uid://chprsx4rgoews" path="res://Resources/goblin.tres" id="3_yaehf"]
 [ext_resource type="Resource" uid="uid://cvjwetv7ioawv" path="res://Resources/orc.tres" id="4_074og"]
 [ext_resource type="Resource" uid="uid://yycvklvyr2dq" path="res://Resources/spider.tres" id="4_cegan"]
-[ext_resource type="Texture2D" uid="uid://15cxj7jcn5m1" path="res://Assets/Textures/Template.jpeg" id="5_5vw27"]
+[ext_resource type="Texture2D" uid="uid://15cxj7jcn5m1" path="res://assets/Textures/Template.jpeg" id="5_5vw27"]
 [ext_resource type="Resource" uid="uid://lpe64hy5x8p4" path="res://Resources/bugbear.tres" id="5_82xsv"]
 [ext_resource type="Resource" uid="uid://jfuprxvscea5" path="res://Resources/ent.tres" id="5_cegan"]
-[ext_resource type="AudioStream" uid="uid://cvccxj34w26rx" path="res://Assets/Music/Tuff.wav" id="6_7mycd"]
+[ext_resource type="AudioStream" uid="uid://cvccxj34w26rx" path="res://assets/Music/Tuff.wav" id="6_7mycd"]
 [ext_resource type="Resource" uid="uid://bseo8gtjfygct" path="res://Resources/shade.tres" id="6_82xsv"]
 [ext_resource type="Theme" uid="uid://cavpspuku5k33" path="res://UI/Label_theme.tres" id="6_kek77"]
 [ext_resource type="Resource" uid="uid://b63ppxowu7bty" path="res://Resources/fiend.tres" id="7_getpj"]
 [ext_resource type="Resource" uid="uid://des7ds5ars6hp" path="res://Resources/dragon.tres" id="8_ryguw"]
 [ext_resource type="Theme" uid="uid://dhca8ffw8gdbx" path="res://UI/Button_theme.tres" id="10_4c57u"]
 [ext_resource type="Resource" uid="uid://c2e1khf12cvdy" path="res://Resources/Markus.tres" id="11_82xsv"]
-[ext_resource type="Script" uid="uid://lsdokxcl4kcq" path="res://Scripts/monster_stats.gd" id="11_cegan"]
-[ext_resource type="Texture2D" uid="uid://ccbnce1cgxxji" path="res://Assets/Textures/SummonTimeOutline.png" id="16_82xsv"]
-[ext_resource type="Texture2D" uid="uid://dm2f0fbllnvwe" path="res://Assets/Textures/SummonTimeFill.png" id="17_getpj"]
-[ext_resource type="Texture2D" uid="uid://ouhf7hh8xnj5" path="res://Assets/Textures/HealthbarOutline.png" id="18_82xsv"]
-[ext_resource type="Texture2D" uid="uid://bo83u63p7bc7t" path="res://Assets/Textures/HealthFill.png" id="19_82xsv"]
-[ext_resource type="Texture2D" uid="uid://47ea335bxlil" path="res://Assets/Textures/Background.png" id="21_getpj"]
-[ext_resource type="Texture2D" uid="uid://t25ekikyhyd7" path="res://Assets/Textures/fireball.png" id="22_1u8w0"]
-[ext_resource type="Texture2D" uid="uid://bkrguavlimmu7" path="res://Assets/Textures/Spell3.png" id="22_jq2sk"]
-[ext_resource type="Texture2D" uid="uid://ds5fbtivmpdwu" path="res://Assets/Textures/Magic2.png" id="22_qsp4k"]
-[ext_resource type="Texture2D" uid="uid://bxs2fim3i3s1u" path="res://Assets/Textures/fireballpressed.png" id="23_0odxb"]
-[ext_resource type="Texture2D" uid="uid://dtjmfwtifpifi" path="res://Assets/Textures/Spell3pressed.png" id="23_4k2k6"]
-[ext_resource type="Texture2D" uid="uid://dmhmaq5ci5my2" path="res://Assets/Textures/Magic2pressed.png" id="23_kq58d"]
-[ext_resource type="Texture2D" uid="uid://rc5o8rssm5ag" path="res://Assets/Textures/Spell3hover.png" id="24_0rl1p"]
-[ext_resource type="Texture2D" uid="uid://bf5wqqghsocg0" path="res://Assets/Textures/fireballhover.png" id="24_lswn8"]
-[ext_resource type="Texture2D" uid="uid://b26jdnqhvigev" path="res://Assets/Textures/Magic2hover.png" id="24_seu75"]
+[ext_resource type="Resource" uid="uid://c82jnigy3dgqo" path="res://Resources/Orc_Warlord.tres" id="12_4k2k6"]
+[ext_resource type="Resource" uid="uid://h2vw3ekqluh1" path="res://Resources/Vordt.tres" id="13_0rl1p"]
+[ext_resource type="Texture2D" uid="uid://ccbnce1cgxxji" path="res://assets/Textures/SummonTimeOutline.png" id="16_82xsv"]
+[ext_resource type="Texture2D" uid="uid://dm2f0fbllnvwe" path="res://assets/Textures/SummonTimeFill.png" id="17_getpj"]
+[ext_resource type="Texture2D" uid="uid://ouhf7hh8xnj5" path="res://assets/Textures/HealthbarOutline.png" id="18_82xsv"]
+[ext_resource type="Texture2D" uid="uid://bo83u63p7bc7t" path="res://assets/Textures/HealthFill.png" id="19_82xsv"]
+[ext_resource type="Texture2D" uid="uid://btxdba4bxohpd" path="res://assets/Textures/BackgroundNew.png" id="21_jq2sk"]
+[ext_resource type="Texture2D" uid="uid://t25ekikyhyd7" path="res://assets/Textures/fireball.png" id="22_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://bkrguavlimmu7" path="res://assets/Textures/Spell3.png" id="22_jq2sk"]
+[ext_resource type="Texture2D" uid="uid://ds5fbtivmpdwu" path="res://assets/Textures/Magic2.png" id="22_qsp4k"]
+[ext_resource type="Texture2D" uid="uid://bxs2fim3i3s1u" path="res://assets/Textures/fireballpressed.png" id="23_0odxb"]
+[ext_resource type="Texture2D" uid="uid://dtjmfwtifpifi" path="res://assets/Textures/Spell3pressed.png" id="23_4k2k6"]
+[ext_resource type="Texture2D" uid="uid://dmhmaq5ci5my2" path="res://assets/Textures/Magic2pressed.png" id="23_kq58d"]
+[ext_resource type="Texture2D" uid="uid://rc5o8rssm5ag" path="res://assets/Textures/Spell3hover.png" id="24_0rl1p"]
+[ext_resource type="Texture2D" uid="uid://bf5wqqghsocg0" path="res://assets/Textures/fireballhover.png" id="24_lswn8"]
+[ext_resource type="Texture2D" uid="uid://b26jdnqhvigev" path="res://assets/Textures/Magic2hover.png" id="24_seu75"]
 [ext_resource type="PackedScene" uid="uid://b2c24qhrf025h" path="res://tooltip.tscn" id="25_0odxb"]
 [ext_resource type="Script" uid="uid://lyyjuy537oh6" path="res://Scripts/magicmain.gd" id="25_lswn8"]
-[ext_resource type="Texture2D" uid="uid://dmec67suk3lgt" path="res://Assets/Textures/Spell3disabled.png" id="25_ok6jj"]
-
-[sub_resource type="Resource" id="Resource_mp045"]
-script = ExtResource("11_cegan")
-max_health = 2000
-name = "Orc Warlord"
-experience_dropped = 500
-rarity = 2
-named = true
-metadata/_custom_type_script = "uid://lsdokxcl4kcq"
-
-[sub_resource type="Resource" id="Resource_82xsv"]
-script = ExtResource("11_cegan")
-max_health = 5000
-name = "Vordt The Malificent"
-experience_dropped = 999
-named = true
-metadata/_custom_type_script = "uid://lsdokxcl4kcq"
+[ext_resource type="Texture2D" uid="uid://dmec67suk3lgt" path="res://assets/Textures/Spell3disabled.png" id="25_ok6jj"]
 
 [sub_resource type="Animation" id="Animation_4k2k6"]
 length = 0.001
@@ -123,8 +107,8 @@ shade = ExtResource("6_82xsv")
 fiend = ExtResource("7_getpj")
 dragon = ExtResource("8_ryguw")
 Markus = ExtResource("11_82xsv")
-Orc_Warlord = SubResource("Resource_mp045")
-Vordt = SubResource("Resource_82xsv")
+Orc_Warlord = ExtResource("12_4k2k6")
+Vordt = ExtResource("13_0rl1p")
 
 [node name="TimeLeft" type="Timer" parent="." unique_id=1274428103]
 wait_time = 30.0
@@ -477,20 +461,6 @@ offset_bottom = 200.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=850868422]
-z_index = -10
-anchors_preset = -1
-anchor_top = 0.015000001
-anchor_right = 1.0250001
-anchor_bottom = 1.0
-offset_top = -16.32
-offset_right = -0.00024414063
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.16078432, 0.1764706, 0.25490198, 1)
-metadata/_edit_lock_ = true
-
 [node name="Background" type="TextureRect" parent="." unique_id=1453649979]
 anchors_preset = 8
 anchor_left = 0.5
@@ -504,7 +474,7 @@ offset_bottom = 547.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("21_getpj")
+texture = ExtResource("21_jq2sk")
 stretch_mode = 4
 metadata/_edit_lock_ = true
 

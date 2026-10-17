@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MStats" format=3 uid="uid://c82jnigy3dgqo"]
+
+[ext_resource type="Script" uid="uid://lsdokxcl4kcq" path="res://Scripts/monster_stats.gd" id="1_sqt25"]
+
+[resource]
+script = ExtResource("1_sqt25")
+max_health = 2000
+name = "Orc Warlord"
+experience_dropped = 500
+rarity = 3
+named = true
+metadata/_custom_type_script = "uid://lsdokxcl4kcq"

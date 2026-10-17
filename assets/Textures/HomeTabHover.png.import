@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxlsfydpl6a0p"
-path="res://.godot/imported/HomeTabHover.png-03c81513dce72b54f256af42b799f8a3.ctex"
+path="res://.godot/imported/HomeTabHover.png-c5cfae1c1a38e10decaa5603d622384a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/HomeTabHover.png"
-dest_files=["res://.godot/imported/HomeTabHover.png-03c81513dce72b54f256af42b799f8a3.ctex"]
+source_file="res://assets/Textures/HomeTabHover.png"
+dest_files=["res://.godot/imported/HomeTabHover.png-c5cfae1c1a38e10decaa5603d622384a.ctex"]
 
 [params]
 

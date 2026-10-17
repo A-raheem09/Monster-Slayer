@@ -1,23 +1,23 @@
 [gd_scene format=3 uid="uid://c2554nqurur1t"]
 
 [ext_resource type="Script" uid="uid://b78nfhf0wq0ww" path="res://Scripts/encyclopedia.gd" id="1_tkokc"]
-[ext_resource type="Texture2D" uid="uid://3ykt42a0wnhc" path="res://Assets/Textures/monstertab.png" id="2_kiusj"]
-[ext_resource type="Texture2D" uid="uid://cnw7o5pej0c60" path="res://Assets/Textures/HomeTab.png" id="2_oacc5"]
-[ext_resource type="Texture2D" uid="uid://c8htwtagtsacv" path="res://Assets/Textures/EncTemp1.png" id="2_oumk7"]
+[ext_resource type="Texture2D" uid="uid://3ykt42a0wnhc" path="res://assets/Textures/monstertab.png" id="2_kiusj"]
+[ext_resource type="Texture2D" uid="uid://cnw7o5pej0c60" path="res://assets/Textures/HomeTab.png" id="2_oacc5"]
+[ext_resource type="Texture2D" uid="uid://c8htwtagtsacv" path="res://assets/Textures/EncTemp1.png" id="2_oumk7"]
 [ext_resource type="Theme" uid="uid://bpgfd7qp5ddf5" path="res://UI/Enc_Theme.tres" id="3_k1sou"]
-[ext_resource type="Texture2D" uid="uid://bvrjhn31nn75f" path="res://Assets/Textures/HomeTabPressed.png" id="3_lddes"]
-[ext_resource type="Texture2D" uid="uid://d0a0tfkoj625b" path="res://Assets/Textures/monstertabpressed.png" id="3_sn2o8"]
-[ext_resource type="Texture2D" uid="uid://725r0dase8mu" path="res://Assets/Textures/monstertabhover.png" id="4_83hcf"]
+[ext_resource type="Texture2D" uid="uid://bvrjhn31nn75f" path="res://assets/Textures/HomeTabPressed.png" id="3_lddes"]
+[ext_resource type="Texture2D" uid="uid://d0a0tfkoj625b" path="res://assets/Textures/monstertabpressed.png" id="3_sn2o8"]
+[ext_resource type="Texture2D" uid="uid://725r0dase8mu" path="res://assets/Textures/monstertabhover.png" id="4_83hcf"]
 [ext_resource type="Script" uid="uid://c4ey3feuwvocb" path="res://Scripts/monstertab.gd" id="4_lddes"]
-[ext_resource type="Texture2D" uid="uid://dxlsfydpl6a0p" path="res://Assets/Textures/HomeTabHover.png" id="4_oumk7"]
+[ext_resource type="Texture2D" uid="uid://dxlsfydpl6a0p" path="res://assets/Textures/HomeTabHover.png" id="4_oumk7"]
 [ext_resource type="Script" uid="uid://doq5p4005omoc" path="res://Scripts/HelpTab.gd" id="5_oumk7"]
-[ext_resource type="Texture2D" uid="uid://d0bo7odmcbble" path="res://Assets/Textures/misctab.png" id="6_oacc5"]
-[ext_resource type="Texture2D" uid="uid://bwke3qq1gyvlo" path="res://Assets/Textures/misctabpressed.png" id="7_lddes"]
-[ext_resource type="Texture2D" uid="uid://c64u2myoxbqvt" path="res://Assets/Textures/misctabhover.png" id="8_oumk7"]
-[ext_resource type="Texture2D" uid="uid://d1aivttevgu6j" path="res://Assets/Textures/Encyclopedia.png" id="9_k1sou"]
-[ext_resource type="Texture2D" uid="uid://cjb3d7m8bog4q" path="res://Assets/Textures/exittab.png" id="9_sn2o8"]
-[ext_resource type="Texture2D" uid="uid://beb48s087cye0" path="res://Assets/Textures/exittabpressed.png" id="10_83hcf"]
-[ext_resource type="AudioStream" uid="uid://52igfav7ii4q" path="res://Assets/Music/Menu.wav" id="18_k1sou"]
+[ext_resource type="Texture2D" uid="uid://d0bo7odmcbble" path="res://assets/Textures/misctab.png" id="6_oacc5"]
+[ext_resource type="Texture2D" uid="uid://bwke3qq1gyvlo" path="res://assets/Textures/misctabpressed.png" id="7_lddes"]
+[ext_resource type="Texture2D" uid="uid://c64u2myoxbqvt" path="res://assets/Textures/misctabhover.png" id="8_oumk7"]
+[ext_resource type="Texture2D" uid="uid://d1aivttevgu6j" path="res://assets/Textures/Encyclopedia.png" id="9_k1sou"]
+[ext_resource type="Texture2D" uid="uid://cjb3d7m8bog4q" path="res://assets/Textures/exittab.png" id="9_sn2o8"]
+[ext_resource type="Texture2D" uid="uid://beb48s087cye0" path="res://assets/Textures/exittabpressed.png" id="10_83hcf"]
+[ext_resource type="AudioStream" uid="uid://52igfav7ii4q" path="res://assets/Music/Menu.wav" id="18_k1sou"]
 
 [node name="Encyclopedia" type="Control" unique_id=1913904340]
 layout_mode = 3
@@ -216,10 +216,10 @@ anchor_left = 0.163
 anchor_top = 0.20700002
 anchor_right = 0.163
 anchor_bottom = 0.20700002
-offset_left = -63.48001
-offset_top = -55.560013
-offset_right = 472.52
-offset_bottom = 592.44
+offset_left = -38.48001
+offset_top = -46.560013
+offset_right = 497.52
+offset_bottom = 601.44
 texture = ExtResource("2_oumk7")
 region_rect = Rect2(0, 0, 64, 64)
 patch_margin_left = 4
@@ -286,6 +286,14 @@ text = "Class"
 script = ExtResource("5_oumk7")
 Name = "Class"
 description = "Classes are unique to humans (and some intelligent humanoids) and they are a way of specializing that increase an individual's strength greatly"
+
+[node name="MonsterSpawn" type="Button" parent="HelpTabHolder/ScrollContainer/VBoxContainer" unique_id=176243776]
+layout_mode = 2
+theme = ExtResource("3_k1sou")
+text = "Rift"
+script = ExtResource("5_oumk7")
+Name = "The Rift"
+description = "A Rift in the void that transports you to a random area based on your mana density and other factors like wavelengths, the stability of the time space continuum and the karnoffel code"
 
 [node name="DescriptionBox" type="NinePatchRect" parent="HelpTabHolder" unique_id=380047398]
 visible = false

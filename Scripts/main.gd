@@ -10,6 +10,7 @@ var necro_dmg
 var necro_cost
 var necro_on:bool
 var db_cost
+var monster_roll : int
 @export var slime : MStats
 @export var monstrous_spider : MStats
 @export var goblin : MStats
@@ -58,16 +59,17 @@ func initialiser():
 		$Necromancy.hide()
 	Save.stats['expreq'] = 10 + Save.stats['level'] * exp_increase
 	if Save.stats['difficulty'] == 1:
+		Stats.current_biome = Stats.biome.Plains
 		$ControlTut.text = 'Press the Spacebar to deal damage'
 		$TimeTut.text = 'Every second you remain outside drains 1 Mana so make sure to keep an eye on the bar'
 	notif_amount = 1
+	Stats.run_luck = randi_range(1,3) * Save.stats['difficulty']/50
 	level.text = "Level: " + str(Save.stats['level'])
 	Stats.update_damage(damage)
 	diff.text = "Difficulty: " + str(Save.stats['difficulty'])
-	Stats.run_luck = randi_range(1,3) * Save.stats['difficulty']/50
 	monster_health.max_value = Max_Health
 	monster_health.value = Health
-	monster_spawn()
+	biome_spawn()
 func Monster_killed():
 	Stats.add_kills()
 	Save.stats['difficulty'] += 1
@@ -82,7 +84,7 @@ func Monster_killed():
 	if (Save.stats['difficulty']) in named_spawn:
 		named_spawner()
 	else:
-		monster_spawn()
+		biome_spawn()
 func _process(_delta:float):
 	summon_bar.value = int(Summon_time.time_left)
 	if Health <= 0:
@@ -148,30 +150,33 @@ func named_spawner():
 	elif Save.stats['difficulty'] == named_spawn[2]:
 		spawn(Vordt)
 func spawn(Name:MStats):
-	var last_monster = monster_name.text 
-	if last_monster == Name.name:
-		repeat_number += 1
+	if (Save.stats['difficulty']) in named_spawn:
+		named_spawner()
 	else:
-		repeat_number = 0
-	if repeat_number > 2:
-		monster_spawn()
-	else:
-		current_monster = Name
-		monster_name.text = Name.name
-		if Name.named:
-			monster_name.modulate = Color.GOLD
+		var last_monster = monster_name.text 
+		if last_monster == Name.name:
+			repeat_number += 1
 		else:
-			match Name.rarity:
-				0: monster_name.modulate= Color(0.93, 0.93, 0.93, 1.0)
-				1: monster_name.modulate= Color(0.247, 0.792, 0.333, 1.0)
-				2: monster_name.modulate= Color(0.941, 0.075, 0.196, 1.0)
-				3: monster_name.modulate= Color(0.599, 0.003, 0.905, 1.0)
-		Max_Health = Name.max_health * Save.stats['difficulty']/25
-		if Max_Health <= 10:
-			Max_Health = 10
-		Health = Max_Health
-		monster_health.max_value = Max_Health
-		monster_health.value = monster_health.max_value
+			repeat_number = 0
+		if repeat_number > 2:
+			monster_spawn()
+		else:
+			current_monster = Name
+			monster_name.text = Name.name
+			if Name.named:
+				monster_name.modulate = Color.GOLD
+			else:
+				match Name.rarity: #set color of name
+					0: monster_name.modulate= Color(0.93, 0.93, 0.93, 1.0)
+					1: monster_name.modulate= Color(0.247, 0.792, 0.333, 1.0)
+					2: monster_name.modulate= Color(0.941, 0.075, 0.196, 1.0)
+					3: monster_name.modulate= Color(0.599, 0.003, 0.905, 1.0)
+			Max_Health = Name.max_health * Save.stats['difficulty']/25
+			if Max_Health <= 10:
+				Max_Health = 10
+			Health = Max_Health
+			monster_health.max_value = Max_Health
+			monster_health.value = monster_health.max_value
 func _on_back_button_pressed() :
 	get_tree().change_scene_to_file("res://Idle.tscn")
 	pass # Replace with function body.
@@ -200,10 +205,10 @@ func initiliase_magic():
 	$"MagicSpells/Dark Blast/Tooltip".Effect = 'Does ' + str(db) +'% of your regular damage per use'
 	#expboost setup
 	match Save.skills[11]:
-		0: exp_boost = 2
-		1: exp_boost = 3
-		2: exp_boost = 4
-		3: exp_boost = 5
+		0: exp_boost = 1.5
+		1: exp_boost = 2
+		2: exp_boost = 2.5
+		3: exp_boost = 3
 	$MagicSpells/ExpBoost/Tooltip.Effect = " " + str(exp_boost * 100) + "% Experience Gain For The Next 30 Seconds"
 	match Save.skills[13]:
 		0: necro_percent = 0.02
@@ -262,7 +267,6 @@ func lvl_notif():
 		$CanvasLayer/Notification/Notification2/Notification.text = "x" + str(notif_amount)
 		$CanvasLayer/Notification/Notification2.show()
 	pass
-
 func _on_necro_timeout():
 	necro_dmg = Stats.damage * necro_percent
 	var mana_left = Summon_time.time_left
@@ -289,3 +293,111 @@ func mana_notif():
 	$CanvasLayer/Notification/NotifTimer.start(1.75)
 	$CanvasLayer/Notification.show()
 	$CanvasLayer/Notification/Notification2.hide()
+func biome_spawn():
+		match Stats.current_biome:
+			Stats.biome.Plains: plains_spawn()
+			Stats.biome.Forest: forest_spawn()
+			Stats.biome.Cave: cave_spawn()
+			Stats.biome.Highlands: highland_spawn()
+			Stats.biome.MountainRange: mountain_spawn()
+func plains_spawn():
+	monster_roll = randi_range(0,500) + (Stats.run_luck * 1.5)
+	if 0 <= monster_roll and monster_roll <= 250:
+		var croll = randi_range(1,3)
+		if croll == 1:
+			var mroll = randi_range(1,100)
+			if mroll + Stats.run_luck == 100:
+				Markus.max_health = 60 * Stats.monsters_killed
+				Markus.experience_dropped = 5 + Stats.monsters_killed
+			else:
+				spawn(slime)
+		elif croll == 2:
+			spawn(goblin)
+	elif monster_roll > 250 and monster_roll >= 450:
+		var rroll = randi_range(0,4)
+		if rroll <= 2:
+			spawn(orc)
+		elif rroll == 3:
+			spawn(ent)
+		elif rroll == 4:
+			spawn(bugbear)
+	elif monster_roll > 450:
+		var lroll = randi_range(0,100)
+		if lroll < 50:
+			spawn(ent)
+		elif lroll>= 50 and lroll < 99:
+			spawn(orc)
+		elif lroll == 100:
+			spawn(dragon)
+func forest_spawn():
+	monster_roll = randi_range(0,500) + (Stats.run_luck * 1.5)
+	if monster_roll >= 0 and monster_roll <= 250:
+		var croll = randi_range(1,3)
+		if croll == 1:
+			var mroll = randi_range(1,100)
+			if mroll + Stats.run_luck == 100:
+				Markus.max_health = 60 * Stats.monsters_killed
+				Markus.experience_dropped = 5 + Stats.monsters_killed
+		elif croll == 2:
+			spawn(goblin)
+		elif croll == 3:
+			spawn(monstrous_spider)
+	elif monster_roll > 250 and monster_roll <= 450:
+		var rroll = randi_range(1,4)
+		if rroll == 1:
+			spawn(bugbear)
+		elif rroll > 1 and rroll < 4:
+			spawn(ent)
+		elif rroll == 4:
+			spawn(orc)
+	elif monster_roll > 450:
+		var lroll = randi_range(1,10)
+		if lroll == 6 or lroll == 7:
+			spawn(shade)
+		elif lroll > 8:
+			spawn(fiend)
+		elif lroll < 3:
+			spawn(orc)
+		elif lroll > 3 and lroll < 6:
+			spawn(shade)
+func cave_spawn():
+	monster_roll = randi_range(0,500) + (Stats.run_luck * 1.5)
+	if monster_roll >= 0 and monster_roll <= 150:
+		spawn(monstrous_spider)
+	elif monster_roll > 150 and monster_roll <= 400:
+		var rroll = randi_range(1,2)
+		if rroll == 1:
+			spawn(slime)
+		if rroll == 2:
+			spawn(goblin)
+	elif monster_roll > 400:
+		var lroll = randi_range(1,2)
+		if lroll == 1:
+			spawn(shade)
+		elif lroll == 2:
+			spawn(fiend)
+func highland_spawn():
+	monster_roll = randi_range(0,500) + (Stats.run_luck * 1.5)
+	if monster_roll >= 0 and monster_roll <= 300:
+		var rroll = randi_range(1,5)
+		if rroll == 1:
+			spawn(ent)
+		elif rroll == 2:
+			spawn(orc)
+		elif rroll == 3:
+			spawn(bugbear)
+		else:
+			spawn(goblin)
+		pass
+	elif monster_roll > 300:
+		var lroll = randi_range(1,5)
+		if lroll == 5:
+			spawn(dragon)
+		elif lroll < 5:
+			spawn(fiend)
+func mountain_spawn():
+	var roll = randi_range(1,3)
+	if roll == 1:
+		spawn(shade)
+	else:
+		spawn(dragon)

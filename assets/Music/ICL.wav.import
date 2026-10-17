@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bi1muus7n2pd"
-path="res://.godot/imported/ICL.wav-d21d681280fc20f288e9137392c7caca.sample"
+path="res://.godot/imported/ICL.wav-6c6283f3a2770df142bcba371fb8a19f.sample"
 
 [deps]
 
-source_file="res://Assets/Music/ICL.wav"
-dest_files=["res://.godot/imported/ICL.wav-d21d681280fc20f288e9137392c7caca.sample"]
+source_file="res://assets/Music/ICL.wav"
+dest_files=["res://.godot/imported/ICL.wav-6c6283f3a2770df142bcba371fb8a19f.sample"]
 
 [params]
 

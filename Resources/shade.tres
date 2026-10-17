@@ -8,4 +8,7 @@ max_health = 1200
 name = "Shade"
 experience_dropped = 99
 rarity = 2
+main_location = 2
+alt_location = 4
+rare_location = 1
 metadata/_custom_type_script = "uid://lsdokxcl4kcq"

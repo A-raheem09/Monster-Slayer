@@ -23,7 +23,7 @@ var skills:Array = [
 	0,
 ]
 var pkeys:Dictionary = {
-	'newsave':true,
+	'oldsave':false,
 	'encopened':false,
 	'skilltabopened':false,
 	'slothkilled':false,
@@ -57,6 +57,7 @@ var stats = {
 const FILE_PATH = "user://MSSaveFile.json"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_save()
 	_load()
 	pass # Replace with function body.
 

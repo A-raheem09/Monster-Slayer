@@ -1,8 +1,8 @@
 extends Control
 func _ready():
-	$AnimationPlayer.play("RESET")
+	$AnimationPlayer.play("RESET") #make sure everythings ordered properly
 	$ColorRect2.visible = false
-	if Save.pkeys['newsave'] == true:
+	if Save.pkeys['oldsave'] == false: #load intro if its their first time loading in
 		Stats.load_scene('intro')
 	if Stats.fade_in == true:
 		$AnimationPlayer.play('fade_in')
@@ -41,6 +41,7 @@ func _on_skills_pressed() -> void:
 	pass # Replace with function body.
 func _on_timer_timeout() -> void:
 	var start = func start_game():
+			Stats.roll_biome()
 			Stats.load_scene('main')
 	$AnimationPlayer.play("fade_to_black")
 	var timer = get_tree().create_timer(0.5)

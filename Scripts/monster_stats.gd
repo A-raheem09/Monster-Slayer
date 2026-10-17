@@ -6,6 +6,9 @@ class_name MStats
 @export var experience_dropped : int
 @export var rarity : spawn_rarity
 @export var named : bool
+@export var main_location: Stats.biome
+@export var alt_location: Stats.biome
+@export var rare_location: Stats.biome
 enum spawn_rarity{
 	Common,
 	Rare,

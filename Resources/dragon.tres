@@ -8,4 +8,6 @@ max_health = 9999
 name = "Dragon"
 experience_dropped = 999
 rarity = 3
+main_location = 4
+alt_location = 3
 metadata/_custom_type_script = "uid://lsdokxcl4kcq"

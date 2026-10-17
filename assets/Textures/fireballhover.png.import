@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bf5wqqghsocg0"
-path="res://.godot/imported/fireballhover.png-0f7a0ec368a45fc4a70c8fd7e5b4132f.ctex"
+path="res://.godot/imported/fireballhover.png-21f3fe587fb78cdadd0b2fa9a68ac4db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/fireballhover.png"
-dest_files=["res://.godot/imported/fireballhover.png-0f7a0ec368a45fc4a70c8fd7e5b4132f.ctex"]
+source_file="res://assets/Textures/fireballhover.png"
+dest_files=["res://.godot/imported/fireballhover.png-21f3fe587fb78cdadd0b2fa9a68ac4db.ctex"]
 
 [params]
 

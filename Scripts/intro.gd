@@ -10,6 +10,7 @@ func _ready() -> void:
 	timer.timeout.connect(_diag_show)
 	timer.one_shot = false
 	start_diag()
+	$Button.pressed.connect(leave)
 	
 	pass # Replace with function body.
 func diag_finished():
@@ -30,20 +31,16 @@ func _process(_delta: float) -> void:
 	if count == 1:
 		timer.stop()
 		count = 0
-		print('finished')
 		$Finished.start(1)
 	pass
 func start_diag():
 	if diag_number == 1:
-		print('diag_number1')
 		Txt.text = "You're finally awake.."
 		count = 0
 		timer.start(0.08)
 	if diag_number == 2:
-		print('diag_number2')
 		Txt.visible_ratio = 0
 		Txt.text = "Your questions will have to go unanswered for now"
-		
 		timer.start(0.08)
 	if diag_number == 3:
 		diag_finished()
@@ -56,19 +53,18 @@ func _diag_show():
 
 func _on_finished() -> void:
 	diag_number += 1
-	print('finishedpro')
 	start_diag()
 	pass # Replace with function body.
 
 
 func on_portal_opened() -> void:
-	Save.pkeys['newsave'] = false
 	$AnimationPlayer.play("eye-close")
 	var time = get_tree().create_timer(1.2)
 	time.timeout.connect(leave)
 	
 	pass # Replace with function body.
 func leave():
+	Save.pkeys['oldsave'] = true
 	Stats.fade_in = true
 	Save._save()
 	Stats.load_scene('idle')
