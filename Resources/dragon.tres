@@ -6,6 +6,7 @@
 script = ExtResource("1_p6o3v")
 max_health = 9999
 name = "Dragon"
+varname = "Dragon"
 experience_dropped = 999
 rarity = 3
 main_location = 4

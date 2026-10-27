@@ -40,8 +40,8 @@ func upgrade():
 	Save.stats[stat_to_change] += change_percent
 
 func _on_pressed() -> void:
-	if Save.stats['spoints'] >= Cost and (Save.skills[upgrade_number] + 1) <= MaxLevel:
-		Save.stats['spoints'] -= Cost
+	if Save.stats['SPoints'] >= Cost and (Save.skills[upgrade_number] + 1) <= MaxLevel:
+		Save.stats['SPoints'] -= Cost
 		Save.skills[upgrade_number] += 1
 		upgrade()
 	var skills = get_children()

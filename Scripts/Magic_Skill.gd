@@ -49,8 +49,8 @@ func _process(_delta: float) -> void:
 
 func _on_pressed() -> void:
 	
-	if Save.stats['spoints'] >= Cost and (Save.skills[upgrade_number] + 1) <= MaxLevel:
-		Save.stats['spoints'] -= Cost
+	if Save.stats['SPoints'] >= Cost and (Save.skills[upgrade_number] + 1) <= MaxLevel:
+		Save.stats['SPoints'] -= Cost
 		Save.skills[upgrade_number] += 1
 		
 	var skills = get_children()

@@ -6,6 +6,7 @@
 script = ExtResource("1_mpoik")
 max_health = 60
 name = "Mucus"
+varname = "Mucus"
 experience_dropped = 5
 alt_location = 1
 rare_location = 2

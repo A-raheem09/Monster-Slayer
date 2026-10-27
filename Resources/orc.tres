@@ -6,6 +6,7 @@
 script = ExtResource("1_vc8qi")
 max_health = 220
 name = "Orc"
+varname = "Orc"
 experience_dropped = 20
 rarity = 1
 alt_location = 1

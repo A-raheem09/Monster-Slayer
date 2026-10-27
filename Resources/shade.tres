@@ -6,6 +6,7 @@
 script = ExtResource("1_yr2vn")
 max_health = 1200
 name = "Shade"
+varname = "Shade"
 experience_dropped = 99
 rarity = 2
 main_location = 2

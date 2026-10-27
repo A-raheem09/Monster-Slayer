@@ -4,7 +4,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$MenuMusic.play(Stats.musicpos)
-	if Save.stats['volume'] == -10:
+	if Save.stats['Volume'] == -10:
 		$CanvasLayer/VBoxContainer/NinePatchRect/CheckBox.button_pressed = true
 		AudioServer.set_bus_mute(0,true)
 		$CanvasLayer/VBoxContainer/NinePatchRect/HSlider.set_value_no_signal(-5)
@@ -13,7 +13,7 @@ func _ready() -> void:
 	pass 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Save.stats['volume'] == -10:
+	if Save.stats['Volume'] == -10:
 		$CanvasLayer/VBoxContainer/NinePatchRect/CheckBox.button_pressed = true
 		$CanvasLayer/VBoxContainer/NinePatchRect/HSlider.set_value_no_signal(-5)
 	else:
@@ -38,8 +38,8 @@ func _on_720p_pressed() -> void:
 	DisplayServer.window_set_size(Vector2i(1280,720))
 	pass
 func _on_h_slider_value_changed(value: float) -> void:
-	Save.stats['volume'] = value
-	AudioServer.set_bus_volume_db(0,(Save.stats['volume']))
+	Save.stats['Volume'] = value
+	AudioServer.set_bus_volume_db(0,(Save.stats['Volume']))
 	pass # Replace with function body.
 func _on_menu_music_finished() -> void:
 	$MenuMusic.play()
@@ -47,7 +47,7 @@ func _on_menu_music_finished() -> void:
 func _on_check_box_toggled(toggled_on: bool) -> void: 
 	Stats.mute = toggled_on
 	if Stats.mute == true:
-		Save.stats['volume'] = -10
+		Save.stats['Volume'] = -10
 	AudioServer.set_bus_mute(0,toggled_on)
 	pass
 

@@ -1,6 +1,6 @@
 extends Node
 @onready var total_copper = 0
-@onready var damage = Save.stats['damage'] * Save.stats['dmg_mult']
+@onready var damage = Save.stats['Damage'] * Save.stats['DmgMult']
 @onready var run_luck :int 
 @onready var monsters_killed = 0
 @onready var max_dmg = 100000
@@ -43,8 +43,9 @@ enum biome{
 }
 var current_biome :biome
 var last_biome :biome
-func add_kills():
+func add_kills(MonsterName:String):
 	monsters_killed += 1 
+	Save.stats[MonsterName+'Killed'] += 1
 func load_scene(level_name:String):
 	
 	match level_name:
@@ -60,17 +61,17 @@ func load_scene(level_name:String):
 			get_tree().change_scene_to_file("res://skill_tree.tscn")
 		'intro':
 			get_tree().change_scene_to_file("res://intro.tscn")
-	if Save.stats['volume'] == -10:
+	if Save.stats['Volume'] == -10:
 		AudioServer.set_bus_mute(0,true)
 	else:
-		AudioServer.set_bus_volume_db(0,(Save.stats['volume']))
+		AudioServer.set_bus_volume_db(0,(Save.stats['Volume']))
 	pass
 func update_damage(label_name:Label):
-	damage = Save.stats['damage'] * Save.stats['dmg_mult']
-	if Save.stats['damage'] * Save.stats['dmg_mult'] > 25:
-		label_name.text = 'Damage : ' + str(int(Save.stats['damage'] * Save.stats['dmg_mult']))
+	damage = Save.stats['Damage'] * Save.stats['DmgMult']
+	if Save.stats['Damage'] * Save.stats['DmgMult'] > 25:
+		label_name.text = 'Damage : ' + str(int(Save.stats['Damage'] * Save.stats['DmgMult']))
 	else:
-		label_name.text = 'Damage : ' + str(Save.stats['damage'] * Save.stats['dmg_mult'])
+		label_name.text = 'Damage : ' + str(Save.stats['Damage'] * Save.stats['DmgMult'])
 func update_label(label_name:Label,stat_name:String, stat):
 	label_name.text = stat_name + ' : ' + str(stat)
 func reset_save():
@@ -85,7 +86,7 @@ func roll_biome():
 		last_biome = current_biome
 		var diff_mult = randi_range(0,15)
 		var diff_effect = randf() #difficulty affects your biome roll by 0-100%
-		var rng =  min(diff_mult + (Save.stats['difficulty'] * diff_effect), 20 )
+		var rng =  min(diff_mult + (Save.stats['Difficulty'] * diff_effect), 20 )
 		if rng >= 0 and rng <= 10: #common
 			var srng = randi_range(1,3)
 			match srng:
@@ -97,4 +98,3 @@ func roll_biome():
 			match srng:
 				1: current_biome = biome.Highlands
 				2: current_biome = biome.MountainRange
-		print(current_biome)

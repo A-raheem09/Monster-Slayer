@@ -1,9 +1,9 @@
 extends Node
 var Max_Health = 0
 var Health = 0
-var health_mult = 1 * Save.stats['difficulty']/10
+var health_mult = 1 * Save.stats['Difficulty']/10
 var repeat_number = 0
-var current_monster
+var current_monster : MStats
 var dark_blast_mult 
 var necro_percent 
 var necro_dmg
@@ -11,15 +11,15 @@ var necro_cost
 var necro_on:bool
 var db_cost
 var monster_roll : int
-@export var slime : MStats
-@export var monstrous_spider : MStats
-@export var goblin : MStats
-@export var orc : MStats
-@export var bugbear : MStats
-@export var ent : MStats
-@export var shade : MStats
-@export var fiend : MStats
-@export var dragon : MStats
+@export var Mucus : MStats
+@export var Spider : MStats
+@export var Goblin : MStats
+@export var Orc : MStats
+@export var Bugbear : MStats
+@export var Ent : MStats
+@export var Shade : MStats
+@export var Fiend : MStats
+@export var Dragon : MStats
 @export var Markus:MStats
 @export var Orc_Warlord:MStats
 @export var Vordt:MStats
@@ -35,7 +35,7 @@ var monster_roll : int
 @onready var necro_timer= $Necromancy/NecroTimer
 @onready var named_spawn = [10,50,150]
 @onready var exp_increase = 50
-@onready var max_mana = int(Save.stats['mana'] * Save.stats['summon_mult'])
+@onready var max_mana = int(Save.stats['Mana'] * Save.stats['SummonMult'])
 @onready var exp_boost : int
 @onready var boost_on = false
 @onready var notif_amount: int
@@ -57,40 +57,41 @@ func initialiser():
 	if Save.skills[9] != 1:
 		$MagicSpells.hide()
 		$Necromancy.hide()
-	Save.stats['expreq'] = 10 + Save.stats['level'] * exp_increase
-	if Save.stats['difficulty'] == 1:
+	Save.stats['ExpReq'] = 10 + Save.stats['Level'] * exp_increase
+	if Save.stats['Difficulty'] == 1:
 		Stats.current_biome = Stats.biome.Plains
 		$ControlTut.text = 'Press the Spacebar to deal damage'
 		$TimeTut.text = 'Every second you remain outside drains 1 Mana so make sure to keep an eye on the bar'
 	notif_amount = 1
-	Stats.run_luck = randi_range(1,3) * Save.stats['difficulty']/50
-	level.text = "Level: " + str(Save.stats['level'])
+	Stats.run_luck = randi_range(1,3) * Save.stats['Difficulty']/50
+	level.text = "Level: " + str(Save.stats['Level'])
 	Stats.update_damage(damage)
-	diff.text = "Difficulty: " + str(Save.stats['difficulty'])
+	diff.text = "Difficulty: " + str(Save.stats['Difficulty'])
 	monster_health.max_value = Max_Health
 	monster_health.value = Health
 	biome_spawn()
-func Monster_killed():
-	Stats.add_kills()
-	Save.stats['difficulty'] += 1
-	diff.text = "Difficulty: " + str(Save.stats['difficulty'])
-	if Save.stats['level'] < Stats.max_level:
+func Monster_killed(): 
+	var exp_gained = (current_monster.experience_dropped + Save.stats['Difficulty']) * Save.stats['ExpMult']
+	Stats.add_kills(current_monster.varname)
+	Save.stats['Difficulty'] += 1
+	diff.text = "Difficulty: " + str(Save.stats['Difficulty'])
+	if Save.stats['Level'] < Stats.max_level:
 		if boost_on:
-			Save.stats['exp'] += ((current_monster.experience_dropped + Save.stats['difficulty']) * Save.stats['exp_mult']) * exp_boost
+			Save.stats['Exp'] +=  exp_gained * exp_boost
 		else:
-			Save.stats['exp'] += ((current_monster.experience_dropped + Save.stats['difficulty']/2) * Save.stats['exp_mult'])
-		if Save.stats['exp'] >= Save.stats['expreq']:
+			Save.stats['Exp'] += exp_gained
+		if Save.stats['Exp'] >= Save.stats['ExpReq']:
 			level_up()
-	if (Save.stats['difficulty']) in named_spawn:
+	if (Save.stats['Difficulty']) in named_spawn:
 		named_spawner()
 	else:
 		biome_spawn()
 func _process(_delta:float):
 	summon_bar.value = int(Summon_time.time_left)
-	if Health <= 0:
-		await health_update()
-		Monster_killed()
-	if Save.stats['difficulty'] > 1:
+	if summon_bar.value != 0:
+		if Health <= 0:
+			Monster_killed()
+	if Save.stats['Difficulty'] > 1:
 		$ControlTut.hide()
 		$TimeTut.hide()
 func damage_taken():
@@ -100,15 +101,15 @@ func damage_taken():
 func _on_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://idle.tscn")
 func level_up():
-	Save.stats['exp'] -= Save.stats['expreq']
+	Save.stats['Exp'] -= Save.stats['Expreq']
 	lvl_notif()
 	$ControlTut.text = ""
-	Save.stats['level'] += 1
-	$CanvasLayer/LvlHolder/Level.text = 'Level: ' + str(Save.stats['level'])
-	Save.stats['points'] += 2
-	Save.stats['spoints'] += 1
-	Save.stats['expreq'] = 10 + Save.stats['level'] * exp_increase
-func monster_spawn():
+	Save.stats['Level'] += 1
+	$CanvasLayer/LvlHolder/Level.text = 'Level: ' + str(Save.stats['Level'])
+	Save.stats['Points'] += 2
+	Save.stats['SPoints'] += 1
+	Save.stats['ExpReq'] = 10 + Save.stats['Level'] * exp_increase
+func monster_spawn(): #OUTDATED
 	if (Save.stats['difficulty']) in named_spawn:
 		named_spawner()
 	else:
@@ -121,36 +122,38 @@ func monster_spawn():
 					Markus.max_health = 60 * Stats.monsters_killed
 					Markus.experience_dropped = 5 + Stats.monsters_killed
 				else:
-					spawn(slime)
+					spawn(Mucus)
 			elif croll == 2:
-				spawn(goblin)
+				spawn(Goblin)
 			else:
-				spawn(monstrous_spider)
+				spawn(Spider)
 		elif rng >= 500 and rng < 850: # 300-850 = Rare
 			var rroll = randi_range(1,3)
 			if rroll == 3:
-				spawn(ent)
+				spawn(Ent)
 			elif rroll == 2:
-				spawn(orc)
+				spawn(Orc)
 			else:
-				spawn(bugbear)
+				spawn(Bugbear)
 		elif rng >= 850 and rng <= 1100: # 850 - 1100 = Legends
 			var lroll = randi_range(1,4)
 			if lroll <= 3:
-				spawn(shade)
+				spawn(Shade)
 			else:
-				spawn(fiend)
+				spawn(Fiend)
 		elif rng > 1100:  #1100+ = Mythicals
-			spawn(dragon)
+			spawn(Dragon)
 func named_spawner():
-	if Save.stats['difficulty'] == named_spawn[0]:
+	if Save.stats['Difficulty'] == named_spawn[0]:
 		spawn(Markus)
-	elif Save.stats['difficulty'] == named_spawn[1]:
+	elif Save.stats['Difficulty'] == named_spawn[1]:
 		spawn(Orc_Warlord)
-	elif Save.stats['difficulty'] == named_spawn[2]:
+	elif Save.stats['Difficulty'] == named_spawn[2]:
 		spawn(Vordt)
 func spawn(Name:MStats):
-	if (Save.stats['difficulty']) in named_spawn:
+	if Save.pkeys[Name.varname+'Disc'] == false:
+		Save.pkeys[Name.varname+'Disc'] = true
+	if (Save.stats['Difficulty']) in named_spawn:
 		named_spawner()
 	else:
 		var last_monster = monster_name.text 
@@ -171,12 +174,13 @@ func spawn(Name:MStats):
 					1: monster_name.modulate= Color(0.247, 0.792, 0.333, 1.0)
 					2: monster_name.modulate= Color(0.941, 0.075, 0.196, 1.0)
 					3: monster_name.modulate= Color(0.599, 0.003, 0.905, 1.0)
-			Max_Health = Name.max_health * Save.stats['difficulty']/25
+			Max_Health = Name.max_health * Save.stats['Difficulty']/25
 			if Max_Health <= 10:
 				Max_Health = 10
 			Health = Max_Health
 			monster_health.max_value = Max_Health
 			monster_health.value = monster_health.max_value
+	print(Name.name)
 func _on_back_button_pressed() :
 	get_tree().change_scene_to_file("res://Idle.tscn")
 	pass # Replace with function body.
@@ -294,41 +298,45 @@ func mana_notif():
 	$CanvasLayer/Notification.show()
 	$CanvasLayer/Notification/Notification2.hide()
 func biome_spawn():
-		match Stats.current_biome:
-			Stats.biome.Plains: plains_spawn()
-			Stats.biome.Forest: forest_spawn()
-			Stats.biome.Cave: cave_spawn()
-			Stats.biome.Highlands: highland_spawn()
-			Stats.biome.MountainRange: mountain_spawn()
+	match Stats.current_biome:
+		Stats.biome.Plains: plains_spawn()
+		Stats.biome.Forest: forest_spawn()
+		Stats.biome.Cave: cave_spawn()
+		Stats.biome.Highlands: highland_spawn()
+		Stats.biome.MountainRange: mountain_spawn()
 func plains_spawn():
 	monster_roll = randi_range(0,500) + (Stats.run_luck * 1.5)
 	if 0 <= monster_roll and monster_roll <= 250:
 		var croll = randi_range(1,3)
 		if croll == 1:
 			var mroll = randi_range(1,100)
-			if mroll + Stats.run_luck == 100:
+			if mroll == 100:
 				Markus.max_health = 60 * Stats.monsters_killed
 				Markus.experience_dropped = 5 + Stats.monsters_killed
+				spawn(Markus)
 			else:
-				spawn(slime)
+				spawn(Mucus)
 		elif croll == 2:
-			spawn(goblin)
-	elif monster_roll > 250 and monster_roll >= 450:
-		var rroll = randi_range(0,4)
-		if rroll <= 2:
-			spawn(orc)
+			spawn(Goblin)
+		elif croll ==3:
+			spawn(Spider)
+	elif monster_roll > 250 and monster_roll <= 450:
+		var rroll = randi_range(1,4)
+		print(rroll)
+		if rroll == 1 or rroll == 2:
+			spawn(Orc)
 		elif rroll == 3:
-			spawn(ent)
+			spawn(Ent)
 		elif rroll == 4:
-			spawn(bugbear)
+			spawn(Bugbear)
 	elif monster_roll > 450:
 		var lroll = randi_range(0,100)
 		if lroll < 50:
-			spawn(ent)
-		elif lroll>= 50 and lroll < 99:
-			spawn(orc)
+			spawn(Ent)
+		elif lroll>= 50 and lroll <= 99:
+			spawn(Orc)
 		elif lroll == 100:
-			spawn(dragon)
+			spawn(Dragon)
 func forest_spawn():
 	monster_roll = randi_range(0,500) + (Stats.run_luck * 1.5)
 	if monster_roll >= 0 and monster_roll <= 250:
@@ -339,65 +347,62 @@ func forest_spawn():
 				Markus.max_health = 60 * Stats.monsters_killed
 				Markus.experience_dropped = 5 + Stats.monsters_killed
 		elif croll == 2:
-			spawn(goblin)
+			spawn(Goblin)
 		elif croll == 3:
-			spawn(monstrous_spider)
+			spawn(Spider)
 	elif monster_roll > 250 and monster_roll <= 450:
-		var rroll = randi_range(1,4)
+		var rroll = randi_range(1,3)
 		if rroll == 1:
-			spawn(bugbear)
-		elif rroll > 1 and rroll < 4:
-			spawn(ent)
-		elif rroll == 4:
-			spawn(orc)
+			spawn(Bugbear)
+		elif rroll > 1 and rroll <= 3:
+			spawn(Ent)
 	elif monster_roll > 450:
 		var lroll = randi_range(1,10)
-		if lroll == 6 or lroll == 7:
-			spawn(shade)
-		elif lroll > 8:
-			spawn(fiend)
-		elif lroll < 3:
-			spawn(orc)
-		elif lroll > 3 and lroll < 6:
-			spawn(shade)
+		if lroll >= 8:
+			spawn(Fiend)
+		elif lroll <= 3:
+			spawn(Orc)
+		elif lroll > 3 and lroll <= 7:
+			spawn(Shade)
 func cave_spawn():
+
 	monster_roll = randi_range(0,500) + (Stats.run_luck * 1.5)
 	if monster_roll >= 0 and monster_roll <= 150:
-		spawn(monstrous_spider)
+		spawn(Spider)
 	elif monster_roll > 150 and monster_roll <= 400:
 		var rroll = randi_range(1,2)
 		if rroll == 1:
-			spawn(slime)
+			spawn(Mucus)
 		if rroll == 2:
-			spawn(goblin)
+			spawn(Goblin)
 	elif monster_roll > 400:
 		var lroll = randi_range(1,2)
 		if lroll == 1:
-			spawn(shade)
+			spawn(Shade)
 		elif lroll == 2:
-			spawn(fiend)
+			spawn(Fiend)
 func highland_spawn():
 	monster_roll = randi_range(0,500) + (Stats.run_luck * 1.5)
 	if monster_roll >= 0 and monster_roll <= 300:
 		var rroll = randi_range(1,5)
 		if rroll == 1:
-			spawn(ent)
+			spawn(Ent)
 		elif rroll == 2:
-			spawn(orc)
+			spawn(Orc)
 		elif rroll == 3:
-			spawn(bugbear)
+			spawn(Bugbear)
 		else:
-			spawn(goblin)
+			spawn(Goblin)
 		pass
 	elif monster_roll > 300:
 		var lroll = randi_range(1,5)
 		if lroll == 5:
-			spawn(dragon)
+			spawn(Dragon)
 		elif lroll < 5:
-			spawn(fiend)
+			spawn(Fiend)
 func mountain_spawn():
 	var roll = randi_range(1,3)
 	if roll == 1:
-		spawn(shade)
+		spawn(Shade)
 	else:
-		spawn(dragon)
+		spawn(Dragon)

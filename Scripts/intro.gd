@@ -64,7 +64,7 @@ func on_portal_opened() -> void:
 	
 	pass # Replace with function body.
 func leave():
-	Save.pkeys['oldsave'] = true
+	Save.pkeys['OldSave'] = true
 	Stats.fade_in = true
 	Save._save()
 	Stats.load_scene('idle')

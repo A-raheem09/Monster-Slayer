@@ -2,18 +2,18 @@ extends Control
 func _ready():
 	$AnimationPlayer.play("RESET") #make sure everythings ordered properly
 	$ColorRect2.visible = false
-	if Save.pkeys['oldsave'] == false: #load intro if its their first time loading in
+	if Save.pkeys['OldSave'] == false: #load intro if its their first time loading in
 		Stats.load_scene('intro')
 	if Stats.fade_in == true:
 		$AnimationPlayer.play('fade_in')
 		Stats.fade_in = false
 	Save._save()
 	$MenuMusic.play(Stats.musicpos)
-	if Save.stats['volume'] == -10:
+	if Save.stats['Volume'] == -10:
 		AudioServer.set_bus_mute(0,true)
 	else:
-		AudioServer.set_bus_volume_db(0,(Save.stats['volume']))
-	Stats.damage = Save.stats['damage'] * Save.stats['dmg_mult']
+		AudioServer.set_bus_volume_db(0,(Save.stats['Volume']))
+	Stats.damage = Save.stats['Damage'] * Save.stats['DmgMult']
 func _process(_delta: float) -> void:
 	pass
 func _on_inventory_pressed() -> void:

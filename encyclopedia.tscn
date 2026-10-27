@@ -30,7 +30,6 @@ script = ExtResource("1_tkokc")
 metadata/_edit_lock_ = true
 
 [node name="MonsterTabHolder" type="NinePatchRect" parent="." unique_id=1129796725]
-visible = false
 z_index = 10
 layout_mode = 1
 anchors_preset = -1
@@ -77,7 +76,9 @@ text = "Mucus
 script = ExtResource("4_lddes")
 Name = "Mucus"
 description = "Born from the combination of bacteria that feeds off of dead corpses into one single organism,Its slimey body is highly corrosive to human flesh "
-variant_description = "Theres records of a special specimen of mucus that can regenerate from a single cell making it nigh immortal and it has the potential to become as strong as a [Dragon] given enough time, it is difficult to spot one of this specimen in a 1000 years"
+varname = "Mucus"
+level1 = "They can be commonly found in plains and caves with some rarer encounters in forests"
+level2 = "Theres records of a special specimen of mucus that can regenerate from a single cell making it nigh immortal and it has the potential to become as strong as a [Dragon] given enough time, it is difficult to spot one of this specimen in a 1000 years"
 
 [node name="MonstSpider" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=477473838]
 layout_mode = 2
@@ -88,7 +89,7 @@ text = "Monstrous Spider
 script = ExtResource("4_lddes")
 Name = "Monstrous Spider"
 description = "A specific species of spider that has evolved to harness mana letting it grow larger than an average"
-variant_description = "No special cases"
+varname = "Spider"
 
 [node name="Goblin" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=728592706]
 layout_mode = 2
@@ -98,7 +99,7 @@ text = "Goblin"
 script = ExtResource("4_lddes")
 Name = "Goblin"
 description = "Humanoid monsters that are barely stronger than a clump of bacteria and an overgrown spider, their strength lies in their colonies as they overpower stronger creatures with sheer numbers"
-variant_description = "There have been cases where some goblins have acquired a [Class] that puts their raw power on par with a [Bugbear]"
+varname = "Goblin"
 
 [node name="Orc" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=1239820845]
 layout_mode = 2
@@ -109,7 +110,7 @@ text = "Orc
 script = ExtResource("4_lddes")
 Name = "Orc"
 description = "A tall and wide humanoid that towers over regular humanoids and much stronger than a regular humanoid too.....just not as smart"
-variant_description = "Rare cases have been seen where orcs are born with extreme regenerative capabilities, they are known as [Trolls]"
+varname = "Orc"
 
 [node name="Bugbear" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=1436698465]
 layout_mode = 2
@@ -119,7 +120,7 @@ text = "BugBear"
 script = ExtResource("4_lddes")
 Name = "Bugbear"
 description = "A strong goblinoid that regularly raids villages, combined with its intellgence its a really annoying pest for humans"
-variant_description = "No special cases"
+varname = "Bugbear"
 
 [node name="Ent" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=2117008589]
 layout_mode = 2
@@ -129,7 +130,7 @@ text = "Ent"
 script = ExtResource("4_lddes")
 Name = "Ent"
 description = "Trees that have existed for hundreds of years accumulate enough mana to gain sentience, they rarely ever move unless their own life is in danger"
-variant_description = "no special cases"
+varname = "Ent"
 
 [node name="Shade" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=692584963]
 layout_mode = 2
@@ -139,7 +140,7 @@ text = "Shade"
 script = ExtResource("4_lddes")
 Name = "Shade"
 description = "A humanoid taken over by the creatures residing in the [Void],  The host's conciousness is permanently destroyed and replaced with a manic lust for power"
-variant_description = "In some cases where the host is extremely capable, shades can become as powerful as a [Dragon]"
+varname = "Shade"
 
 [node name="Fiend" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=1808248130]
 layout_mode = 2
@@ -149,7 +150,7 @@ text = "Fiend"
 script = ExtResource("4_lddes")
 Name = "Fiend"
 description = "A creature that wields great power, they are creatures that act as agents for the  devils they're contracted with."
-variant_description = "No special cases"
+varname = "Fiend"
 
 [node name="Dragon" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=1540601891]
 layout_mode = 2
@@ -159,7 +160,7 @@ text = "Dragon"
 script = ExtResource("4_lddes")
 Name = "Dragon"
 description = "Dragons are born at the top of the hierarchy of all living things and stay there for the rest of their long lives, They look down upon other races and rightfully so with their great intellect and strength and extremely fine tuned mana control theres nothing that can match their strength besides their own kin,The body of a dragon is infused so deeply with magic that even being near a dragon corpse has miraculous effects"
-variant_description = "You can't improve something perfect"
+varname = "Dragon"
 
 [node name="DescriptionBox" type="NinePatchRect" parent="MonsterTabHolder" unique_id=937730265]
 visible = false
@@ -209,6 +210,7 @@ text = "[b] Mucus:[/b]Born from the combination of bacteria that feeds off of de
 metadata/_edit_lock_ = true
 
 [node name="HelpTabHolder" type="NinePatchRect" parent="." unique_id=477030763]
+visible = false
 z_index = 15
 layout_mode = 1
 anchors_preset = -1

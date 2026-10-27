@@ -6,6 +6,7 @@
 script = ExtResource("1_pt0mt")
 max_health = 100
 name = "Monstrous Spider"
+varname = "Spider"
 experience_dropped = 10
 main_location = 2
 alt_location = 1

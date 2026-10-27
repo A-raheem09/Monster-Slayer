@@ -6,6 +6,7 @@
 script = ExtResource("1_l75gy")
 max_health = 400
 name = "Ent"
+varname = "Ent"
 experience_dropped = 35
 rarity = 1
 main_location = 1

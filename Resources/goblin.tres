@@ -6,6 +6,7 @@
 script = ExtResource("1_0ywky")
 max_health = 120
 name = "Goblin"
+varname = "Goblin"
 experience_dropped = 10
 alt_location = 1
 rare_location = 2
