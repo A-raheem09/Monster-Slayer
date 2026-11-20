@@ -6,6 +6,7 @@
 script = ExtResource("1_kdyeq")
 max_health = 5000
 name = "Vordt The Malificent"
+varname = "Vordt"
 experience_dropped = 999
 named = true
 metadata/_custom_type_script = "uid://lsdokxcl4kcq"

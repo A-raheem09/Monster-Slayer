@@ -1789,10 +1789,11 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Button" type="Button" parent="." unique_id=832463441]
-offset_left = -101.0
-offset_top = -33.0
-offset_right = 88.0
-offset_bottom = 37.0
+visible = false
+offset_left = -352.0
+offset_top = 120.0
+offset_right = -163.0
+offset_bottom = 190.0
 theme = ExtResource("5_dpxxx")
 text = "Skip"
 

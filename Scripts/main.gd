@@ -11,6 +11,7 @@ var necro_cost
 var necro_on:bool
 var db_cost
 var monster_roll : int
+var monster_spawned : bool
 @export var Mucus : MStats
 @export var Spider : MStats
 @export var Goblin : MStats
@@ -32,7 +33,7 @@ var monster_roll : int
 @onready var level = $CanvasLayer/LvlHolder/Level
 @onready var diff = $CanvasLayer/DiffHolder/Difficulty
 @onready var monster_name = $CanvasLayer/NameHolder/Monster_name
-@onready var necro_timer= $Necromancy/NecroTimer
+@onready var necro_timer= $CanvasLayer/Necromancy/NecroTimer
 @onready var named_spawn = [10,50,150]
 @onready var exp_increase = 50
 @onready var max_mana = int(Save.stats['Mana'] * Save.stats['SummonMult'])
@@ -40,9 +41,15 @@ var monster_roll : int
 @onready var boost_on = false
 @onready var notif_amount: int
 func _ready(): #called when the player enters the scene tree for the first time
+	match Stats.current_biome:
+		Stats.biome.Plains: $Background.texture = load("res://assets/Textures/Plains.png")
+		Stats.biome.Forest: $Background.texture = load("res://assets/Textures/Forest.png")
+		Stats.biome.Cave:$Background.texture = load("res://assets/Textures/Cave.png")
+		Stats.biome.Highlands: $Background.texture = load("res://assets/Textures/Highlands.png")
+		Stats.biome.MountainRange: $Background.texture = load("res://assets/Textures/MountainRange.png")
 	initialiser()
 	$AnimationPlayer.play("fade_in")
-	var timer = get_tree().create_timer(1)
+	var timer = get_tree().create_timer(0.8)
 	timer.timeout.connect(loaded_in)
 func loaded_in():
 	Summon_time.start(max_mana)
@@ -55,13 +62,13 @@ func initialiser():
 	initiliase_magic()
 	$CanvasLayer/Notification.hide()
 	if Save.skills[9] != 1:
-		$MagicSpells.hide()
-		$Necromancy.hide()
+		$CanvasLayer/MagicSpells.hide()
+		$CanvasLayer/Necromancy.hide()
 	Save.stats['ExpReq'] = 10 + Save.stats['Level'] * exp_increase
 	if Save.stats['Difficulty'] == 1:
 		Stats.current_biome = Stats.biome.Plains
-		$ControlTut.text = 'Press the Spacebar to deal damage'
-		$TimeTut.text = 'Every second you remain outside drains 1 Mana so make sure to keep an eye on the bar'
+		$CanvasLayer/ControlTut.text = 'Press the Spacebar to deal damage'
+		$CanvasLayer/TimeTut.text = 'Every second you remain outside drains 1 Mana so make sure to keep an eye on the bar'
 	notif_amount = 1
 	Stats.run_luck = randi_range(1,3) * Save.stats['Difficulty']/50
 	level.text = "Level: " + str(Save.stats['Level'])
@@ -88,12 +95,14 @@ func Monster_killed():
 		biome_spawn()
 func _process(_delta:float):
 	summon_bar.value = int(Summon_time.time_left)
-	if summon_bar.value != 0:
+	if monster_spawned == false and current_monster != null:
+		monster_spawned = true
+	if monster_spawned:
 		if Health <= 0:
-			Monster_killed()
+				Monster_killed()
 	if Save.stats['Difficulty'] > 1:
-		$ControlTut.hide()
-		$TimeTut.hide()
+		$CanvasLayer/ControlTut.hide()
+		$CanvasLayer/TimeTut.hide()
 func damage_taken():
 	Health -= Stats.damage
 	monster_health.max_value = Max_Health
@@ -101,9 +110,9 @@ func damage_taken():
 func _on_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://idle.tscn")
 func level_up():
-	Save.stats['Exp'] -= Save.stats['Expreq']
+	Save.stats['Exp'] -= Save.stats['ExpReq']
 	lvl_notif()
-	$ControlTut.text = ""
+	$CanvasLayer/ControlTut.text = ""
 	Save.stats['Level'] += 1
 	$CanvasLayer/LvlHolder/Level.text = 'Level: ' + str(Save.stats['Level'])
 	Save.stats['Points'] += 2
@@ -151,35 +160,33 @@ func named_spawner():
 	elif Save.stats['Difficulty'] == named_spawn[2]:
 		spawn(Vordt)
 func spawn(Name:MStats):
-	if Save.pkeys[Name.varname+'Disc'] == false:
-		Save.pkeys[Name.varname+'Disc'] = true
-	if (Save.stats['Difficulty']) in named_spawn:
-		named_spawner()
+	if not Name.named:
+		if not Save.pkeys[Name.varname+'Disc']:
+			Save.pkeys[Name.varname+'Disc'] = true
+	var last_monster = monster_name.text 
+	if last_monster == Name.name:
+		repeat_number += 1
 	else:
-		var last_monster = monster_name.text 
-		if last_monster == Name.name:
-			repeat_number += 1
+		repeat_number = 0
+	if repeat_number > 2:
+		monster_spawn()
+	else:
+		current_monster = Name
+		monster_name.text = Name.name
+		if Name.named:
+			monster_name.modulate = Color.GOLD
 		else:
-			repeat_number = 0
-		if repeat_number > 2:
-			monster_spawn()
-		else:
-			current_monster = Name
-			monster_name.text = Name.name
-			if Name.named:
-				monster_name.modulate = Color.GOLD
-			else:
-				match Name.rarity: #set color of name
-					0: monster_name.modulate= Color(0.93, 0.93, 0.93, 1.0)
-					1: monster_name.modulate= Color(0.247, 0.792, 0.333, 1.0)
-					2: monster_name.modulate= Color(0.941, 0.075, 0.196, 1.0)
-					3: monster_name.modulate= Color(0.599, 0.003, 0.905, 1.0)
-			Max_Health = Name.max_health * Save.stats['Difficulty']/25
-			if Max_Health <= 10:
-				Max_Health = 10
-			Health = Max_Health
-			monster_health.max_value = Max_Health
-			monster_health.value = monster_health.max_value
+			match Name.rarity: #set color of name
+				0: monster_name.modulate= Color(0.93, 0.93, 0.93, 1.0)
+				1: monster_name.modulate= Color(0.247, 0.792, 0.333, 1.0)
+				2: monster_name.modulate= Color(0.941, 0.075, 0.196, 1.0)
+				3: monster_name.modulate= Color(0.599, 0.003, 0.905, 1.0)
+		Max_Health = Name.max_health * Save.stats['Difficulty']/25
+		if Max_Health <= 10:
+			Max_Health = 10
+		Health = Max_Health
+		monster_health.max_value = Max_Health
+		monster_health.value = monster_health.max_value
 	print(Name.name)
 func _on_back_button_pressed() :
 	get_tree().change_scene_to_file("res://Idle.tscn")
@@ -206,14 +213,14 @@ func initiliase_magic():
 		2: db_cost = 25
 		3: db_cost = 40
 	var db = dark_blast_mult * 100
-	$"MagicSpells/Dark Blast/Tooltip".Effect = 'Does ' + str(db) +'% of your regular damage per use'
+	$"CanvasLayer/MagicSpells/Dark Blast/Tooltip".Effect = 'Does ' + str(db) +'% of your regular damage per use'
 	#expboost setup
 	match Save.skills[11]:
 		0: exp_boost = 1.5
 		1: exp_boost = 2
 		2: exp_boost = 2.5
 		3: exp_boost = 3
-	$MagicSpells/ExpBoost/Tooltip.Effect = " " + str(exp_boost * 100) + "% Experience Gain For The Next 30 Seconds"
+	$CanvasLayer/MagicSpells/ExpBoost/Tooltip.Effect = " " + str(exp_boost * 100) + "% Experience Gain For The Next 30 Seconds"
 	match Save.skills[13]:
 		0: necro_percent = 0.02
 		1: necro_percent = 0.04
@@ -224,8 +231,8 @@ func initiliase_magic():
 		1: necro_cost = 2
 		2: necro_cost = 4
 		3: necro_cost = 6
-	$Necromancy/Tooltip.Effect = str(int(necro_percent * 100)) + "% of your damage a second"
-	$Necromancy/Tooltip.Cost = str(necro_cost) + " mana a second"
+	$CanvasLayer/Necromancy/Tooltip.Effect = str(int(necro_percent * 100)) + "% of your damage a second"
+	$CanvasLayer/Necromancy/Tooltip.Cost = str(necro_cost) + " mana a second"
 	necro_timer.timeout.connect(_on_necro_timeout)
 	necro_on = false
 func _on_dark_blast_pressed() -> void:
@@ -298,12 +305,15 @@ func mana_notif():
 	$CanvasLayer/Notification.show()
 	$CanvasLayer/Notification/Notification2.hide()
 func biome_spawn():
-	match Stats.current_biome:
-		Stats.biome.Plains: plains_spawn()
-		Stats.biome.Forest: forest_spawn()
-		Stats.biome.Cave: cave_spawn()
-		Stats.biome.Highlands: highland_spawn()
-		Stats.biome.MountainRange: mountain_spawn()
+	if (Save.stats['Difficulty']) in named_spawn:
+		named_spawner() 
+	else:
+		match Stats.current_biome:
+			Stats.biome.Plains: plains_spawn()
+			Stats.biome.Forest: forest_spawn()
+			Stats.biome.Cave: cave_spawn()
+			Stats.biome.Highlands: highland_spawn()
+			Stats.biome.MountainRange: mountain_spawn()
 func plains_spawn():
 	monster_roll = randi_range(0,500) + (Stats.run_luck * 1.5)
 	if 0 <= monster_roll and monster_roll <= 250:
@@ -322,7 +332,6 @@ func plains_spawn():
 			spawn(Spider)
 	elif monster_roll > 250 and monster_roll <= 450:
 		var rroll = randi_range(1,4)
-		print(rroll)
 		if rroll == 1 or rroll == 2:
 			spawn(Orc)
 		elif rroll == 3:

@@ -50,7 +50,7 @@ func _on_smincrement_pressed() -> void:
 		Save.stats['Points'] -= 1
 		Save.stats['Mana'] += 5
 		Stats.update_label(summon_time,'Mana', total_mana)
-		Stats.update_label(points,'Stat Points',Save.stats['points'])
+		Stats.update_label(points,'Stat Points',Save.stats['Points'])
 	pass # Replace with function body.
 
 

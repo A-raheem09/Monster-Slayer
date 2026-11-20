@@ -42,7 +42,9 @@ var pkeys:Dictionary = {
 	'ShadeDisc':false,
 	'FiendDisc':false,
 	'DragonDisc':false,
-	
+	'MarkusDisc':false,
+	'WarlordDisc':false,
+	'VordtDisc':false,
 }
 var stats = {
 	'Difficulty':1,
@@ -68,11 +70,14 @@ var stats = {
 	'ShadeKilled':0,
 	'FiendKilled':0,
 	'DragonKilled':0,
+	'Void':0,
+	'Sin':0,
+	'Draconic':0,
+	'Humanity':0,
 }
 const FILE_PATH = "user://MSSaveFile.json"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_save()
 	_load()
 	pass # Replace with function body.
 

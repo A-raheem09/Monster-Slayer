@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://penx4rd4pm0g" path="res://assets/Textures/DisabledButton.jpeg" id="2_jtvrg"]
 [ext_resource type="Texture2D" uid="uid://15cxj7jcn5m1" path="res://assets/Textures/Template.jpeg" id="3_0q7vm"]
 [ext_resource type="Texture2D" uid="uid://daeif54jai42h" path="res://assets/Textures/TemplatePressed.jpeg" id="3_k5kgy"]
+[ext_resource type="Texture2D" uid="uid://ienadfawycsd" path="res://assets/Textures/PlayerTemplate.png" id="5_ykdip"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_itn7s"]
 texture = ExtResource("2_jtvrg")
@@ -46,15 +47,15 @@ expand_margin_right = 8.0
 expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k8u0w"]
-texture = ExtResource("3_0q7vm")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
+texture = ExtResource("5_ykdip")
+texture_margin_left = 11.0
+texture_margin_top = 5.0
+texture_margin_right = 11.0
+texture_margin_bottom = 5.0
 expand_margin_left = 8.0
-expand_margin_top = 4.0
+expand_margin_top = 8.0
 expand_margin_right = 8.0
-expand_margin_bottom = 4.0
+expand_margin_bottom = 8.0
 
 [resource]
 default_font = ExtResource("1_jtvrg")

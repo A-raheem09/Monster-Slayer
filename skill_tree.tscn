@@ -46,14 +46,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -528.0
-offset_top = -328.0
-offset_right = 608.0
-offset_bottom = 416.0
+offset_left = -5857.0
+offset_top = -3455.0
+offset_right = 6481.0
+offset_bottom = 3923.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.09411765, 0.09803922, 0.13725491, 1)
+color = Color(0.117221735, 0.11690023, 0.13304496, 1)
 metadata/_edit_lock_ = true
 
 [node name="CameraManager" parent="." unique_id=1511887537 instance=ExtResource("3_802jk")]
@@ -258,9 +258,10 @@ grow_horizontal = 2
 grow_vertical = 2
 MaxLevel = 3
 Cost = 1
-stat_to_change = "exp_mult"
+stat_to_change = "ExpMult"
 change_percent = 0.1
 upgrade_number = 2
+infinite = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Tooltip" parent="ExpUpg2" unique_id=855447784 instance=ExtResource("8_87dja")]
@@ -290,7 +291,7 @@ grow_vertical = 2
 disabled = true
 MaxLevel = 1
 Cost = 2
-stat_to_change = "exp_mult"
+stat_to_change = "ExpMult"
 change_percent = 0.2
 upgrade_number = 4
 metadata/_edit_use_anchors_ = true
@@ -322,7 +323,7 @@ grow_vertical = 2
 disabled = true
 MaxLevel = 1
 Cost = 2
-stat_to_change = "exp_mult"
+stat_to_change = "ExpMult"
 upgrade_number = 9
 metadata/_edit_use_anchors_ = true
 
@@ -446,8 +447,9 @@ grow_horizontal = 2
 grow_vertical = 2
 MaxLevel = 3
 Cost = 1
-stat_to_change = "dmg_mult"
+stat_to_change = "DmgMult"
 change_percent = 0.1
+infinite = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Tooltip" parent="DmgUpg0" unique_id=969587273 instance=ExtResource("8_87dja")]
@@ -475,7 +477,7 @@ offset_bottom = -64.491
 disabled = true
 MaxLevel = 2
 Cost = 1
-stat_to_change = "dmg_mult"
+stat_to_change = "DmgMult"
 change_percent = 0.1
 upgrade_number = 1
 
@@ -504,7 +506,7 @@ offset_bottom = 22.015
 disabled = true
 MaxLevel = 1
 Cost = 2
-stat_to_change = "dmg_mult"
+stat_to_change = "DmgMult"
 change_percent = 0.2
 upgrade_number = 3
 
@@ -536,7 +538,7 @@ texture_pressed = null
 texture_disabled = ExtResource("22_ivcr1")
 MaxLevel = 1
 Cost = 4
-stat_to_change = "dmg_mult"
+stat_to_change = "DmgMult"
 change_percent = 0.3
 upgrade_number = 5
 metadata/_edit_use_anchors_ = true
@@ -569,7 +571,7 @@ texture_pressed = null
 texture_disabled = ExtResource("20_b280s")
 MaxLevel = 1
 Cost = 5
-stat_to_change = "dmg_mult"
+stat_to_change = "DmgMult"
 change_percent = 0.5
 upgrade_number = 12
 
@@ -599,9 +601,10 @@ grow_horizontal = 2
 grow_vertical = 2
 MaxLevel = 2
 Cost = 1
-stat_to_change = "summon_mult"
+stat_to_change = "SummonMult"
 change_percent = 0.1
 upgrade_number = 6
+infinite = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Tooltip" parent="ManaUpg6" unique_id=168990837 instance=ExtResource("8_87dja")]
@@ -631,7 +634,7 @@ grow_vertical = 2
 disabled = true
 MaxLevel = 1
 Cost = 2
-stat_to_change = "summon_mult"
+stat_to_change = "SummonMult"
 change_percent = 0.4
 upgrade_number = 7
 metadata/_edit_use_anchors_ = true
@@ -663,7 +666,7 @@ grow_vertical = 2
 disabled = true
 MaxLevel = 2
 Cost = 1
-stat_to_change = "summon_mult"
+stat_to_change = "SummonMult"
 change_percent = 0.1
 upgrade_number = 8
 metadata/_edit_use_anchors_ = true

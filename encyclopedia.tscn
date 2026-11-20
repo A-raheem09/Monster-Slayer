@@ -37,10 +37,10 @@ anchor_left = 0.18400002
 anchor_top = 0.47000003
 anchor_right = 0.18400002
 anchor_bottom = 0.47000003
-offset_left = -104.640015
-offset_top = -339.60004
-offset_right = 431.36
-offset_bottom = 308.39996
+offset_left = -71.640015
+offset_top = -325.60004
+offset_right = 464.36
+offset_bottom = 322.39996
 texture = ExtResource("2_oumk7")
 region_rect = Rect2(0, 0, 64, 64)
 patch_margin_left = 4
@@ -77,7 +77,8 @@ script = ExtResource("4_lddes")
 Name = "Mucus"
 description = "Born from the combination of bacteria that feeds off of dead corpses into one single organism,Its slimey body is highly corrosive to human flesh "
 varname = "Mucus"
-level1 = "They can be commonly found in plains and caves with some rarer encounters in forests"
+MutantName = "Markus"
+level1 = "Found wherever rot and filth is prevalent , they can be commonly found in plains and caves with some rarer encounters in forests"
 level2 = "Theres records of a special specimen of mucus that can regenerate from a single cell making it nigh immortal and it has the potential to become as strong as a [Dragon] given enough time, it is difficult to spot one of this specimen in a 1000 years"
 
 [node name="MonstSpider" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=477473838]
@@ -88,8 +89,10 @@ text = "Monstrous Spider
 "
 script = ExtResource("4_lddes")
 Name = "Monstrous Spider"
-description = "A specific species of spider that has evolved to harness mana letting it grow larger than an average"
+description = "A specific species of spider that has evolved to harness mana letting it grow larger than an average spider"
 varname = "Spider"
+level1 = "Often spotted in Caves and Forests with some rarely being seen in Plains"
+level2 = "There are no documented mutants"
 
 [node name="Goblin" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=728592706]
 layout_mode = 2
@@ -100,6 +103,8 @@ script = ExtResource("4_lddes")
 Name = "Goblin"
 description = "Humanoid monsters that are barely stronger than a clump of bacteria and an overgrown spider, their strength lies in their colonies as they overpower stronger creatures with sheer numbers"
 varname = "Goblin"
+level1 = "Goblins rarerly leave their colonies alone due to their lack of individual strength but do venture out in pairs and groups, they can commonly be found in Plains and Forests with some being spotted in caves"
+level2 = "Some goblins have been spotted with classes like goblin mages or goblin warriors who are much stronger than a standard goblin"
 
 [node name="Orc" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=1239820845]
 layout_mode = 2
@@ -109,8 +114,10 @@ text = "Orc
 "
 script = ExtResource("4_lddes")
 Name = "Orc"
-description = "A tall and wide humanoid that towers over regular humanoids and much stronger than a regular humanoid too.....just not as smart"
+description = "A tall and wide humanoid that towers over regular humanoids and is much stronger than one too.....just not as smart"
 varname = "Orc"
+level1 = "Orcs are often found in bountiful regions that are perfect for setting up colonies like the Plains and Forests while some are rarely spotted in the Highlands"
+level2 = "Some Orcs with greater intelligence become warlords and form massive orc colonies that are capable of hunting anything and everything"
 
 [node name="Bugbear" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=1436698465]
 layout_mode = 2
@@ -121,6 +128,8 @@ script = ExtResource("4_lddes")
 Name = "Bugbear"
 description = "A strong goblinoid that regularly raids villages, combined with its intellgence its a really annoying pest for humans"
 varname = "Bugbear"
+level1 = "Often spotted in Forests and Plains with some making their way onto the Highlands"
+level2 = "No documented mutants"
 
 [node name="Ent" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=2117008589]
 layout_mode = 2
@@ -131,6 +140,9 @@ script = ExtResource("4_lddes")
 Name = "Ent"
 description = "Trees that have existed for hundreds of years accumulate enough mana to gain sentience, they rarely ever move unless their own life is in danger"
 varname = "Ent"
+level1 = "Often spotted in mana dense locations with a lot of trees like Forests (duh) and Plains as well as the Highlands"
+level2 = "No documented mutants"
+level3 = "They are extremely indifferent to everything that isn't themselves even when they stand to gain from action they continue their inaction"
 
 [node name="Shade" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=692584963]
 layout_mode = 2
@@ -139,8 +151,11 @@ theme = ExtResource("3_k1sou")
 text = "Shade"
 script = ExtResource("4_lddes")
 Name = "Shade"
-description = "A humanoid taken over by the creatures residing in the [Void],  The host's conciousness is permanently destroyed and replaced with a manic lust for power"
+description = "A humanoid taken over by the creatures residing in the [Void],  The host's conciousness is permanently destroyed and replaced with a manic lust for power instead"
 varname = "Shade"
+level1 = "Shunned and feared by society they hide out in caves and forests and even the dragon-ruled mountains"
+level2 = "The strength of a shade is greatly dependent on the vessel and in rare cases shades as strong as dragons can be born "
+level3 = "Their lust for power is unmatched as they will infiltrate human cities and kingdoms and acquire positions of high status and power before brutally destroying the settlement and killing its inhabitants with their own hands"
 
 [node name="Fiend" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=1808248130]
 layout_mode = 2
@@ -149,8 +164,11 @@ theme = ExtResource("3_k1sou")
 text = "Fiend"
 script = ExtResource("4_lddes")
 Name = "Fiend"
-description = "A creature that wields great power, they are creatures that act as agents for the  devils they're contracted with."
+description = "A creature that wields great power, they are creatures that act as agents for the devils they're contracted with"
 varname = "Fiend"
+level1 = "Often found resting in Caves or Forests and Highlands"
+level2 = "No documented mutants"
+level3 = "A contract with a devil is forbidden by every species as the contract makes the contractee part-devil and corrupts their already questionable disposition to one of great fury and anger"
 
 [node name="Dragon" type="Button" parent="MonsterTabHolder/ScrollContainer/VBoxContainer" unique_id=1540601891]
 layout_mode = 2
@@ -159,8 +177,11 @@ theme = ExtResource("3_k1sou")
 text = "Dragon"
 script = ExtResource("4_lddes")
 Name = "Dragon"
-description = "Dragons are born at the top of the hierarchy of all living things and stay there for the rest of their long lives, They look down upon other races and rightfully so with their great intellect and strength and extremely fine tuned mana control theres nothing that can match their strength besides their own kin,The body of a dragon is infused so deeply with magic that even being near a dragon corpse has miraculous effects"
+description = "Dragons are born at the top of the hierarchy of all living things and stay there for the rest of their long lives, They look down upon other races and rightfully so with their great intellect and strength along with their extremely fine tuned mana control theres nothing that can match their strength besides their own kin,"
 varname = "Dragon"
+level1 = "Dragons essentially are the sole rulers of the mountain ranges and are the reason for it being barren of other hostile creatures, other locations they have been spotted in includes Highlands and Plains"
+level2 = "No documented mutants"
+level3 = "The body of a dragon is infused so deeply with magic that even being near a dragon corpse has miraculous effects"
 
 [node name="DescriptionBox" type="NinePatchRect" parent="MonsterTabHolder" unique_id=937730265]
 visible = false
@@ -170,10 +191,10 @@ anchor_left = 1.0
 anchor_top = 0.049000002
 anchor_right = 1.0
 anchor_bottom = 0.049000002
-offset_left = 416.0
-offset_top = 56.248
-offset_right = 968.0
-offset_bottom = 504.248
+offset_left = 369.0
+offset_top = 28.248
+offset_right = 921.0
+offset_bottom = 476.248
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_oumk7")

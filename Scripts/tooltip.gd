@@ -17,7 +17,7 @@ func toggle(on:bool):
 		show()
 		modulate.a = 1.0
 	else:
-		modulate.a - 1.0
+		modulate.a = 1.0
 		if is_inside_tree():
 			await tween_opacity(0.0).finished
 		hide()

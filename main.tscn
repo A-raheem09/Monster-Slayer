@@ -21,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://dm2f0fbllnvwe" path="res://assets/Textures/SummonTimeFill.png" id="17_getpj"]
 [ext_resource type="Texture2D" uid="uid://ouhf7hh8xnj5" path="res://assets/Textures/HealthbarOutline.png" id="18_82xsv"]
 [ext_resource type="Texture2D" uid="uid://bo83u63p7bc7t" path="res://assets/Textures/HealthFill.png" id="19_82xsv"]
-[ext_resource type="Texture2D" uid="uid://btxdba4bxohpd" path="res://assets/Textures/BackgroundNew.png" id="21_jq2sk"]
 [ext_resource type="Texture2D" uid="uid://t25ekikyhyd7" path="res://assets/Textures/fireball.png" id="22_1u8w0"]
 [ext_resource type="Texture2D" uid="uid://bkrguavlimmu7" path="res://assets/Textures/Spell3.png" id="22_jq2sk"]
 [ext_resource type="Texture2D" uid="uid://ds5fbtivmpdwu" path="res://assets/Textures/Magic2.png" id="22_qsp4k"]
@@ -34,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://b2c24qhrf025h" path="res://tooltip.tscn" id="25_0odxb"]
 [ext_resource type="Script" uid="uid://lyyjuy537oh6" path="res://Scripts/magicmain.gd" id="25_lswn8"]
 [ext_resource type="Texture2D" uid="uid://dmec67suk3lgt" path="res://assets/Textures/Spell3disabled.png" id="25_ok6jj"]
+[ext_resource type="Texture2D" uid="uid://d1nhe4go2cvmy" path="res://assets/Textures/Plains.png" id="34_4k2k6"]
 
 [sub_resource type="Animation" id="Animation_4k2k6"]
 length = 0.001
@@ -120,6 +120,94 @@ autoplay = true
 attenuation = 20.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1114765546]
+
+[node name="MagicSpells" type="HBoxContainer" parent="CanvasLayer" unique_id=378887630]
+anchors_preset = -1
+anchor_left = 0.49600002
+anchor_top = 0.957
+anchor_right = 0.49600002
+anchor_bottom = 0.957
+offset_left = -71.160034
+offset_top = -211.56006
+offset_right = 225.83997
+offset_bottom = -28.560059
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Dark Blast" type="TextureButton" parent="CanvasLayer/MagicSpells" unique_id=1020935973]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+texture_normal = ExtResource("22_1u8w0")
+texture_pressed = ExtResource("23_0odxb")
+texture_hover = ExtResource("24_lswn8")
+stretch_mode = 4
+script = ExtResource("25_lswn8")
+metadata/_edit_lock_ = true
+
+[node name="Tooltip" parent="CanvasLayer/MagicSpells/Dark Blast" unique_id=77820066 instance=ExtResource("25_0odxb")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 102.0
+description = "Form your mana into a dark vortex that rips apart anything it comes into contact with"
+Name = "Dark Blast"
+Effect = "Does 300% of your regular damage per use"
+Cost = "10 seconds"
+
+[node name="ExpBoost" type="TextureButton" parent="CanvasLayer/MagicSpells" unique_id=1203952183]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+texture_normal = ExtResource("22_qsp4k")
+texture_pressed = ExtResource("23_kq58d")
+texture_hover = ExtResource("24_seu75")
+stretch_mode = 4
+script = ExtResource("25_lswn8")
+metadata/_edit_lock_ = true
+
+[node name="Tooltip" parent="CanvasLayer/MagicSpells/ExpBoost" unique_id=2044352406 instance=ExtResource("25_0odxb")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 102.0
+description = "Use dark magic to increase the experience you gain"
+Name = "Forbidden Knowledge"
+Effect = "200% Exp Gain For The Next 30 seconds"
+Cost = "10 seconds"
+
+[node name="Necromancy" type="TextureButton" parent="CanvasLayer" unique_id=29032919]
+offset_left = 740.0
+offset_top = 822.0
+offset_right = 946.0
+offset_bottom = 1041.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+texture_normal = ExtResource("22_jq2sk")
+texture_pressed = ExtResource("23_4k2k6")
+texture_hover = ExtResource("24_0rl1p")
+texture_disabled = ExtResource("25_ok6jj")
+stretch_mode = 4
+script = ExtResource("25_lswn8")
+
+[node name="Tooltip" parent="CanvasLayer/Necromancy" unique_id=567491299 instance=ExtResource("25_0odxb")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 102.0
+description = "Reanimate a corpse to fight for you (you lazy bums)"
+Name = "Necromancy"
+Effect = "2% of your damage/sec"
+Cost = "1 mana/sec"
+
+[node name="NecroTimer" type="Timer" parent="CanvasLayer/Necromancy" unique_id=385287100]
 
 [node name="DmgHolder" type="NinePatchRect" parent="CanvasLayer" unique_id=457539006]
 z_index = -16
@@ -427,29 +515,16 @@ z_index = 10
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 40.0
+offset_left = -363.0
+offset_top = -285.0
+offset_right = 545.0
+offset_bottom = 437.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ControlTut" type="Label" parent="." unique_id=1922543283]
-z_index = 30
-anchors_preset = -1
-anchor_left = 0.49100003
-anchor_top = 0.771
-anchor_right = 0.49100003
-anchor_bottom = 0.771
-offset_left = -266.36005
-offset_top = -24.680054
-offset_right = 265.63995
-offset_bottom = 24.319946
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 27
-text = "Levelling up gives you 2 stat points and 1 skill point, you can spend these in the skills tab"
-
-[node name="TimeTut" type="Label" parent="." unique_id=578584613]
+[node name="TimeTut" type="Label" parent="CanvasLayer" unique_id=578584613]
 z_index = 30
 anchors_preset = 5
 anchor_left = 0.5
@@ -461,118 +536,41 @@ offset_bottom = 200.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 
-[node name="Background" type="TextureRect" parent="." unique_id=1453649979]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -979.0
-offset_top = -577.0
-offset_right = 1130.0
-offset_bottom = 547.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("21_jq2sk")
-stretch_mode = 4
-metadata/_edit_lock_ = true
-
-[node name="Necromancy" type="TextureButton" parent="." unique_id=29032919]
-offset_left = 740.0
-offset_top = 822.0
-offset_right = 946.0
-offset_bottom = 1041.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-focus_mode = 0
-texture_normal = ExtResource("22_jq2sk")
-texture_pressed = ExtResource("23_4k2k6")
-texture_hover = ExtResource("24_0rl1p")
-texture_disabled = ExtResource("25_ok6jj")
-stretch_mode = 4
-script = ExtResource("25_lswn8")
-
-[node name="Tooltip" parent="Necromancy" unique_id=567491299 instance=ExtResource("25_0odxb")]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 211.0
-offset_bottom = 102.0
-description = "Reanimate a corpse to fight for you (you lazy bums)"
-Name = "Necromancy"
-Effect = "2% of your damage/sec"
-Cost = "1 mana/sec"
-
-[node name="NecroTimer" type="Timer" parent="Necromancy" unique_id=385287100]
-
-[node name="MagicSpells" type="HBoxContainer" parent="." unique_id=378887630]
+[node name="ControlTut" type="Label" parent="CanvasLayer" unique_id=1922543283]
+z_index = 30
 anchors_preset = -1
-anchor_left = 0.49600002
-anchor_top = 0.957
-anchor_right = 0.49600002
-anchor_bottom = 0.957
-offset_left = -71.160034
-offset_top = -211.56006
-offset_right = 225.83997
-offset_bottom = -28.560059
+anchor_left = 0.49100003
+anchor_top = 0.771
+anchor_right = 0.49100003
+anchor_bottom = 0.771
+offset_left = -574.86005
+offset_top = -24.680054
+offset_right = 574.13995
+offset_bottom = 24.319946
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 16
+theme_override_font_sizes/font_size = 27
+text = "Levelling up gives you 2 stat points and 1 skill point, you can spend these in the skills tab"
 
-[node name="Dark Blast" type="TextureButton" parent="MagicSpells" unique_id=1020935973]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-focus_mode = 0
-texture_normal = ExtResource("22_1u8w0")
-texture_pressed = ExtResource("23_0odxb")
-texture_hover = ExtResource("24_lswn8")
+[node name="Background" type="TextureRect" parent="." unique_id=1453649979]
+offset_left = -16.0
+offset_right = 336.0
+offset_bottom = 208.0
+mouse_filter = 2
+texture = ExtResource("34_4k2k6")
 stretch_mode = 4
-script = ExtResource("25_lswn8")
-metadata/_edit_lock_ = true
-
-[node name="Tooltip" parent="MagicSpells/Dark Blast" unique_id=77820066 instance=ExtResource("25_0odxb")]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 211.0
-offset_bottom = 102.0
-description = "Form your mana into a dark vortex that rips apart anything it comes into contact with"
-Name = "Dark Blast"
-Effect = "Does 300% of your regular damage per use"
-Cost = "10 seconds"
-
-[node name="ExpBoost" type="TextureButton" parent="MagicSpells" unique_id=1203952183]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-focus_mode = 0
-texture_normal = ExtResource("22_qsp4k")
-texture_pressed = ExtResource("23_kq58d")
-texture_hover = ExtResource("24_seu75")
-stretch_mode = 4
-script = ExtResource("25_lswn8")
-metadata/_edit_lock_ = true
-
-[node name="Tooltip" parent="MagicSpells/ExpBoost" unique_id=2044352406 instance=ExtResource("25_0odxb")]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 211.0
-offset_bottom = 102.0
-description = "Use dark magic to increase the experience you gain"
-Name = "Forbidden Knowledge"
-Effect = "200% Exp Gain For The Next 30 seconds"
-Cost = "10 seconds"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=672938482]
 libraries/ = SubResource("AnimationLibrary_4k2k6")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=570916253]
+anchor_mode = 0
+zoom = Vector2(6.127, 6.127)
+
 [connection signal="timeout" from="TimeLeft" to="." method="_on_time_left_timeout"]
 [connection signal="finished" from="Music" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="pressed" from="CanvasLayer/MagicSpells/Dark Blast" to="." method="_on_dark_blast_pressed"]
+[connection signal="pressed" from="CanvasLayer/MagicSpells/ExpBoost" to="." method="_on_exp_boost_pressed"]
+[connection signal="pressed" from="CanvasLayer/Necromancy" to="." method="_on_necromancy_pressed"]
 [connection signal="pressed" from="CanvasLayer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/Notification/NotifTimer" to="." method="_on_notif_timer_timeout"]
-[connection signal="pressed" from="Necromancy" to="." method="_on_necromancy_pressed"]
-[connection signal="pressed" from="MagicSpells/Dark Blast" to="." method="_on_dark_blast_pressed"]
-[connection signal="pressed" from="MagicSpells/ExpBoost" to="." method="_on_exp_boost_pressed"]

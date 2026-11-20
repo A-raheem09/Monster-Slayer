@@ -6,6 +6,7 @@
 script = ExtResource("1_sqt25")
 max_health = 2000
 name = "Orc Warlord"
+varname = "Warlord"
 experience_dropped = 500
 rarity = 3
 named = true

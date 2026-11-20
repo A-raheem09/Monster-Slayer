@@ -59,7 +59,7 @@ func _on_pressed() -> void:
 			skill.disabled = false
 	pass # Replace with function body.
 	
-	
+
 func _on_mouse_exited():
 	if disabled:
 		if not get_parent().disabled:

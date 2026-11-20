@@ -9,7 +9,7 @@ func _ready() -> void:
 		AudioServer.set_bus_mute(0,true)
 		$CanvasLayer/VBoxContainer/NinePatchRect/HSlider.set_value_no_signal(-5)
 	else:
-		$CanvasLayer/VBoxContainer/NinePatchRect/HSlider.set_value_no_signal(Save.stats['volume'])
+		$CanvasLayer/VBoxContainer/NinePatchRect/HSlider.set_value_no_signal(Save.stats['Volume'])
 	pass 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

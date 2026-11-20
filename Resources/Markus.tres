@@ -6,7 +6,8 @@
 script = ExtResource("1_n6ns4")
 max_health = 600
 name = "Markus The Mucus"
-experience_dropped = 15
+varname = "Markus"
+experience_dropped = 150
 rarity = 3
 named = true
 metadata/_custom_type_script = "uid://lsdokxcl4kcq"

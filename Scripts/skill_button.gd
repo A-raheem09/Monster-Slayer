@@ -8,6 +8,7 @@ class_name SkillNode
 @export var stat_to_change : String
 @export var change_percent : float
 @export var upgrade_number : int
+@export var infinite : bool
 var opacity_tween: Tween = null
 var level :int = 0:
 	set(value):
@@ -20,7 +21,7 @@ func _ready() -> void:
 	var image = texture_normal.get_image()
 	var skills = get_children()
 	for skill in skills:
-		if (skill is TextureButton) and Save.skills[upgrade_number] == MaxLevel:
+		if (skill is TextureButton) and (Save.skills[upgrade_number] == MaxLevel):
 			skill.disabled = false
 	bitmap.create_from_image_alpha(image)
 	texture_click_mask = bitmap
@@ -34,10 +35,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if infinite:
+		Skilllevel.visible = false
+		MaxLevel = level + 100
 	Skilllevel.text = str(Save.skills[upgrade_number]) + '/' + str(MaxLevel)
 	pass
 func upgrade():
-	Save.stats[stat_to_change] += change_percent
+	Save.stats[stat_to_change] += change_percent 
 
 func _on_pressed() -> void:
 	if Save.stats['SPoints'] >= Cost and (Save.skills[upgrade_number] + 1) <= MaxLevel:
@@ -46,8 +50,11 @@ func _on_pressed() -> void:
 		upgrade()
 	var skills = get_children()
 	for skill in skills:
-		if skill is TextureButton and Save.skills[upgrade_number] == MaxLevel:
+		if (skill is TextureButton) and (Save.skills[upgrade_number] == MaxLevel):
 			skill.disabled = false
+		elif infinite:
+			if Save.skills[upgrade_number] >= 1 and (skill is TextureButton):
+				skill.disabled = false
 	pass # Replace with function body.
 
 func _on_mouse_exited():

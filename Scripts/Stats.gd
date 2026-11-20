@@ -84,17 +84,24 @@ func reset_save():
 	pass
 func roll_biome():
 		last_biome = current_biome
-		var diff_mult = randi_range(0,15)
-		var diff_effect = randf() #difficulty affects your biome roll by 0-100%
-		var rng =  min(diff_mult + (Save.stats['Difficulty'] * diff_effect), 20 )
-		if rng >= 0 and rng <= 10: #common
-			var srng = randi_range(1,3)
+		var diff_mult = randi_range(0,100)
+		var diff_effect = randf_range(-0.5,0.25) #difficulty affects your biome roll by -50% to 25%
+		var rng =  diff_mult + min((Save.stats['Difficulty'] * diff_effect), 50)
+		if rng >= 0 and rng < 75: #common
+			var srng = randi_range(1,2)
 			match srng:
 				1: current_biome = biome.Plains
 				2: current_biome = biome.Forest
-				3: current_biome = biome.Cave
-		elif rng >= 11 and rng <= 20: #uncommon
+		elif rng >= 75 and rng < 120:
 			var srng = randi_range(1,2)
 			match srng:
-				1: current_biome = biome.Highlands
-				2: current_biome = biome.MountainRange
+				1: current_biome = biome.Cave
+				2: current_biome = biome.Highlands
+		elif rng >= 120: #rare
+			current_biome = biome.MountainRange
+		match current_biome:
+			biome.Plains: print('plains')
+			biome.Forest: print('forest')
+			biome.Cave: print('caves')
+			biome.Highlands: print('highlands')
+			biome.MountainRange: print('mountains')
